@@ -43,7 +43,12 @@ public class ProgressTracker
 		}
 	}
 
+	private final CounterSettler counterSettler = new CounterSettler();
+
 	/**
+	 * Handles a page as it is first drawn: records obtained pets and the sync immediately, and
+	 * starts waiting for the page's counters to settle (see {@link CounterSettler}).
+	 *
 	 * @return true if anything the panel shows changed
 	 */
 	public boolean onCollectionLogPage(CollectionLogPage page)
@@ -54,6 +59,38 @@ public class ProgressTracker
 			log.debug("Ignoring collection log page that is not fully drawn");
 			return false;
 		}
+		counterSettler.start(result.getTitle());
+		return recordOwnership(result);
+	}
+
+	/**
+	 * @return true while a page's counters are still being confirmed, so the caller knows to keep
+	 * reading the page on game ticks
+	 */
+	public boolean isWaitingForCounters()
+	{
+		return counterSettler.isWaiting();
+	}
+
+	/**
+	 * Feeds the page as currently drawn on a game tick, or null if the log is closed.
+	 *
+	 * @return true if settled counters were recorded and changed what the panel shows
+	 */
+	public boolean onCollectionLogTick(CollectionLogPage page)
+	{
+		CollectionLogParser.Result result = page == null ? null : CollectionLogParser.parse(page);
+		Map<String, Long> settled = counterSettler.onTick(result).orElse(null);
+		if (settled == null)
+		{
+			return false;
+		}
+		log.debug("Read collection log page {} counters {}", result.getTitle(), settled);
+		return state.recordCounters(settled, clock.getAsLong());
+	}
+
+	private boolean recordOwnership(CollectionLogParser.Result result)
+	{
 
 		long now = clock.getAsLong();
 		Set<String> pets = new LinkedHashSet<>();
@@ -67,12 +104,11 @@ public class ProgressTracker
 		}
 
 		boolean changed = state.markObtained(pets, now);
-		changed |= state.recordCounters(result.getCounters(), now);
 		if (ALL_PETS_PAGE.equals(result.getTitle()) && result.isComplete())
 		{
 			changed |= state.markLogSynced(now);
 		}
-		log.debug("Read collection log page {}: {} pets obtained, counters {}", result.getTitle(), pets.size(), result.getCounters());
+		log.debug("Read collection log page {}: {} pets obtained", result.getTitle(), pets.size());
 		return changed;
 	}
 

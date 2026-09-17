@@ -159,7 +159,7 @@ from the main account. State reloads on `RuneScapeProfileChanged`.
 
 ```
 obtainedPetIds        set of pet ids
-killCounts            map: counterKey -> { value, lastSeenEpoch }
+counters              map: counterKey -> { value, lastSeenEpoch }
 lastLogSyncEpoch      when the collection log was last successfully scraped
 methodOverrides       map: petId -> methodId   (user's choice of assumed method)
 manualAttemptCounts   map: sourceId -> int     (user-entered, for UNKNOWN sources; keyed by

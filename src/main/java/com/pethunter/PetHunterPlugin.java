@@ -18,6 +18,7 @@ import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.GameTick;
 import net.runelite.api.events.ScriptPostFired;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -99,6 +100,20 @@ public class PetHunterPlugin extends Plugin
 		}
 		CollectionLogPage page = CollectionLogReader.read(client);
 		if (page != null && tracker.onCollectionLogPage(page))
+		{
+			pushStateToPanel();
+		}
+	}
+
+	@Subscribe
+	public void onGameTick(GameTick event)
+	{
+		// Only does work for the few ticks after a collection log page is drawn
+		if (tracker == null || !tracker.isWaitingForCounters())
+		{
+			return;
+		}
+		if (tracker.onCollectionLogTick(CollectionLogReader.read(client)))
 		{
 			pushStateToPanel();
 		}

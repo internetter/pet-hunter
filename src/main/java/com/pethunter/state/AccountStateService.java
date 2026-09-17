@@ -23,7 +23,8 @@ import lombok.extern.slf4j.Slf4j;
 public class AccountStateService
 {
 	static final String KEY_OBTAINED = "obtainedPetIds";
-	static final String KEY_COUNTERS = "killCounts";
+	// "killCounts" held values from before counter settling (2026-09-17) and is abandoned, not migrated
+	static final String KEY_COUNTERS = "counters";
 	static final String KEY_LAST_SYNC = "lastLogSyncEpoch";
 	static final String KEY_PENDING_PET = "pendingPetEpoch";
 

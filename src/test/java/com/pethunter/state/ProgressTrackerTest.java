@@ -141,11 +141,68 @@ public class ProgressTrackerTest
 		assertEquals(Set.of("pet_kraken"), relog().getObtainedPetIds());
 	}
 
+	/** Draws a page and leaves it open for the ticks needed to trust its counters. */
+	private void viewPage(CollectionLogPage page)
+	{
+		tracker.onCollectionLogPage(page);
+		tracker.onCollectionLogTick(page);
+		tracker.onCollectionLogTick(page);
+	}
+
+	private static CollectionLogPage vorkathPage(String kills)
+	{
+		return page(List.of("Vorkath", "Obtained: <col=ffff00>0/1</col>", "Vorkath kills: <col=ffffff>" + kills + "</col>"), 21992, 175);
+	}
+
+	@Test
+	public void staleCounterDrawnWhilePagingQuicklyIsNotRecorded()
+	{
+		// Real sequence from 2026-09-17: Vorkath's label appeared with another page's value (106)
+		// before its own value (1,312) was drawn
+		tracker.onCollectionLogPage(vorkathPage("106"));
+		tracker.onCollectionLogTick(vorkathPage("1,312"));
+		tracker.onCollectionLogTick(vorkathPage("1,312"));
+
+		assertEquals(1_312L, relog().getCounters().get("vorkath_kills").getValue());
+	}
+
+	@Test
+	public void leavingAPageBeforeItSettlesRecordsNoCounters()
+	{
+		tracker.onCollectionLogPage(vorkathPage("106"));
+		tracker.onCollectionLogTick(vorkathPage("106"));
+		// Moved to the next page before a second matching tick
+		CollectionLogPage whisperer = page(List.of("The Whisperer", "Obtained: <col=ffff00>0/1</col>", "Whisperer kills: <col=ffffff>106</col>"), 28246, 175);
+		tracker.onCollectionLogTick(whisperer);
+
+		assertFalse(tracker.isWaitingForCounters());
+		assertTrue(state.snapshot().getCounters().isEmpty());
+	}
+
+	@Test
+	public void closingTheLogBeforeItSettlesRecordsNoCounters()
+	{
+		tracker.onCollectionLogPage(vorkathPage("1,312"));
+		tracker.onCollectionLogTick(null);
+		tracker.onCollectionLogTick(vorkathPage("1,312"));
+
+		assertTrue(state.snapshot().getCounters().isEmpty());
+	}
+
+	@Test
+	public void ownershipIsRecordedImmediatelyWithoutWaitingForCounters()
+	{
+		tracker.onCollectionLogPage(page(List.of("Vorkath", "Obtained: <col=ffff00>1/1</col>", "Vorkath kills: <col=ffffff>1</col>"), 21992, 0));
+
+		assertEquals(Set.of("vorki"), state.snapshot().getObtainedPetIds());
+		assertTrue(state.snapshot().getCounters().isEmpty());
+	}
+
 	@Test
 	public void killCountsFromPageAndChatShareAKeyAndLatestWins()
 	{
 		clock.set(1_000);
-		tracker.onCollectionLogPage(page(List.of("Callisto and Artio", "Obtained: <col=ffff00>0/1</col>",
+		viewPage(page(List.of("Callisto and Artio", "Obtained: <col=ffff00>0/1</col>",
 			"Callisto kills: <col=ffffff>20</col>", "Artio kills: <col=ffffff>0</col>"), 13178, 175));
 		clock.set(2_000);
 		tracker.onChatMessage("Your Callisto kill count is: <col=ff0000>21</col>.");
