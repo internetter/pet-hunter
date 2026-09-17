@@ -34,6 +34,20 @@ class InMemoryProfileStore implements ProfileStore
 		return activeProfile != null;
 	}
 
+	/** Stands in for another plugin's config group, e.g. RuneLite's kill counts. */
+	private final Map<String, Map<String, Long>> otherGroups = new HashMap<>();
+
+	void putOtherGroup(String group, Map<String, Long> values)
+	{
+		otherGroups.put(group, values);
+	}
+
+	@Override
+	public Map<String, Long> readNumbersFromGroup(String group)
+	{
+		return activeProfile == null ? Map.of() : otherGroups.getOrDefault(group, Map.of());
+	}
+
 	@Override
 	public String get(String key)
 	{

@@ -177,6 +177,36 @@ public class AccountStateService
 	}
 
 	/**
+	 * Adds counts for counters that have none yet, leaving anything already recorded alone.
+	 *
+	 * @return true if anything was added
+	 */
+	public synchronized boolean importMissingCounters(Map<String, Long> observed, long nowEpochMillis)
+	{
+		if (!loaded)
+		{
+			return false;
+		}
+		Map<String, Long> missing = new HashMap<>();
+		observed.forEach((key, value) ->
+		{
+			if (key != null && value != null && value >= 0 && !counters.containsKey(key))
+			{
+				missing.put(key, value);
+			}
+		});
+		return !missing.isEmpty() && recordCounters(missing, nowEpochMillis);
+	}
+
+	/**
+	 * Counter keys already recorded, for deciding what still needs importing.
+	 */
+	public synchronized Set<String> knownCounterKeys()
+	{
+		return Set.copyOf(counters.keySet());
+	}
+
+	/**
 	 * Sets or clears a count the player entered for a source.
 	 *
 	 * @param count the count, or null to remove it

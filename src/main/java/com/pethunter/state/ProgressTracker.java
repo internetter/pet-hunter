@@ -27,6 +27,7 @@ public class ProgressTracker
 	private final AccountStateService state;
 	private final LongSupplier clock;
 	private final Map<Integer, String> petIdByItemId = new HashMap<>();
+	private final java.util.Set<String> datasetCounterKeys = new java.util.HashSet<>();
 	private final Map<String, String> petIdByName = new HashMap<>();
 
 	public ProgressTracker(PetRepository repository, AccountStateService state, LongSupplier clock)
@@ -40,6 +41,8 @@ public class ProgressTracker
 				petIdByItemId.put(pet.getItemId(), pet.getId());
 			}
 			petIdByName.put(pet.getName().toLowerCase(Locale.ROOT), pet.getId());
+			pet.getSources().stream().map(com.pethunter.data.PetSource::getCounterKey).filter(java.util.Objects::nonNull)
+				.forEach(datasetCounterKeys::add);
 		}
 	}
 
@@ -110,6 +113,23 @@ public class ProgressTracker
 		}
 		log.debug("Read collection log page {}: {} pets obtained", result.getTitle(), pets.size());
 		return changed;
+	}
+
+	/**
+	 * Fills in counts RuneLite's chat commands plugin already recorded, for counters this plugin
+	 * has not seen. Anything already recorded here wins, being at least as fresh.
+	 *
+	 * @return true if anything the panel shows changed
+	 */
+	public boolean importRecordedKillCounts(Map<String, Long> runeliteCounts)
+	{
+		Map<String, Long> matched = KillCountImport.match(runeliteCounts, datasetCounterKeys, state.knownCounterKeys());
+		if (matched.isEmpty())
+		{
+			return false;
+		}
+		log.debug("Importing {} kill counts recorded by RuneLite: {}", matched.size(), matched.keySet());
+		return state.importMissingCounters(matched, clock.getAsLong());
 	}
 
 	/**

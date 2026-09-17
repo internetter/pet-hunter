@@ -70,6 +70,7 @@ public class PetHunterPlugin extends Plugin
 	private PetHunterPanel panel;
 	private NavigationButton navButton;
 	private AccountStateService accountState;
+	private RsProfileStore profileStore;
 	private SkillXpTracker skillXp;
 	private ProgressTracker tracker;
 
@@ -80,9 +81,11 @@ public class PetHunterPlugin extends Plugin
 		log.debug("Pet Hunter loaded {} pets", repository.getPets().size());
 
 		skillXp = new SkillXpTracker();
-		accountState = new AccountStateService(new RsProfileStore(configManager), gson);
+		profileStore = new RsProfileStore(configManager);
+		accountState = new AccountStateService(profileStore, gson);
 		accountState.reload();
 		tracker = new ProgressTracker(repository, accountState, System::currentTimeMillis);
+		importRecordedKillCounts();
 
 		panel = new PetHunterPanel(repository, (itemId, label) -> itemManager.getImage(itemId).addTo(label),
 			this::onManualCount, this::onMethodChosen);
@@ -114,6 +117,7 @@ public class PetHunterPlugin extends Plugin
 		panel = null;
 		tracker = null;
 		accountState = null;
+		profileStore = null;
 		skillXp = null;
 	}
 
@@ -178,6 +182,7 @@ public class PetHunterPlugin extends Plugin
 		// XP belongs to the character that just left, so never show it for the next one
 		skillXp.clear();
 		accountState.reload();
+		importRecordedKillCounts();
 		pushStateToPanel();
 	}
 
@@ -212,6 +217,18 @@ public class PetHunterPlugin extends Plugin
 	{
 		AccountStateService service = accountState;
 		if (service != null && service.setManualCount(sourceId, count))
+		{
+			pushStateToPanel();
+		}
+	}
+
+	/** RuneLite's chat commands plugin stores kill counts in this config group. */
+	private static final String RUNELITE_KILLCOUNT_GROUP = "killcount";
+
+	private void importRecordedKillCounts()
+	{
+		ProgressTracker current = tracker;
+		if (current != null && current.importRecordedKillCounts(profileStore.readNumbersFromGroup(RUNELITE_KILLCOUNT_GROUP)))
 		{
 			pushStateToPanel();
 		}

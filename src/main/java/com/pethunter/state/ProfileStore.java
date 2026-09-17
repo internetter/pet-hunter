@@ -17,5 +17,13 @@ public interface ProfileStore
 	@Nullable
 	String get(String key);
 
+	/**
+	 * Reads another plugin's per-profile values, used to import kill counts RuneLite's chat
+	 * commands plugin already recorded.
+	 *
+	 * @return activity name to value; empty when the group is absent or unreadable
+	 */
+	java.util.Map<String, Long> readNumbersFromGroup(String group);
+
 	void set(String key, String value);
 }

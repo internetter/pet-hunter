@@ -249,6 +249,23 @@ public class ProgressTrackerTest
 	}
 
 	@Test
+	public void killCountsRecordedByRuneliteFillGapsButNeverOverwrite()
+	{
+		clock.set(1_000);
+		viewPage(vorkathPage("1,312"));
+
+		store.putOtherGroup("killcount", Map.of("vorkath", 999L, "herbiboar", 667L, "mimic", 1L));
+		assertTrue(tracker.importRecordedKillCounts(store.readNumbersFromGroup("killcount")));
+
+		Map<String, AccountState.Counter> counters = relog().getCounters();
+		assertEquals("a count read here already is at least as fresh", 1_312L, counters.get("vorkath_kills").getValue());
+		assertEquals(667L, counters.get("herbiboar_harvests").getValue());
+		assertFalse("mimic is not a pet source", counters.containsKey("mimic_kills"));
+
+		assertFalse("importing again changes nothing", tracker.importRecordedKillCounts(store.readNumbersFromGroup("killcount")));
+	}
+
+	@Test
 	public void methodChoicePersistsPerAccount()
 	{
 		assertTrue(state.setMethodOverride("heron", "heron.minnows"));
