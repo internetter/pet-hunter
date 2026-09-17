@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "gameUpdateChecked": "2026-09-16",
+  "_comment": "STRUCTURAL SEED ONLY. This file demonstrates one entry per rateModel so the loader, schema validator and math layer can be built and tested against realistic shapes. Almost every rate here is deliberately null with verified:false, which the UI must render as UNKNOWN. Do not populate a rate without also populating its sources array. See docs/DATA.md.",
+  "pets": [
+    {
+      "id": "rock_golem",
+      "name": "Rock golem",
+      "itemId": null,
+      "category": "SKILLING",
+      "skill": "MINING",
+      "collectionLogPage": "Pets",
+      "obtainableOn": ["MAIN", "IRONMAN", "HARDCORE", "ULTIMATE", "GROUP"],
+      "sources": [
+        {
+          "id": "rock_golem.gem_rocks_shilo",
+          "label": "Gem rocks (Shilo Village, underground)",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Widely cited as the fastest method for this pet. Base chance table lives on the pet's wiki article, framed as 'subtract your mining level times 25 from these numbers'."
+        },
+        {
+          "id": "rock_golem.volcanic_mine",
+          "label": "Volcanic Mine (ore fragments)",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Slightly slower for the pet than gem rocks but far better XP. Flag as xpEfficient so the comparison table can surface the trade-off. Roll occurs when ore fragments are acquired."
+        }
+      ],
+      "methods": [
+        {
+          "id": "rock_golem.gem_rocks_shilo",
+          "actionsPerHour": null,
+          "xpPerAction": null,
+          "requirements": [],
+          "xpEfficient": false,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "rock_golem.volcanic_mine",
+          "actionsPerHour": null,
+          "xpPerAction": null,
+          "requirements": [],
+          "xpEfficient": true,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "id": "heron",
+      "name": "Heron",
+      "itemId": null,
+      "category": "SKILLING",
+      "skill": "FISHING",
+      "collectionLogPage": "Pets",
+      "obtainableOn": ["MAIN", "IRONMAN", "HARDCORE", "ULTIMATE", "GROUP"],
+      "sources": [
+        {
+          "id": "heron.minnows",
+          "label": "Minnows",
+          "rateModel": "STATIC_IGNORES_FORMULA",
+          "baseChance": null,
+          "flatRate": 977778,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": true,
+          "sources": ["https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"],
+          "notes": "Static per-catch rate. The level formula does NOT apply here. Good regression test for the math layer: level changes must not move this number."
+        },
+        {
+          "id": "heron.fishing_trawler",
+          "label": "Fishing Trawler",
+          "rateModel": "CONTRIBUTION_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": [5000, 2500],
+          "minLevel": null,
+          "counterKey": null,
+          "verified": true,
+          "sources": ["https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"],
+          "notes": "Per successful trip, scaling with contribution from 1/5000 at minimum to 1/2500 at maximum. Not derivable from client state, so this source is UNKNOWN unless the player enters a trip count. At most 12 games per hour is possible."
+        },
+        {
+          "id": "heron.generic_fishing",
+          "label": "Standard fishing methods",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Per-fish base chances vary by fish. Needs the full table from the pet's wiki article."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "example_boss_pet",
+      "name": "PLACEHOLDER — boss pet",
+      "itemId": null,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": ["MAIN", "IRONMAN", "HARDCORE", "ULTIMATE", "GROUP"],
+      "sources": [
+        {
+          "id": "example_boss_pet.kills",
+          "label": "Boss kills",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": "clog_page_kc_placeholder",
+          "verified": false,
+          "sources": [],
+          "notes": "Rename and duplicate this shape per boss during P5. counterKey points at the collection log page whose KC line applies, which is what gives these pets EXACT confidence."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "example_unique_conditional_pet",
+      "name": "PLACEHOLDER — raid pet rolled off a unique",
+      "itemId": null,
+      "category": "RAID",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": ["MAIN", "IRONMAN", "HARDCORE", "ULTIMATE", "GROUP"],
+      "sources": [
+        {
+          "id": "example_unique_conditional_pet.unique_roll",
+          "label": "Unique drop roll",
+          "rateModel": "UNIQUE_CONDITIONAL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "The pet is rolled off the unique (purple) drop, not off raid completion. Completion count alone cannot produce a correct estimate, because unique chance depends on team points. Requires a unique count, so default to UNKNOWN with a manual entry field."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "example_one_off_pet",
+      "name": "PLACEHOLDER — quest or purchase pet",
+      "itemId": null,
+      "category": "QUEST",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": ["MAIN", "IRONMAN", "HARDCORE", "ULTIMATE", "GROUP"],
+      "sources": [
+        {
+          "id": "example_one_off_pet.acquisition",
+          "label": "Guaranteed on completion",
+          "rateModel": "ONE_OFF",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": true,
+          "sources": [],
+          "notes": "No randomness, therefore no dryness. Must render as obtained or not-yet-obtained with no probability figure. Regression test: this must never produce 0, 100 or NaN in the dryness column."
+        }
+      ],
+      "methods": []
+    }
+  ]
+}
