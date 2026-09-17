@@ -51,6 +51,8 @@ tasks.named('check') {
 tasks.named('test') {
 	// Report a bad dataset with the validator's message before any test output
 	mustRunAfter 'validateDataset'
+	// Panel tests build Swing components; keep them runnable on machines without a display
+	systemProperty 'java.awt.headless', 'true'
 }
 
 tasks.register('run', JavaExec) {
