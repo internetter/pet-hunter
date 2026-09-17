@@ -98,6 +98,10 @@
           "type": ["string", "null"],
           "description": "Key for the automatic attempt counter. Null forces UNKNOWN or manual entry."
         },
+        "countWarning": {
+          "type": ["string", "null"],
+          "description": "Shown prominently when the attempt count may include attempts that did not roll the pet (group kills, contribution thresholds, rule changes), which would overstate dryness."
+        },
         "verified": { "type": "boolean" },
         "sources": { "$ref": "#/definitions/sourceList" },
         "notes": { "type": ["string", "null"] }

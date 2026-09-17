@@ -181,7 +181,33 @@ public class SourceEstimatorTest
 
 		PetSource noCounter = flatSource(RateModel.FLAT_PER_KILL, 3_000, null);
 		DrynessResult manualOnly = SourceEstimator.estimate(petWith(null, noCounter, null), noCounter, PlayerProgress.empty());
-		assertTrue(manualOnly.getExplanation(), manualOnly.getExplanation().contains("Enter a count manually"));
+		assertTrue(manualOnly.getExplanation(), manualOnly.getExplanation().contains("no kills counter the plugin can read"));
+	}
+
+	@Test
+	public void countWarningIsCarriedIntoTheAssumption()
+	{
+		PetSource source = PetSource.builder().id("fixture_pet.source").label("Fixture boss").rateModel(RateModel.FLAT_PER_KILL)
+			.flatRate(1_500).counterKey("fixture_kc").countWarning("Group kills overstate dryness.")
+			.verified(true).citations(FIXTURE_CITATION).build();
+
+		DrynessResult result = SourceEstimator.estimate(petWith(null, source, null), source,
+			PlayerProgress.builder().counter("fixture_kc", 20L).build());
+
+		String assumption = result.getProbabilityStillDry().orElseThrow().getAssumption();
+		assertTrue(assumption, assumption.endsWith("Warning: Group kills overstate dryness."));
+	}
+
+	@Test
+	public void unusableCounterExplainsWhyInsteadOfClaimingNoCounterExists()
+	{
+		PetSource source = PetSource.builder().id("fixture_pet.source").label("Fixture boss").rateModel(RateModel.FLAT_PER_KILL)
+			.flatRate(3_000).countWarning("Only the MVP rolls the pet.").verified(true).citations(FIXTURE_CITATION).build();
+
+		DrynessResult result = SourceEstimator.estimate(petWith(null, source, null), source, PlayerProgress.empty());
+
+		assertEquals(DrynessResult.Status.UNKNOWN, result.getStatus());
+		assertEquals("Fixture boss: Only the MVP rolls the pet.", result.getExplanation());
 	}
 
 	@Test

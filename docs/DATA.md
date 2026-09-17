@@ -100,6 +100,11 @@ Field notes:
 - `counterKey` — the key under which an attempt count is stored (typically the collection log
   page whose KC line applies). `null` means no automatic counter exists for this source, which
   forces `UNKNOWN` or a manual entry.
+- `countWarning` — set when the counter can include attempts that never rolled the pet: MVP-only
+  rolls, contribution thresholds, group drops, or a rule change that altered what the counter
+  means. The panel marks the figure with `!` and shows the warning. If the mismatch is large
+  enough to make the count misleading (Scurrius: only the top damage dealer rolls), leave
+  `counterKey` null and keep the warning, which then explains why there is no count.
 - `flatRate` — a denominator for flat models (`1/flatRate`). Mutually exclusive with
   `baseChance`.
 - `contributionRange` — `[denominator at minimum contribution, denominator at maximum

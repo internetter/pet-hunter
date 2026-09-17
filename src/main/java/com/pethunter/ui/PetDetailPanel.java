@@ -19,6 +19,8 @@ import net.runelite.client.ui.FontManager;
  */
 class PetDetailPanel extends JPanel
 {
+	static final int TEXT_WIDTH = 140;
+
 	PetDetailPanel(PetEntry entry)
 	{
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -60,6 +62,11 @@ class PetDetailPanel extends JPanel
 		{
 			html.append("<br>").append(escape(count));
 		}
+		if (source.getCountWarning() != null)
+		{
+			html.append("<br><font color='").append(hex(ColorScheme.BRAND_ORANGE)).append("'>Warning: ")
+				.append(escape(source.getCountWarning())).append("</font>");
+		}
 
 		JLabel label = htmlLabel(html.toString(), ColorScheme.LIGHT_GRAY_COLOR);
 		label.setBorder(BorderFactory.createEmptyBorder(2, 0, 2, 0));
@@ -87,8 +94,9 @@ class PetDetailPanel extends JPanel
 
 	private static JLabel htmlLabel(String bodyHtml, Color color)
 	{
-		// A fixed width makes the HTML renderer wrap instead of widening the sidebar
-		JLabel label = new JLabel("<html><body style='width:170px'>" + bodyHtml + "</body></html>");
+		// A fixed width makes the HTML renderer wrap instead of widening the sidebar. HTML measures
+		// with a default font, so leave room for the wider RuneScape font (170px was clipped in-game)
+		JLabel label = new JLabel("<html><body style='width:" + TEXT_WIDTH + "px'>" + bodyHtml + "</body></html>");
 		label.setFont(FontManager.getRunescapeSmallFont());
 		label.setForeground(color);
 		label.setAlignmentX(LEFT_ALIGNMENT);

@@ -130,6 +130,10 @@ class PetRow extends JPanel
 		{
 			return ColorScheme.MEDIUM_GRAY_COLOR;
 		}
+		if (DrynessFormat.hasCountWarning(entry))
+		{
+			return ColorScheme.BRAND_ORANGE;
+		}
 		// ESTIMATED figures are muted; EXACT figures are plain text
 		return dryness.getConfidence().orElseThrow() == Confidence.EXACT ? ColorScheme.TEXT_COLOR : ESTIMATED_COLOR;
 	}

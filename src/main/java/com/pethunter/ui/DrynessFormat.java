@@ -25,6 +25,23 @@ public final class DrynessFormat
 	{
 	}
 
+	/** Appended to a figure whose count carries a warning. */
+	static final String WARNING_MARKER = " !";
+
+	/**
+	 * True when the figure uses a count that may include attempts that never rolled the pet.
+	 */
+	public static boolean hasCountWarning(PetEntry entry)
+	{
+		if (entry.isObtained() || !entry.getDryness().hasFigure())
+		{
+			return false;
+		}
+		return entry.getPet().getSources().stream().anyMatch(s -> s.getCountWarning() != null
+			&& s.getCounterKey() != null
+			&& entry.getProgress().getCounter(s.getCounterKey()).isPresent());
+	}
+
 	/**
 	 * The short status shown at the right of a collapsed row.
 	 */
@@ -38,7 +55,8 @@ public final class DrynessFormat
 		switch (dryness.getStatus())
 		{
 			case FIGURE:
-				return probability(dryness.getProbabilityStillDry().orElseThrow(), dryness.isUpperBound());
+				return probability(dryness.getProbabilityStillDry().orElseThrow(), dryness.isUpperBound())
+					+ (hasCountWarning(entry) ? WARNING_MARKER : "");
 			case NOT_APPLICABLE:
 				return NOT_APPLICABLE;
 			default:

@@ -65,6 +65,27 @@ public class DrynessFormatTest
 	}
 
 	@Test
+	public void figureFromAWarnedCountIsMarked()
+	{
+		PetSource warned = PetSource.builder().id("w.kills").label("Group boss").rateModel(RateModel.FLAT_PER_KILL)
+			.flatRate(100).counterKey("w_kc").countWarning("Group kills overstate dryness.")
+			.verified(true).citations(UiFixtures.FIXTURE_CITATION).build();
+		com.pethunter.data.Pet pet = UiFixtures.pet("w", "Warned", PetCategory.BOSS, null, warned);
+		com.pethunter.math.PlayerProgress progress = com.pethunter.math.PlayerProgress.builder().counter("w_kc", 100L).build();
+		PetEntry entry = new PetEntry(pet, false, com.pethunter.math.SourceEstimator.estimatePet(pet, progress, null), progress);
+
+		assertTrue(DrynessFormat.hasCountWarning(entry));
+		assertEquals("36.6% !", DrynessFormat.rowStatus(entry));
+		assertTrue(DrynessFormat.explanation(entry).contains("Warning: Group kills overstate dryness."));
+
+		// No marker without a figure built from that count
+		PetEntry noCount = new PetEntry(pet, false, com.pethunter.math.SourceEstimator.estimatePet(pet,
+			com.pethunter.math.PlayerProgress.empty(), null), com.pethunter.math.PlayerProgress.empty());
+		assertFalse(DrynessFormat.hasCountWarning(noCount));
+		assertFalse(DrynessFormat.hasCountWarning(figureEntry("a", "A", 100, 100)));
+	}
+
+	@Test
 	public void explanationStatesTierAndAssumption()
 	{
 		String text = DrynessFormat.explanation(figureEntry("a", "A", 100, 100));

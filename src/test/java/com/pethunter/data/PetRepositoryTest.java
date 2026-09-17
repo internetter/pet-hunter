@@ -103,6 +103,16 @@ public class PetRepositoryTest
 	}
 
 	@Test
+	public void countWarningLoads()
+	{
+		String warned = "{'id':'p.a','label':'x','rateModel':'FLAT_PER_KILL','counterKey':'k','countWarning':'Group kills.','verified':false,'sources':[]}";
+		PetRepository repo = load(dataset(pet("p", warned + "," + source("p.b", "FLAT_PER_KILL"), "")));
+
+		assertEquals("Group kills.", repo.getSource("p.a").orElseThrow().getCountWarning());
+		assertNull(repo.getSource("p.b").orElseThrow().getCountWarning());
+	}
+
+	@Test
 	public void nullRateLoadsAsNull()
 	{
 		PetRepository repo = load(dataset(pet("p", source("p.a", "FLAT_PER_KILL"), "")));

@@ -261,6 +261,7 @@ public final class PetRepository
 				.contributionRange(parseContributionRange(obj))
 				.minLevel(optInteger(obj, "minLevel"))
 				.counterKey(optString(obj, "counterKey"))
+				.countWarning(optString(obj, "countWarning"))
 				.verified(optBoolean(obj, "verified"))
 				.citations(parseStrings(optArray(obj, "sources")))
 				.notes(optString(obj, "notes"))

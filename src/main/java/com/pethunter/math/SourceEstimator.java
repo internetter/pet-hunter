@@ -150,7 +150,8 @@ public final class SourceEstimator
 
 		double p = DrynessCalculator.probabilityOf(denominator);
 		Count c = count.get();
-		String assumption = c.describe(unit) + " at 1/" + formatInt(denominator) + " (" + source.getLabel() + ")." + suffix;
+		String assumption = c.describe(unit) + " at 1/" + formatInt(denominator) + " (" + source.getLabel() + ")." + suffix
+			+ countWarning(source);
 		return DrynessResult.figure(
 			DrynessCalculator.logProbabilityStillDry(c.value, p),
 			DrynessCalculator.expectedDrops(c.value, p),
@@ -175,7 +176,8 @@ public final class SourceEstimator
 		Count c = count.get();
 		String assumption = c.describe("attempts") + " at 1/" + formatInt(rarest) + " (" + source.getLabel() + ")."
 			+ " The rate varies with contribution between 1/" + formatInt(range.getCommonestDenominator())
-			+ " and 1/" + formatInt(rarest) + "; the rarest end is used so this never overstates dryness.";
+			+ " and 1/" + formatInt(rarest) + "; the rarest end is used so this never overstates dryness."
+			+ countWarning(source);
 		return DrynessResult.figure(
 			DrynessCalculator.logProbabilityStillDry(c.value, p),
 			DrynessCalculator.expectedDrops(c.value, p),
@@ -290,6 +292,11 @@ public final class SourceEstimator
 		return source.getCounterKey() != null ? "counter:" + source.getCounterKey() : "source:" + source.getId();
 	}
 
+	private static String countWarning(PetSource source)
+	{
+		return source.getCountWarning() == null ? "" : " Warning: " + source.getCountWarning();
+	}
+
 	@Nullable
 	private static Integer verifiedInt(PetSource source, @Nullable Integer value)
 	{
@@ -303,10 +310,15 @@ public final class SourceEstimator
 
 	private static DrynessResult noCount(PetSource source, String unit)
 	{
+		if (source.getCounterKey() == null && source.getCountWarning() != null)
+		{
+			// The log has a count, but it cannot stand in for this source's rolls
+			return DrynessResult.unknown(source.getLabel() + ": " + source.getCountWarning());
+		}
 		if (source.getCounterKey() == null)
 		{
 			return DrynessResult.unknown(source.getLabel() + ": the game has no " + unit
-				+ " counter the plugin can read. Enter a count manually.");
+				+ " counter the plugin can read.");
 		}
 		return DrynessResult.unknown(source.getLabel() + ": no " + unit
 			+ " count yet. Open its collection log page, or enter a count manually.");
