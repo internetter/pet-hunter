@@ -31,12 +31,17 @@ public class PetHunterPanelTest
 
 	private static void onEdt(PetRepository repository, PanelAction action) throws Exception
 	{
+		onEdt(repository, ManualCountListener.NONE, action);
+	}
+
+	private static void onEdt(PetRepository repository, ManualCountListener manualCounts, PanelAction action) throws Exception
+	{
 		AtomicReference<Throwable> failure = new AtomicReference<>();
 		SwingUtilities.invokeAndWait(() ->
 		{
 			try
 			{
-				action.run(new PetHunterPanel(repository, PetIconLoader.NONE));
+				action.run(new PetHunterPanel(repository, PetIconLoader.NONE, manualCounts));
 			}
 			catch (Throwable t)
 			{
@@ -162,7 +167,7 @@ public class PetHunterPanelTest
 	{
 		PetRepository bundled = PetRepository.loadBundled(new Gson());
 		AccountState state = new AccountState(true, Set.of("pet_kraken", "beef"),
-			Map.of("callisto_kills", new AccountState.Counter(20, 1L)), 1_700_000_000_000L, 1_700_000_100_000L);
+			Map.of("callisto_kills", new AccountState.Counter(20, 1L)), Map.of(), 1_700_000_000_000L, 1_700_000_100_000L);
 
 		onEdt(bundled, panel ->
 		{
@@ -191,9 +196,80 @@ public class PetHunterPanelTest
 	{
 		onEdt(PetRepository.loadBundled(new Gson()), panel ->
 		{
-			panel.update(new AccountState(true, Set.of(), Map.of(), null, null));
+			panel.update(new AccountState(true, Set.of(), Map.of(), Map.of(), null, null));
 			assertTrue(labelTexts(panel.getSyncLabel()).get(0).contains("All Pets page"));
 		});
+	}
+
+	private static <T extends Component> T findNamed(Component root, String name, Class<T> type)
+	{
+		if (type.isInstance(root) && name.equals(root.getName()))
+		{
+			return type.cast(root);
+		}
+		if (root instanceof java.awt.Container)
+		{
+			for (Component child : ((java.awt.Container) root).getComponents())
+			{
+				T found = findNamed(child, name, type);
+				if (found != null)
+				{
+					return found;
+				}
+			}
+		}
+		return null;
+	}
+
+	@Test
+	public void manualCountEntryReportsValidCountsAndRejectsTypos() throws Exception
+	{
+		PetRepository bundled = PetRepository.loadBundled(new Gson());
+		List<String> received = new ArrayList<>();
+		onEdt(bundled, (sourceId, count) -> received.add(sourceId + "=" + count), panel ->
+		{
+			panel.getSearchField().setText("olmlet");
+			PetRow row = (PetRow) java.util.Arrays.stream(panel.getListPanel().getComponents())
+				.filter(c -> c instanceof PetRow).findFirst().orElseThrow();
+			row.setExpanded(true);
+
+			javax.swing.JTextField field = findNamed(row, "manualCount:olmlet.chambers_of_xeric_uniques", javax.swing.JTextField.class);
+			javax.swing.JButton save = findNamed(row, "saveManualCount:olmlet.chambers_of_xeric_uniques", javax.swing.JButton.class);
+			assertTrue(field != null && save != null);
+			assertTrue(labelTexts(row).stream().anyMatch(t -> t.contains("The game cannot confirm it")));
+
+			field.setText("12x");
+			save.doClick();
+			assertTrue("typos are not submitted", received.isEmpty());
+
+			field.setText("1,234");
+			save.doClick();
+			assertEquals(List.of("olmlet.chambers_of_xeric_uniques=1234"), received);
+		});
+	}
+
+	@Test
+	public void manualCountEntryIsNotOfferedForTrustworthyGameCounters() throws Exception
+	{
+		onEdt(PetRepository.loadBundled(new Gson()), panel ->
+		{
+			panel.getSearchField().setText("vorki");
+			PetRow row = (PetRow) java.util.Arrays.stream(panel.getListPanel().getComponents())
+				.filter(c -> c instanceof PetRow).findFirst().orElseThrow();
+			row.setExpanded(true);
+			assertEquals(null, findNamed(row, "manualCount:vorki.vorkath", javax.swing.JTextField.class));
+		});
+	}
+
+	@Test
+	public void manualCountParsing()
+	{
+		assertEquals(Long.valueOf(1_234), PetDetailPanel.parseCount(" 1,234 "));
+		assertEquals(Long.valueOf(0), PetDetailPanel.parseCount("0"));
+		assertEquals(null, PetDetailPanel.parseCount(""));
+		assertEquals(null, PetDetailPanel.parseCount("-5"));
+		assertEquals(null, PetDetailPanel.parseCount("12.5"));
+		assertEquals(null, PetDetailPanel.parseCount("99999999999"));
 	}
 
 	@Test

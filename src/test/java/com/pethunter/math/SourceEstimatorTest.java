@@ -207,7 +207,37 @@ public class SourceEstimatorTest
 		DrynessResult result = SourceEstimator.estimate(petWith(null, source, null), source, PlayerProgress.empty());
 
 		assertEquals(DrynessResult.Status.UNKNOWN, result.getStatus());
-		assertEquals("Fixture boss: Only the MVP rolls the pet.", result.getExplanation());
+		assertEquals("Fixture boss: Only the MVP rolls the pet. You can enter your own count.", result.getExplanation());
+	}
+
+	@Test
+	public void manualCountReplacesAWarnedGameCounterAndDropsTheWarning()
+	{
+		PetSource source = PetSource.builder().id("fixture_pet.source").label("Fixture boss").rateModel(RateModel.FLAT_PER_KILL)
+			.flatRate(3_000).counterKey("fixture_kc").countWarning("Group kills overstate dryness.")
+			.verified(true).citations(FIXTURE_CITATION).build();
+		Pet pet = petWith(null, source, null);
+
+		DrynessResult result = SourceEstimator.estimate(pet, source, PlayerProgress.builder()
+			.counter("fixture_kc", 176L)
+			.manualCount("fixture_pet.source", 12L)
+			.build());
+
+		assertEquals(12.0, result.getAttempts().orElseThrow().getValue(), 0.0);
+		assertEquals(Confidence.ESTIMATED, result.getConfidence().orElseThrow());
+		assertFalse(result.getExplanation(), result.getExplanation().contains("Warning"));
+		assertTrue(result.getExplanation().contains("manually entered count of 12 kills"));
+	}
+
+	@Test
+	public void manualEntryIsOfferedOnlyWhereTheGameCannotSupplyATrustworthyCount()
+	{
+		assertTrue(SourceEstimator.acceptsManualCount(flatSource(RateModel.UNIQUE_CONDITIONAL, 53, null)));
+		assertTrue(SourceEstimator.acceptsManualCount(PetSource.builder().id("p.a").label("a").rateModel(RateModel.FLAT_PER_KILL)
+			.counterKey("kc").countWarning("MVP only").build()));
+		assertFalse(SourceEstimator.acceptsManualCount(flatSource(RateModel.FLAT_PER_KILL, 3_000, "kc")));
+		assertFalse(SourceEstimator.acceptsManualCount(PetSource.builder().id("p.b").label("b").rateModel(RateModel.SKILL_LEVEL_SCALED).build()));
+		assertFalse(SourceEstimator.acceptsManualCount(PetSource.builder().id("p.c").label("c").rateModel(RateModel.ONE_OFF).build()));
 	}
 
 	@Test

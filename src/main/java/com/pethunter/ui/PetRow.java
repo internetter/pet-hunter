@@ -24,13 +24,15 @@ class PetRow extends JPanel
 	private static final Color ESTIMATED_COLOR = ColorScheme.LIGHT_GRAY_COLOR.darker();
 
 	private final PetEntry entry;
+	private final ManualCountListener manualCounts;
 	private final JPanel summary = new JPanel(new BorderLayout(6, 0));
 	private PetDetailPanel detail;
 	private boolean expanded;
 
-	PetRow(PetEntry entry, PetIconLoader icons, boolean expanded, Runnable onToggle)
+	PetRow(PetEntry entry, PetIconLoader icons, ManualCountListener manualCounts, boolean expanded, Runnable onToggle)
 	{
 		this.entry = entry;
+		this.manualCounts = manualCounts;
 		setLayout(new BorderLayout());
 		setBackground(ColorScheme.DARKER_GRAY_COLOR);
 		setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, ColorScheme.DARK_GRAY_COLOR));
@@ -108,7 +110,7 @@ class PetRow extends JPanel
 		this.expanded = expanded;
 		if (expanded && detail == null)
 		{
-			detail = new PetDetailPanel(entry);
+			detail = new PetDetailPanel(entry, manualCounts);
 			add(detail, BorderLayout.CENTER);
 		}
 		if (detail != null)

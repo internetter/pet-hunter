@@ -231,6 +231,24 @@ public class ProgressTrackerTest
 	}
 
 	@Test
+	public void manualCountsPersistPerAccountAndCanBeCleared()
+	{
+		assertTrue(state.setManualCount("olmlet.chambers_of_xeric_uniques", 14L));
+		assertFalse("same value is not a change", state.setManualCount("olmlet.chambers_of_xeric_uniques", 14L));
+		assertFalse("negative counts are rejected", state.setManualCount("scurry.scurrius", -1L));
+		assertEquals(Map.of("olmlet.chambers_of_xeric_uniques", 14L), relog().getManualCounts());
+
+		store.logIn("alt");
+		state.reload();
+		assertTrue(state.snapshot().getManualCounts().isEmpty());
+
+		store.logIn("main");
+		state.reload();
+		assertTrue(state.setManualCount("olmlet.chambers_of_xeric_uniques", null));
+		assertTrue(relog().getManualCounts().isEmpty());
+	}
+
+	@Test
 	public void eventsWhileLoggedOutAreDropped()
 	{
 		store.logOut();

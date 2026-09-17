@@ -151,7 +151,7 @@ public final class SourceEstimator
 		double p = DrynessCalculator.probabilityOf(denominator);
 		Count c = count.get();
 		String assumption = c.describe(unit) + " at 1/" + formatRate(denominator) + " (" + source.getLabel() + ")." + suffix
-			+ countWarning(source);
+			+ (c.confidence == Confidence.EXACT ? countWarning(source) : "");
 		return DrynessResult.figure(
 			DrynessCalculator.logProbabilityStillDry(c.value, p),
 			DrynessCalculator.expectedDrops(c.value, p),
@@ -177,7 +177,7 @@ public final class SourceEstimator
 		String assumption = c.describe("attempts") + " at 1/" + formatInt(rarest) + " (" + source.getLabel() + ")."
 			+ " The rate varies with contribution between 1/" + formatInt(range.getCommonestDenominator())
 			+ " and 1/" + formatInt(rarest) + "; the rarest end is used so this never overstates dryness."
-			+ countWarning(source);
+			+ (c.confidence == Confidence.EXACT ? countWarning(source) : "");
 		return DrynessResult.figure(
 			DrynessCalculator.logProbabilityStillDry(c.value, p),
 			DrynessCalculator.expectedDrops(c.value, p),
@@ -269,17 +269,43 @@ public final class SourceEstimator
 	}
 
 	/**
-	 * A counter read from the game wins over a manual entry: live game state is the source of truth.
+	 * Whether the player can enter their own attempt count for a source: it needs a per-attempt
+	 * rate model, and either no game counter or a game counter with a warning that it can include
+	 * attempts that never rolled the pet.
+	 */
+	public static boolean acceptsManualCount(PetSource source)
+	{
+		switch (source.getRateModel())
+		{
+			case FLAT_PER_KILL:
+			case FLAT_PER_ROLL:
+			case UNIQUE_CONDITIONAL:
+			case CONTRIBUTION_SCALED:
+				return source.getCounterKey() == null || source.getCountWarning() != null;
+			default:
+				return false;
+		}
+	}
+
+	/**
+	 * A counter read from the game normally wins over a manual entry, because live game state is
+	 * the source of truth. When the counter carries a warning that it overcounts, the player's own
+	 * count wins instead: they know how many attempts really rolled the pet.
 	 */
 	private static Optional<Count> count(PetSource source, PlayerProgress progress)
 	{
 		OptionalLong counter = progress.getCounter(source.getCounterKey());
+		OptionalLong manual = progress.getManualCount(source.getId());
+		boolean manualValid = manual.isPresent() && manual.getAsLong() >= 0;
+		if (manualValid && source.getCountWarning() != null)
+		{
+			return Optional.of(new Count(manual.getAsLong(), Confidence.ESTIMATED));
+		}
 		if (counter.isPresent() && counter.getAsLong() >= 0)
 		{
 			return Optional.of(new Count(counter.getAsLong(), Confidence.EXACT));
 		}
-		OptionalLong manual = progress.getManualCount(source.getId());
-		if (manual.isPresent() && manual.getAsLong() >= 0)
+		if (manualValid)
 		{
 			return Optional.of(new Count(manual.getAsLong(), Confidence.ESTIMATED));
 		}
@@ -323,12 +349,12 @@ public final class SourceEstimator
 		if (source.getCounterKey() == null && source.getCountWarning() != null)
 		{
 			// The log has a count, but it cannot stand in for this source's rolls
-			return DrynessResult.unknown(source.getLabel() + ": " + source.getCountWarning());
+			return DrynessResult.unknown(source.getLabel() + ": " + source.getCountWarning() + " You can enter your own count.");
 		}
 		if (source.getCounterKey() == null)
 		{
 			return DrynessResult.unknown(source.getLabel() + ": the game has no " + unit
-				+ " counter the plugin can read.");
+				+ " counter the plugin can read. You can enter your own count.");
 		}
 		return DrynessResult.unknown(source.getLabel() + ": no " + unit
 			+ " count yet. Open its collection log page, or enter a count manually.");

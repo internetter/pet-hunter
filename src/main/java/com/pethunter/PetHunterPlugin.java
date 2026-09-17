@@ -68,7 +68,7 @@ public class PetHunterPlugin extends Plugin
 		accountState.reload();
 		tracker = new ProgressTracker(repository, accountState, System::currentTimeMillis);
 
-		panel = new PetHunterPanel(repository, (itemId, label) -> itemManager.getImage(itemId).addTo(label));
+		panel = new PetHunterPanel(repository, (itemId, label) -> itemManager.getImage(itemId).addTo(label), this::onManualCount);
 		panel.setLoggedIn(client.getGameState() == GameState.LOGGED_IN);
 		panel.update(accountState.snapshot());
 
@@ -153,6 +153,15 @@ public class PetHunterPlugin extends Plugin
 		}
 		boolean loggedIn = event.getGameState() == GameState.LOGGED_IN;
 		SwingUtilities.invokeLater(() -> current.setLoggedIn(loggedIn));
+	}
+
+	private void onManualCount(String sourceId, Long count)
+	{
+		AccountStateService service = accountState;
+		if (service != null && service.setManualCount(sourceId, count))
+		{
+			pushStateToPanel();
+		}
 	}
 
 	private void pushStateToPanel()

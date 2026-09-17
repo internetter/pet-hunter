@@ -38,9 +38,11 @@ public final class DrynessFormat
 		{
 			return false;
 		}
+		// A manual count replaces a warned game counter, so the warning no longer applies
 		return entry.getPet().getSources().stream().anyMatch(s -> s.getCountWarning() != null
 			&& s.getCounterKey() != null
-			&& entry.getProgress().getCounter(s.getCounterKey()).isPresent());
+			&& entry.getProgress().getCounter(s.getCounterKey()).isPresent()
+			&& entry.getProgress().getManualCount(s.getId()).isEmpty());
 	}
 
 	/**
@@ -147,16 +149,8 @@ public final class DrynessFormat
 	@Nullable
 	public static String counter(PetSource source, PlayerProgress progress)
 	{
-		if (source.getCounterKey() == null)
-		{
-			return null;
-		}
-		OptionalLong value = progress.getCounter(source.getCounterKey());
-		if (value.isEmpty())
-		{
-			return null;
-		}
-		return "Count: " + integer(value.getAsLong()) + " (exact, from the game)";
+		OptionalLong value = source.getCounterKey() == null ? OptionalLong.empty() : progress.getCounter(source.getCounterKey());
+		return value.isEmpty() ? null : "Game count: " + integer(value.getAsLong()) + " (exact)";
 	}
 
 	public static String rateModelDescription(PetSource source)

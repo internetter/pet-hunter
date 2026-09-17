@@ -45,6 +45,7 @@ public class PetHunterPanel extends PluginPanel
 
 	private final List<Pet> pets;
 	private final PetIconLoader icons;
+	private final ManualCountListener manualCounts;
 
 	private final JLabel obtainedLabel = smallLabel("", ColorScheme.TEXT_COLOR);
 	private final JProgressBar progressBar = new JProgressBar();
@@ -65,8 +66,14 @@ public class PetHunterPanel extends PluginPanel
 
 	public PetHunterPanel(PetRepository repository, PetIconLoader icons)
 	{
+		this(repository, icons, ManualCountListener.NONE);
+	}
+
+	public PetHunterPanel(PetRepository repository, PetIconLoader icons, ManualCountListener manualCounts)
+	{
 		this.pets = repository.getPets();
 		this.icons = icons;
+		this.manualCounts = manualCounts;
 
 		setLayout(new BorderLayout(0, 6));
 		setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
@@ -159,6 +166,7 @@ public class PetHunterPanel extends PluginPanel
 	{
 		PlayerProgress.PlayerProgressBuilder builder = PlayerProgress.builder();
 		state.getCounters().forEach((key, counter) -> builder.counter(key, counter.getValue()));
+		state.getManualCounts().forEach(builder::manualCount);
 		PlayerProgress progress = builder.build();
 
 		List<PetEntry> computed = new ArrayList<>(pets.size());
@@ -232,7 +240,7 @@ public class PetHunterPanel extends PluginPanel
 	{
 		String petId = entry.getPet().getId();
 		PetRow[] holder = new PetRow[1];
-		holder[0] = new PetRow(entry, icons, expandedPetIds.contains(petId), () ->
+		holder[0] = new PetRow(entry, icons, manualCounts, expandedPetIds.contains(petId), () ->
 		{
 			if (holder[0].isExpanded())
 			{

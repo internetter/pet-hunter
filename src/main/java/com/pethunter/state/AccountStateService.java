@@ -25,10 +25,14 @@ public class AccountStateService
 	static final String KEY_OBTAINED = "obtainedPetIds";
 	// "killCounts" held values from before counter settling (2026-09-17) and is abandoned, not migrated
 	static final String KEY_COUNTERS = "counters";
+	static final String KEY_MANUAL = "manualCounts";
 	static final String KEY_LAST_SYNC = "lastLogSyncEpoch";
 	static final String KEY_PENDING_PET = "pendingPetEpoch";
 
 	private static final Type STRING_LIST = new TypeToken<List<String>>()
+	{
+	}.getType();
+	private static final Type LONG_MAP = new TypeToken<Map<String, Long>>()
 	{
 	}.getType();
 	private static final Type COUNTER_MAP = new TypeToken<Map<String, AccountState.Counter>>()
@@ -41,6 +45,7 @@ public class AccountStateService
 	private boolean loaded;
 	private final Set<String> obtained = new TreeSet<>();
 	private final Map<String, AccountState.Counter> counters = new HashMap<>();
+	private final Map<String, Long> manualCounts = new HashMap<>();
 	private Long lastSync;
 	private Long pendingPet;
 
@@ -58,6 +63,7 @@ public class AccountStateService
 	{
 		obtained.clear();
 		counters.clear();
+		manualCounts.clear();
 		lastSync = null;
 		pendingPet = null;
 		loaded = store.isAvailable();
@@ -82,6 +88,17 @@ public class AccountStateService
 				}
 			});
 		}
+		Map<String, Long> storedManual = read(KEY_MANUAL, LONG_MAP);
+		if (storedManual != null)
+		{
+			storedManual.forEach((key, value) ->
+			{
+				if (key != null && value != null && value >= 0)
+				{
+					manualCounts.put(key, value);
+				}
+			});
+		}
 		lastSync = readLong(KEY_LAST_SYNC);
 		pendingPet = readLong(KEY_PENDING_PET);
 	}
@@ -92,7 +109,7 @@ public class AccountStateService
 		{
 			return AccountState.EMPTY;
 		}
-		return new AccountState(true, Set.copyOf(obtained), Map.copyOf(counters), lastSync, pendingPet);
+		return new AccountState(true, Set.copyOf(obtained), Map.copyOf(counters), Map.copyOf(manualCounts), lastSync, pendingPet);
 	}
 
 	/**
@@ -139,6 +156,27 @@ public class AccountStateService
 		}
 		write(KEY_COUNTERS, gson.toJson(counters));
 		return changed;
+	}
+
+	/**
+	 * Sets or clears a count the player entered for a source.
+	 *
+	 * @param count the count, or null to remove it
+	 * @return true if the stored value changed
+	 */
+	public synchronized boolean setManualCount(String sourceId, Long count)
+	{
+		if (!loaded || (count != null && count < 0))
+		{
+			return false;
+		}
+		Long previous = count == null ? manualCounts.remove(sourceId) : manualCounts.put(sourceId, count);
+		if (java.util.Objects.equals(previous, count))
+		{
+			return false;
+		}
+		write(KEY_MANUAL, gson.toJson(manualCounts));
+		return true;
 	}
 
 	/**
