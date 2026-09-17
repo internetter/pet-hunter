@@ -206,7 +206,7 @@ public class PetHunterPanelTest
 		onEdt(PetRepository.loadBundled(new Gson()), panel ->
 		{
 			panel.update(new AccountState(true, Set.of(), Map.of(), Map.of(), Map.of(), null, null));
-			assertTrue(labelTexts(panel.getSyncLabel()).get(0).contains("All Pets page"));
+			assertTrue(labelTexts(panel.getSyncLabel()).get(0).contains("Other, then All Pets"));
 		});
 	}
 
@@ -329,6 +329,20 @@ public class PetHunterPanelTest
 			// Without XP there is no estimate at all
 			panel.update(withChoice, Map.of());
 			assertFalse(panel.getEntries().get(0).getDryness().hasFigure());
+		});
+	}
+
+	@Test
+	public void skillingEstimatesAreDescribedByXpNotByCount() throws Exception
+	{
+		onEdt(twoMethodSkillingPet(), panel ->
+		{
+			panel.update(new AccountState(true, Set.of(), Map.of(), Map.of(),
+				Map.of("fixture_pet", "fixture_pet.slow"), 1L, null), Map.of("FISHING", 1_000_000L));
+
+			String text = DrynessFormat.explanation(panel.getEntries().get(0));
+			assertTrue(text, text.contains("of players with your Fishing XP would still be without this pet"));
+			assertTrue(text, text.contains("Rough estimate from your total XP"));
 		});
 	}
 

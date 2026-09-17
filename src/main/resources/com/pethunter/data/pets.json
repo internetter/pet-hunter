@@ -175,7 +175,7 @@
             "https://oldschool.runescape.wiki/w/Branda_the_Fire_Queen",
             "https://oldschool.runescape.wiki/w/Bran"
           ],
-          "notes": "The collection log keeps one total for all variants, so it is attached here, the rarest variant. Evaluating every attempt at the rarest rate can only understate dryness, and the other variants stay uncounted, so the figure is shown as an upper bound."
+          "notes": "Rough figure: the collection log keeps one total for all variants, so every attempt is counted at the rarest of them. Your real chance is at least this good, and how much better depends on your own split between variants, which the plugin cannot see."
         },
         {
           "id": "bran.royal_titans_sacrifice",
@@ -384,7 +384,7 @@
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl"
           ],
-          "notes": "The collection log's deep delves count is kills at delve level 8 or deeper, so it is attached here, the rarest of those levels. Evaluating every deep delve at 1/500 can only understate dryness; delve levels 6 and 7 are not counted, so the figure is shown as an upper bound."
+          "notes": "Rough figure: the log's deep delves count is kills at delve level 8 or deeper, counted here at the rarest of those levels, so your real chance is at least this good. Delve levels 6 and 7 are not counted at all."
         },
         {
           "id": "dom.delve_9_plus",
@@ -594,7 +594,7 @@
             "https://oldschool.runescape.wiki/w/TzKal-Zuk",
             "https://oldschool.runescape.wiki/w/Jal-Nib-Rek"
           ],
-          "notes": "The collection log keeps one total for all variants, so it is attached here, the rarest variant. Evaluating every attempt at the rarest rate can only understate dryness, and the other variants stay uncounted, so the figure is shown as an upper bound."
+          "notes": "Rough figure: the collection log keeps one total for all variants, so every attempt is counted at the rarest of them. Your real chance is at least this good, and how much better depends on your own split between variants, which the plugin cannot see."
         },
         {
           "id": "jal_nib_rek.inferno_on_task",
@@ -782,7 +782,7 @@
             "https://oldschool.runescape.wiki/w/The_Nightmare",
             "https://oldschool.runescape.wiki/w/Little_Nightmare"
           ],
-          "notes": "The collection log keeps one total for all variants, so it is attached here, the rarest variant. Evaluating every attempt at the rarest rate can only understate dryness, and the other variants stay uncounted, so the figure is shown as an upper bound."
+          "notes": "Rough figure: the collection log keeps one total for all variants, so every attempt is counted at the rarest of them. Your real chance is at least this good, and how much better depends on your own split between variants, which the plugin cannot see."
         },
         {
           "id": "little_nightmare.nightmare_duo",
@@ -1046,7 +1046,7 @@
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Araxxor"
           ],
-          "notes": "The collection log keeps one total for all variants, so it is attached here, the rarest variant. Evaluating every attempt at the rarest rate can only understate dryness, and the other variants stay uncounted, so the figure is shown as an upper bound."
+          "notes": "Rough figure: the collection log keeps one total for all variants, so every attempt is counted at the rarest of them. Your real chance is at least this good, and how much better depends on your own split between variants, which the plugin cannot see."
         }
       ],
       "methods": []
@@ -1954,7 +1954,7 @@
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/TzTok-Jad"
           ],
-          "notes": "The collection log keeps one total for all variants, so it is attached here, the rarest variant. Evaluating every attempt at the rarest rate can only understate dryness, and the other variants stay uncounted, so the figure is shown as an upper bound."
+          "notes": "Rough figure: the collection log keeps one total for all variants, so every attempt is counted at the rarest of them. Your real chance is at least this good, and how much better depends on your own split between variants, which the plugin cannot see."
         },
         {
           "id": "tzrek_jad.fight_cave_on_task",

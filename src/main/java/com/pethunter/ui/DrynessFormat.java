@@ -84,8 +84,8 @@ public final class DrynessFormat
 		TieredValue pDry = dryness.getProbabilityStillDry().orElseThrow();
 		String share = probability(pDry, dryness.isUpperBound());
 		String multiple = multiple(dryness.getDropRateMultiple().orElseThrow());
-		return share + " of players would still be without this pet at your count (" + multiple + " the drop rate). "
-			+ tierSentence(pDry.getConfidence()) + " " + pDry.getAssumption();
+		return share + " of players " + playersLike(dryness) + " would still be without this pet ("
+			+ multiple + " the drop rate). " + tierSentence(pDry.getConfidence(), dryness) + " " + pDry.getAssumption();
 	}
 
 	/**
@@ -179,11 +179,32 @@ public final class DrynessFormat
 		return confidence == Confidence.ESTIMATED ? "~" : "";
 	}
 
-	static String tierSentence(Confidence confidence)
+	/**
+	 * How the figure describes the players it compares you against: by XP for skilling pets, by
+	 * attempt count otherwise.
+	 */
+	static String playersLike(DrynessResult dryness)
 	{
-		return confidence == Confidence.EXACT
-			? "Exact: based on a count read from the game."
-			: "Estimate:";
+		String skill = xpSkill(dryness);
+		return skill == null ? "at your count" : "with your " + skillName(skill) + " XP";
+	}
+
+	@Nullable
+	private static String xpSkill(DrynessResult dryness)
+	{
+		String pool = dryness.getAttemptPool().orElse("");
+		return pool.startsWith("xp:") ? pool.substring(3) : null;
+	}
+
+	static String tierSentence(Confidence confidence, DrynessResult dryness)
+	{
+		if (confidence == Confidence.EXACT)
+		{
+			return "Exact: based on a count read from the game.";
+		}
+		return xpSkill(dryness) == null
+			? "Rough estimate:"
+			: "Rough estimate from your total XP, which cannot show how you actually trained:";
 	}
 
 	static String skillName(String skill)

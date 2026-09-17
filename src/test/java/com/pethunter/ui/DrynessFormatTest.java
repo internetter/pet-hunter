@@ -90,7 +90,7 @@ public class DrynessFormatTest
 	{
 		String text = DrynessFormat.explanation(figureEntry("a", "A", 100, 100));
 
-		assertTrue(text, text.startsWith("36.6% of players would still be without this pet at your count (1.00x the drop rate)."));
+		assertTrue(text, text.startsWith("36.6% of players at your count would still be without this pet (1.00x the drop rate)."));
 		assertTrue(text, text.contains("Exact: based on a count read from the game."));
 		assertTrue(text, text.contains("100 kills at 1/100"));
 	}

@@ -36,7 +36,9 @@ public class PetHunterPanel extends PluginPanel
 {
 	static final String EMPTY_DATASET = "No pets could be loaded. The bundled dataset may be damaged; try reinstalling the plugin.";
 	static final String NO_MATCHES = "No pets match the current filter and search.";
-	static final String NOT_SYNCED = "Pets not synced yet. Open your collection log in-game and view the All Pets page (under Other).";
+	static final String NOT_SYNCED = "To fill this in: 1. open the collection log in game. 2. Open Other, then All Pets, "
+		+ "to mark the pets you already have. 3. Open the page of any boss you care about, and wait a second on each, to "
+		+ "read its kill count. Skill XP is read automatically. Counts only appear for pages you have opened.";
 	static final String NOT_LOADED = "Log in to load this account's pets.";
 	static final String PENDING_PET = "You received a pet! Open the All Pets page of your collection log to record which one.";
 
@@ -246,7 +248,7 @@ public class PetHunterPanel extends PluginPanel
 			return NOT_SYNCED;
 		}
 		return "Pets last synced " + SYNC_TIME.format(Instant.ofEpochMilli(state.getLastLogSyncEpochMillis()))
-			+ ". Opening a collection log page updates it.";
+			+ ". Open a boss's collection log page, and wait a second on it, to record that boss's kill count.";
 	}
 
 	void rebuildList()
