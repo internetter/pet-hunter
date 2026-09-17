@@ -27,6 +27,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "abyssal_sire_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -62,6 +63,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "mad_angel_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -96,6 +98,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "giant_mole_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -130,6 +133,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "duke_sucellus_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -164,6 +168,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "royal_titan_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -181,6 +186,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -216,6 +222,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "brutus_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -250,6 +257,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "vardorvis_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -284,12 +292,13 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "callisto_kills",
+          "countWarning": "In groups, the pet only rolls for players who receive a drop, which depends on contribution. Kills without a drop are still in the kill count, so group kills make this overstate dryness.",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Callisto"
           ],
-          "notes": "In groups, a roll is made for each player who receives a drop, which depends on contribution."
+          "notes": null
         },
         {
           "id": "callisto_cub.artio",
@@ -300,6 +309,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "artio_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -334,6 +344,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -350,6 +361,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -366,6 +378,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -382,6 +395,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -416,6 +430,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "shellbane_gryphon_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -450,6 +465,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "cerberus_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -484,6 +500,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "hueycoatl_kills",
+          "countWarning": "The pet chance is scaled by your personal contribution. In group kills your real chance was below the base rate, so group kills make this overstate dryness.",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -518,6 +535,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "alchemical_hydra_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -552,6 +570,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "tzkal_zuk_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -569,6 +588,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -586,6 +606,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -620,6 +641,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "kalphite_queen_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -654,6 +676,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Rate varies with the player's individual performance in the raid."
@@ -667,6 +690,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Hard mode has its own base rate. Whether it scales with performance the same way needs confirming."
@@ -698,6 +722,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "leviathan_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -732,6 +757,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -749,6 +775,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -766,6 +793,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -783,6 +811,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -800,6 +829,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "nightmare_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -817,6 +847,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "phosanis_nightmare_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -852,6 +883,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "maggot_king_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -886,6 +918,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "amoxliatl_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -920,6 +953,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "phantom_muspah_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -954,6 +988,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "nex_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -988,6 +1023,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "araxxor_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1004,6 +1040,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1038,6 +1075,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "grotesque_guardian_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1072,6 +1110,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1107,6 +1146,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "chaos_elemental_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1123,6 +1163,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "chaos_fanatic_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1157,6 +1198,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "dagannoth_prime_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1191,6 +1233,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "dagannoth_rex_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1225,6 +1268,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "dagannoth_supreme_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1259,6 +1303,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "corporeal_beast_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1293,6 +1338,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "general_graardor_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1327,6 +1373,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "kril_tsutsaroth_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1361,6 +1408,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "kraken_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1395,6 +1443,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "kreearra_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1429,6 +1478,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "thermonuclear_smoke_devil_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1463,6 +1513,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "zulrah_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1497,6 +1548,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "commander_zilyana_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1530,7 +1582,8 @@
           "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "rewards_claimed",
+          "countWarning": "Rewards claimed matches pet rolls since the Wintertodt rework. Rewards from before the rework may not correspond to rolls one for one; for older history the Wintertodt kill count is closer to the real number of rolls.",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1565,6 +1618,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "king_black_dragon_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1599,6 +1653,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "scorpia_kills",
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": null
@@ -1630,12 +1685,13 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": "Only the player who deals the most damage rolls the pet, so the Scurrius kill count cannot be used: it includes group kills where you were not the top damage dealer.",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Scurrius"
           ],
-          "notes": "Only the MVP rolls for the pet."
+          "notes": null
         }
       ],
       "methods": []
@@ -1664,6 +1720,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "skotizo_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1698,6 +1755,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "zalcano_kills",
+          "countWarning": "Only players who contributed enough to the fight roll the pet. Kills below that are still in the kill count, so they make this overstate dryness.",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1732,6 +1790,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "sol_heredit_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1748,6 +1807,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1783,6 +1843,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "sarachnis_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1816,13 +1877,14 @@
           "flatRate": 8000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "reward_permits_claimed",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Tempoross"
           ],
-          "notes": null
+          "notes": "One roll on the reward pool per reward permit claimed."
         }
       ],
       "methods": []
@@ -1851,6 +1913,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Rate varies with reward points and raid level; obtainable in Entry mode at a much lower rate. A two-value contribution range may not capture this."
@@ -1882,6 +1945,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "tztok_jad_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1898,6 +1962,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1914,6 +1979,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1948,12 +2014,13 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "venenatis_kills",
+          "countWarning": "In groups, the pet only rolls for players who receive a drop, which depends on contribution. Kills without a drop are still in the kill count, so group kills make this overstate dryness.",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Venenatis"
           ],
-          "notes": "In groups, a roll is made for each player who receives a drop, which depends on contribution."
+          "notes": null
         },
         {
           "id": "venenatis_spiderling.spindel",
@@ -1964,6 +2031,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "spindel_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1998,12 +2066,13 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "vetion_kills",
+          "countWarning": "In groups, the pet only rolls for players who receive a drop, which depends on contribution. Kills without a drop are still in the kill count, so group kills make this overstate dryness.",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Vet'ion"
           ],
-          "notes": "In groups, a roll is made for each player who receives a drop, which depends on contribution."
+          "notes": null
         },
         {
           "id": "vetion_jr.calvarion",
@@ -2014,6 +2083,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "calvarion_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -2048,6 +2118,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "vorkath_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -2082,6 +2153,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "whisperer_kills",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -2116,12 +2188,13 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "yama_kills",
+          "countWarning": "The rate only applies with more than 15% contribution. Kills below that are still in the kill count, so they make this overstate dryness.",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Yama"
           ],
-          "notes": "Fixed as long as the player's contribution is above 15%."
+          "notes": null
         },
         {
           "id": "yami.contract_of_familiar_acquisition",
@@ -2132,6 +2205,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -2167,6 +2241,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "gauntlet_completion_count",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -2183,6 +2258,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "corrupted_gauntlet_completion_count",
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -2217,6 +2293,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Only chinchompas roll for this pet. Per-creature base chances not yet entered."
@@ -2248,6 +2325,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Placeholder for the per-tree base chance table."
@@ -2279,6 +2357,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Placeholder for the per-course base chance table."
@@ -2310,6 +2389,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
@@ -2328,6 +2408,7 @@
           ],
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
@@ -2343,6 +2424,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Per-fish base chances vary by fish. Needs the full table from the pet's wiki article."
@@ -2374,6 +2456,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Placeholder for the per-rune base chance table."
@@ -2405,6 +2488,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Widely cited as the fastest method for this pet. Base chance table lives on the pet's wiki article, framed as 'subtract your mining level times 25 from these numbers'."
@@ -2418,6 +2502,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Slightly slower for the pet than gem rocks but far better XP. Flag as xpEfficient so the comparison table can surface the trade-off. Roll occurs when ore fragments are acquired."
@@ -2470,6 +2555,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Placeholder for the per-target base chance table."
@@ -2501,6 +2587,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Placeholder for the per-activity base chance table."
@@ -2532,6 +2619,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Placeholder for the per-crop table. Rolls on check-health or final harvest depending on the patch."
@@ -2563,6 +2651,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": null
@@ -2594,6 +2683,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": null
@@ -2625,6 +2715,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "Requires the elite Western Provinces Diary."
@@ -2656,6 +2747,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": null
@@ -2687,6 +2779,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": null
@@ -2718,6 +2811,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": null
@@ -2749,6 +2843,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "The wiki notes the 200m Hunter XP multiplier applies to this pet; the rate model cannot express that yet."
@@ -2780,6 +2875,7 @@
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
+          "countWarning": null,
           "verified": false,
           "sources": [],
           "notes": "The wiki gives a 1/(B - level*25) formula for this pet. Base chance not yet entered."
