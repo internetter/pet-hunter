@@ -2688,7 +2688,7 @@
           "flatRate": 1000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "master_clues_completed",
           "countWarning": null,
           "verified": true,
           "sources": [
@@ -2724,14 +2724,14 @@
           "flatRate": 500,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "chompy_bird_kills",
           "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Chompy_bird"
           ],
-          "notes": "Requires the elite Western Provinces Diary."
+          "notes": "Requires the elite Western Provinces Diary. The count updates when you use Check kills on an ogre bow."
         }
       ],
       "methods": []
@@ -2830,7 +2830,7 @@
           "flatRate": 1000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "high_level_gambles",
           "countWarning": null,
           "verified": true,
           "sources": [
@@ -2863,13 +2863,17 @@
           "label": "Hunters' loot sacks (expert and master rumours)",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 1000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
-          "countWarning": null,
-          "verified": false,
-          "sources": [],
+          "counterKey": "rumours_completed",
+          "countWarning": "Rumours completed also counts novice and adept rumours, whose loot sacks cannot roll Quetzin, and the roll only happens when a sack is opened. Both make this overstate dryness.",
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Hunters'_loot_sack_(expert)",
+            "https://oldschool.runescape.wiki/w/Hunters'_loot_sack_(master)"
+          ],
           "notes": "The wiki notes the 200m Hunter XP multiplier applies to this pet; the rate model cannot express that yet."
         }
       ],
