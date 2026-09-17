@@ -1,16 +1,2170 @@
 {
   "schemaVersion": 1,
-  "gameUpdateChecked": "2026-09-16",
-  "_comment": "STRUCTURAL SEED ONLY. This file demonstrates one entry per rateModel so the loader, schema validator and math layer can be built and tested against realistic shapes. Almost every rate here is deliberately null with verified:false, which the UI must render as UNKNOWN. Do not populate a rate without also populating its sources array. See docs/DATA.md.",
+  "gameUpdateChecked": "2026-09-17",
+  "_comment": "Skeleton: all 71 collection-log pets from https://oldschool.runescape.wiki/w/Pet with names, categories and item ids (each item id checked against net.runelite.api.gameval.ItemID in runelite-api 1.12.39). Every rate is null and unverified except where a sources URL is given. Do not populate a rate without also populating its sources array. See docs/DATA.md.",
   "pets": [
+    {
+      "id": "abyssal_orphan",
+      "name": "Abyssal orphan",
+      "itemId": 13262,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "abyssal_orphan.abyssal_sire",
+          "label": "Abyssal Sire",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Received by using an unsired at the Font of Consumption."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "aggy",
+      "name": "Aggy",
+      "itemId": 34042,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "aggy.mad_angel",
+          "label": "Mad Angel",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "baby_mole",
+      "name": "Baby Mole",
+      "itemId": 12646,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "baby_mole.giant_mole",
+          "label": "Giant Mole",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "baron",
+      "name": "Baron",
+      "itemId": 28250,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "baron.duke_sucellus",
+          "label": "Duke Sucellus",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "bran",
+      "name": "Bran",
+      "itemId": 30622,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "bran.royal_titans_loot",
+          "label": "Royal Titans (loot)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "bran.royal_titans_sacrifice",
+          "label": "Royal Titans (sacrifice)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Sacrificing gives up loot rolls in exchange for a better pet chance."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "beef",
+      "name": "Beef",
+      "itemId": 33124,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "beef.brutus",
+          "label": "Brutus",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "butch",
+      "name": "Butch",
+      "itemId": 28248,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "butch.vardorvis",
+          "label": "Vardorvis",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "callisto_cub",
+      "name": "Callisto cub",
+      "itemId": 13178,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "callisto_cub.callisto",
+          "label": "Callisto",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "callisto_cub.artio",
+          "label": "Artio",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "dom",
+      "name": "Dom",
+      "itemId": 31130,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "dom.delve_6",
+          "label": "Doom of Mokhaiotl (delve level 6)",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "dom.delve_7",
+          "label": "Doom of Mokhaiotl (delve level 7)",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "dom.delve_8",
+          "label": "Doom of Mokhaiotl (delve level 8)",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "dom.delve_9_plus",
+          "label": "Doom of Mokhaiotl (delve level 9+)",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "The wiki lists no pet chance below delve level 6."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "gull",
+      "name": "Gull",
+      "itemId": 31285,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "gull.shellbane_gryphon",
+          "label": "Shellbane Gryphon",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "hellpuppy",
+      "name": "Hellpuppy",
+      "itemId": 13247,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "hellpuppy.cerberus",
+          "label": "Cerberus",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "huberte",
+      "name": "Huberte",
+      "itemId": 30152,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "huberte.the_hueycoatl",
+          "label": "The Hueycoatl",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "ikkle_hydra",
+      "name": "Ikkle Hydra",
+      "itemId": 22746,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "ikkle_hydra.alchemical_hydra",
+          "label": "Alchemical Hydra",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "jal_nib_rek",
+      "name": "Jal-Nib-Rek",
+      "itemId": 21291,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "jal_nib_rek.inferno",
+          "label": "Inferno completions",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "jal_nib_rek.inferno_on_task",
+          "label": "Inferno completions on a TzKal-Zuk Slayer task",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "jal_nib_rek.infernal_cape_sacrifice",
+          "label": "Infernal cape sacrifice",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Gambling an infernal cape makes the same roll as a completion."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "kalphite_princess",
+      "name": "Kalphite Princess",
+      "itemId": 12647,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "kalphite_princess.kalphite_queen",
+          "label": "Kalphite Queen",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "lil_zik",
+      "name": "Lil' Zik",
+      "itemId": 22473,
+      "category": "RAID",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "lil_zik.theatre_of_blood",
+          "label": "Theatre of Blood (normal mode)",
+          "rateModel": "CONTRIBUTION_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Rate varies with the player's individual performance in the raid."
+        },
+        {
+          "id": "lil_zik.theatre_of_blood_hard",
+          "label": "Theatre of Blood (hard mode)",
+          "rateModel": "CONTRIBUTION_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Hard mode has its own base rate. Whether it scales with performance the same way needs confirming."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "lilviathan",
+      "name": "Lil'viathan",
+      "itemId": 28252,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "lilviathan.the_leviathan",
+          "label": "The Leviathan",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "little_nightmare",
+      "name": "Little Nightmare",
+      "itemId": 24491,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "little_nightmare.nightmare_solo",
+          "label": "The Nightmare (solo)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Rate depends on the number of players in the room when the fight started."
+        },
+        {
+          "id": "little_nightmare.nightmare_duo",
+          "label": "The Nightmare (duo)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "little_nightmare.nightmare_trio",
+          "label": "The Nightmare (trio)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "little_nightmare.nightmare_4",
+          "label": "The Nightmare (4 players)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "little_nightmare.nightmare_5_plus",
+          "label": "The Nightmare (5+ players)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "little_nightmare.phosanis_nightmare",
+          "label": "Phosani's Nightmare",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "maggot_marquess",
+      "name": "Maggot marquess",
+      "itemId": 33642,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "maggot_marquess.maggot_king",
+          "label": "Maggot King",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "moxi",
+      "name": "Moxi",
+      "itemId": 30154,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "moxi.amoxliatl",
+          "label": "Amoxliatl",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "muphin",
+      "name": "Muphin",
+      "itemId": 27590,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "muphin.phantom_muspah",
+          "label": "Phantom Muspah",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "nexling",
+      "name": "Nexling",
+      "itemId": 26348,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "nexling.nex",
+          "label": "Nex",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "nid",
+      "name": "Nid",
+      "itemId": 29836,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "nid.araxxor_harvest",
+          "label": "Araxxor (harvest)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "nid.araxxor_destroy",
+          "label": "Araxxor (destroy)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Destroying the corpse gives up loot rolls in exchange for a better pet chance."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "noon",
+      "name": "Noon",
+      "itemId": 21748,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "noon.grotesque_guardians",
+          "label": "Grotesque Guardians",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "olmlet",
+      "name": "Olmlet",
+      "itemId": 20851,
+      "category": "RAID",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "olmlet.chambers_of_xeric_uniques",
+          "label": "Chambers of Xeric unique drops",
+          "rateModel": "UNIQUE_CONDITIONAL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Rolled only for the player who receives the unique, not on every completion. Requires a unique count."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "pet_chaos_elemental",
+      "name": "Pet chaos elemental",
+      "itemId": 11995,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "pet_chaos_elemental.chaos_elemental",
+          "label": "Chaos Elemental",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "pet_chaos_elemental.chaos_fanatic",
+          "label": "Chaos Fanatic",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "pet_dagannoth_prime",
+      "name": "Pet Dagannoth Prime",
+      "itemId": 12644,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "pet_dagannoth_prime.dagannoth_prime",
+          "label": "Dagannoth Prime",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "pet_dagannoth_rex",
+      "name": "Pet Dagannoth Rex",
+      "itemId": 12645,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "pet_dagannoth_rex.dagannoth_rex",
+          "label": "Dagannoth Rex",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "pet_dagannoth_supreme",
+      "name": "Pet Dagannoth Supreme",
+      "itemId": 12643,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "pet_dagannoth_supreme.dagannoth_supreme",
+          "label": "Dagannoth Supreme",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "pet_dark_core",
+      "name": "Pet dark core",
+      "itemId": 12816,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "pet_dark_core.corporeal_beast",
+          "label": "Corporeal Beast",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "pet_general_graardor",
+      "name": "Pet General Graardor",
+      "itemId": 12650,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "pet_general_graardor.general_graardor",
+          "label": "General Graardor",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "pet_kril_tsutsaroth",
+      "name": "Pet K'ril Tsutsaroth",
+      "itemId": 12652,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "pet_kril_tsutsaroth.kril_tsutsaroth",
+          "label": "K'ril Tsutsaroth",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "pet_kraken",
+      "name": "Pet Kraken",
+      "itemId": 12655,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "pet_kraken.kraken",
+          "label": "Kraken",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "pet_kreearra",
+      "name": "Pet Kree'arra",
+      "itemId": 12649,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "pet_kreearra.kreearra",
+          "label": "Kree'arra",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "pet_smoke_devil",
+      "name": "Pet Smoke Devil",
+      "itemId": 12648,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "pet_smoke_devil.thermonuclear_smoke_devil",
+          "label": "Thermonuclear smoke devil",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "pet_snakeling",
+      "name": "Pet Snakeling",
+      "itemId": 12921,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "pet_snakeling.zulrah",
+          "label": "Zulrah",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "pet_zilyana",
+      "name": "Pet Zilyana",
+      "itemId": 12651,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "pet_zilyana.commander_zilyana",
+          "label": "Commander Zilyana",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "phoenix",
+      "name": "Phoenix",
+      "itemId": 20693,
+      "category": "BOSS",
+      "skill": "FIREMAKING",
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "phoenix.wintertodt",
+          "label": "Wintertodt reward cart",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "The wiki notes the 200m Firemaking XP multiplier applies to this pet; the rate model cannot express that yet."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "prince_black_dragon",
+      "name": "Prince Black Dragon",
+      "itemId": 12653,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "prince_black_dragon.king_black_dragon",
+          "label": "King Black Dragon",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "scorpias_offspring",
+      "name": "Scorpia's offspring",
+      "itemId": 13181,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "scorpias_offspring.scorpia",
+          "label": "Scorpia",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "scurry",
+      "name": "Scurry",
+      "itemId": 28801,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "scurry.scurrius",
+          "label": "Scurrius",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Only the MVP rolls for the pet."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "skotos",
+      "name": "Skotos",
+      "itemId": 21273,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "skotos.skotizo",
+          "label": "Skotizo",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "smolcano",
+      "name": "Smolcano",
+      "itemId": 23760,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "smolcano.zalcano",
+          "label": "Zalcano",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "smol_heredit",
+      "name": "Smol Heredit",
+      "itemId": 28960,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "smol_heredit.sol_heredit",
+          "label": "Sol Heredit (Fortis Colosseum)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "smol_heredit.dizanas_quiver_sacrifice",
+          "label": "Dizana's quiver sacrifice",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Gambling a Dizana's quiver makes the same roll as a kill."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "sraracha",
+      "name": "Sraracha",
+      "itemId": 23495,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "sraracha.sarachnis",
+          "label": "Sarachnis",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "tiny_tempor",
+      "name": "Tiny tempor",
+      "itemId": 25602,
+      "category": "BOSS",
+      "skill": "FISHING",
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "tiny_tempor.tempoross",
+          "label": "Tempoross reward pool",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "tumekens_guardian",
+      "name": "Tumeken's guardian",
+      "itemId": 27352,
+      "category": "RAID",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "tumekens_guardian.tombs_of_amascut",
+          "label": "Tombs of Amascut",
+          "rateModel": "CONTRIBUTION_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Rate varies with reward points and raid level; obtainable in Entry mode at a much lower rate. A two-value contribution range may not capture this."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "tzrek_jad",
+      "name": "TzRek-Jad",
+      "itemId": 13225,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "tzrek_jad.fight_cave",
+          "label": "TzHaar Fight Cave completions",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "tzrek_jad.fight_cave_on_task",
+          "label": "TzHaar Fight Cave completions on a TzTok-Jad Slayer task",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "tzrek_jad.fire_cape_sacrifice",
+          "label": "Fire cape sacrifice",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Gambling a fire cape makes the same roll as a completion."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "venenatis_spiderling",
+      "name": "Venenatis spiderling",
+      "itemId": 13177,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "venenatis_spiderling.venenatis",
+          "label": "Venenatis",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "venenatis_spiderling.spindel",
+          "label": "Spindel",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "vetion_jr",
+      "name": "Vet'ion Jr.",
+      "itemId": 13179,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "vetion_jr.vetion",
+          "label": "Vet'ion",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "vetion_jr.calvarion",
+          "label": "Calvar'ion",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "vorki",
+      "name": "Vorki",
+      "itemId": 21992,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "vorki.vorkath",
+          "label": "Vorkath",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "wisp",
+      "name": "Wisp",
+      "itemId": 28246,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "wisp.the_whisperer",
+          "label": "The Whisperer",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "yami",
+      "name": "Yami",
+      "itemId": 30888,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "yami.yama",
+          "label": "Yama",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "yami.contract_of_familiar_acquisition",
+          "label": "Contract of Familiar Acquisition",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "youngllef",
+      "name": "Youngllef",
+      "itemId": 23757,
+      "category": "BOSS",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "youngllef.gauntlet",
+          "label": "The Gauntlet",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        },
+        {
+          "id": "youngllef.corrupted_gauntlet",
+          "label": "The Corrupted Gauntlet",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "baby_chinchompa",
+      "name": "Baby chinchompa",
+      "itemId": 13324,
+      "category": "SKILLING",
+      "skill": "HUNTER",
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "baby_chinchompa.chinchompas",
+          "label": "Chinchompas",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Only chinchompas roll for this pet. Per-creature base chances not yet entered."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "beaver",
+      "name": "Beaver",
+      "itemId": 13322,
+      "category": "SKILLING",
+      "skill": "WOODCUTTING",
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "beaver.woodcutting",
+          "label": "Woodcutting",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Placeholder for the per-tree base chance table."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "giant_squirrel",
+      "name": "Giant Squirrel",
+      "itemId": 20659,
+      "category": "SKILLING",
+      "skill": "AGILITY",
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "giant_squirrel.agility",
+          "label": "Agility courses",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Placeholder for the per-course base chance table."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "heron",
+      "name": "Heron",
+      "itemId": 13320,
+      "category": "SKILLING",
+      "skill": "FISHING",
+      "collectionLogPage": "Pets",
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "heron.minnows",
+          "label": "Minnows",
+          "rateModel": "STATIC_IGNORES_FORMULA",
+          "baseChance": null,
+          "flatRate": 977778,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": "Static per-catch rate. The level formula does NOT apply here. Good regression test for the math layer: level changes must not move this number."
+        },
+        {
+          "id": "heron.fishing_trawler",
+          "label": "Fishing Trawler",
+          "rateModel": "CONTRIBUTION_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": [
+            5000,
+            2500
+          ],
+          "minLevel": null,
+          "counterKey": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": "Per successful trip, scaling with contribution from 1/5000 at minimum to 1/2500 at maximum. Not derivable from client state, so this source is UNKNOWN unless the player enters a trip count. At most 12 games per hour is possible."
+        },
+        {
+          "id": "heron.generic_fishing",
+          "label": "Standard fishing methods",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Per-fish base chances vary by fish. Needs the full table from the pet's wiki article."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "rift_guardian",
+      "name": "Rift guardian",
+      "itemId": 20665,
+      "category": "SKILLING",
+      "skill": "RUNECRAFT",
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "rift_guardian.runecraft",
+          "label": "Runecraft",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Placeholder for the per-rune base chance table."
+        }
+      ],
+      "methods": []
+    },
     {
       "id": "rock_golem",
       "name": "Rock golem",
-      "itemId": null,
+      "itemId": 13321,
       "category": "SKILLING",
       "skill": "MINING",
       "collectionLogPage": "Pets",
-      "obtainableOn": ["MAIN", "IRONMAN", "HARDCORE", "ULTIMATE", "GROUP"],
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
       "sources": [
         {
           "id": "rock_golem.gem_rocks_shilo",
@@ -63,43 +2217,23 @@
       ]
     },
     {
-      "id": "heron",
-      "name": "Heron",
-      "itemId": null,
+      "id": "rocky",
+      "name": "Rocky",
+      "itemId": 20663,
       "category": "SKILLING",
-      "skill": "FISHING",
-      "collectionLogPage": "Pets",
-      "obtainableOn": ["MAIN", "IRONMAN", "HARDCORE", "ULTIMATE", "GROUP"],
+      "skill": "THIEVING",
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
       "sources": [
         {
-          "id": "heron.minnows",
-          "label": "Minnows",
-          "rateModel": "STATIC_IGNORES_FORMULA",
-          "baseChance": null,
-          "flatRate": 977778,
-          "contributionRange": null,
-          "minLevel": null,
-          "counterKey": null,
-          "verified": true,
-          "sources": ["https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"],
-          "notes": "Static per-catch rate. The level formula does NOT apply here. Good regression test for the math layer: level changes must not move this number."
-        },
-        {
-          "id": "heron.fishing_trawler",
-          "label": "Fishing Trawler",
-          "rateModel": "CONTRIBUTION_SCALED",
-          "baseChance": null,
-          "flatRate": null,
-          "contributionRange": [5000, 2500],
-          "minLevel": null,
-          "counterKey": null,
-          "verified": true,
-          "sources": ["https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"],
-          "notes": "Per successful trip, scaling with contribution from 1/5000 at minimum to 1/2500 at maximum. Not derivable from client state, so this source is UNKNOWN unless the player enters a trip count. At most 12 games per hour is possible."
-        },
-        {
-          "id": "heron.generic_fishing",
-          "label": "Standard fishing methods",
+          "id": "rocky.thieving",
+          "label": "Thieving",
           "rateModel": "SKILL_LEVEL_SCALED",
           "baseChance": null,
           "flatRate": null,
@@ -108,49 +2242,185 @@
           "counterKey": null,
           "verified": false,
           "sources": [],
-          "notes": "Per-fish base chances vary by fish. Needs the full table from the pet's wiki article."
+          "notes": "Placeholder for the per-target base chance table."
         }
       ],
       "methods": []
     },
     {
-      "id": "example_boss_pet",
-      "name": "PLACEHOLDER — boss pet",
-      "itemId": null,
-      "category": "BOSS",
-      "skill": null,
+      "id": "soup",
+      "name": "Soup",
+      "itemId": 31283,
+      "category": "SKILLING",
+      "skill": "SAILING",
       "collectionLogPage": null,
-      "obtainableOn": ["MAIN", "IRONMAN", "HARDCORE", "ULTIMATE", "GROUP"],
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
       "sources": [
         {
-          "id": "example_boss_pet.kills",
-          "label": "Boss kills",
+          "id": "soup.sailing",
+          "label": "Sailing",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Placeholder for the per-activity base chance table."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "tangleroot",
+      "name": "Tangleroot",
+      "itemId": 20661,
+      "category": "SKILLING",
+      "skill": "FARMING",
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "tangleroot.farming",
+          "label": "Farming",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "Placeholder for the per-crop table. Rolls on check-health or final harvest depending on the patch."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "abyssal_protector",
+      "name": "Abyssal protector",
+      "itemId": 26901,
+      "category": "MINIGAME",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "abyssal_protector.guardians_of_the_rift",
+          "label": "Guardians of the Rift reward searches",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "bloodhound",
+      "name": "Bloodhound",
+      "itemId": 19730,
+      "category": "CLUE",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "bloodhound.master_clues",
+          "label": "Master clue scroll caskets",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "chompy_chick",
+      "name": "Chompy chick",
+      "itemId": 13071,
+      "category": "OTHER",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "chompy_chick.chompy_birds",
+          "label": "Chompy birds",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
           "flatRate": null,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": "clog_page_kc_placeholder",
+          "counterKey": null,
           "verified": false,
           "sources": [],
-          "notes": "Rename and duplicate this shape per boss during P5. counterKey points at the collection log page whose KC line applies, which is what gives these pets EXACT confidence."
+          "notes": "Requires the elite Western Provinces Diary."
         }
       ],
       "methods": []
     },
     {
-      "id": "example_unique_conditional_pet",
-      "name": "PLACEHOLDER — raid pet rolled off a unique",
-      "itemId": null,
-      "category": "RAID",
-      "skill": null,
+      "id": "herbi",
+      "name": "Herbi",
+      "itemId": 21509,
+      "category": "OTHER",
+      "skill": "HUNTER",
       "collectionLogPage": null,
-      "obtainableOn": ["MAIN", "IRONMAN", "HARDCORE", "ULTIMATE", "GROUP"],
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
       "sources": [
         {
-          "id": "example_unique_conditional_pet.unique_roll",
-          "label": "Unique drop roll",
-          "rateModel": "UNIQUE_CONDITIONAL",
+          "id": "herbi.herbiboar",
+          "label": "Herbiboar harvests",
+          "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
           "flatRate": null,
           "contributionRange": null,
@@ -158,32 +2428,131 @@
           "counterKey": null,
           "verified": false,
           "sources": [],
-          "notes": "The pet is rolled off the unique (purple) drop, not off raid completion. Completion count alone cannot produce a correct estimate, because unique chance depends on team points. Requires a unique count, so default to UNKNOWN with a manual entry field."
+          "notes": null
         }
       ],
       "methods": []
     },
     {
-      "id": "example_one_off_pet",
-      "name": "PLACEHOLDER — quest or purchase pet",
-      "itemId": null,
-      "category": "QUEST",
+      "id": "lil_creator",
+      "name": "Lil' Creator",
+      "itemId": 25348,
+      "category": "MINIGAME",
       "skill": null,
       "collectionLogPage": null,
-      "obtainableOn": ["MAIN", "IRONMAN", "HARDCORE", "ULTIMATE", "GROUP"],
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
       "sources": [
         {
-          "id": "example_one_off_pet.acquisition",
-          "label": "Guaranteed on completion",
-          "rateModel": "ONE_OFF",
+          "id": "lil_creator.soul_wars",
+          "label": "Soul Wars spoils of war",
+          "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
           "flatRate": null,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": true,
+          "verified": false,
           "sources": [],
-          "notes": "No randomness, therefore no dryness. Must render as obtained or not-yet-obtained with no probability figure. Regression test: this must never produce 0, 100 or NaN in the dryness column."
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "pet_penance_queen",
+      "name": "Pet Penance Queen",
+      "itemId": 12703,
+      "category": "MINIGAME",
+      "skill": null,
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "pet_penance_queen.barbarian_assault_high_gambles",
+          "label": "Barbarian Assault high level gambles",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": null
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "quetzin",
+      "name": "Quetzin",
+      "itemId": 28962,
+      "category": "OTHER",
+      "skill": "HUNTER",
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "quetzin.hunters_loot_sacks",
+          "label": "Hunters' loot sacks (expert and master rumours)",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "The wiki notes the 200m Hunter XP multiplier applies to this pet; the rate model cannot express that yet."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "id": "mr_mcgroot",
+      "name": "Mr McGroot",
+      "itemId": 34040,
+      "category": "OTHER",
+      "skill": "HUNTER",
+      "collectionLogPage": null,
+      "obtainableOn": [
+        "MAIN",
+        "IRONMAN",
+        "HARDCORE",
+        "ULTIMATE",
+        "GROUP"
+      ],
+      "sources": [
+        {
+          "id": "mr_mcgroot.wyrmscraig_goats",
+          "label": "Wyrmscraig goats",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": null,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "verified": false,
+          "sources": [],
+          "notes": "The wiki gives a 1/(B - level*25) formula for this pet. Base chance not yet entered."
         }
       ],
       "methods": []
