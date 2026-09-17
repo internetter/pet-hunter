@@ -1836,7 +1836,7 @@
           "flatRate": null,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "vorkath_kills",
           "verified": false,
           "sources": [],
           "notes": null
