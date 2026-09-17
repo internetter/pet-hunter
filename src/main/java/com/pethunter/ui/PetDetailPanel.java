@@ -36,6 +36,7 @@ class PetDetailPanel extends JPanel
 
 	static final String METHOD_PROMPT = "Which method did you train with?";
 	static final String NO_CHOICE = "No method chosen (worst case)";
+	static final String NO_XP_SUFFIX = " (no XP data yet)";
 
 	PetDetailPanel(PetEntry entry, ManualCountListener manualCounts, MethodChoiceListener methodChoices)
 	{
@@ -121,7 +122,10 @@ class PetDetailPanel extends JPanel
 		box.addItem(NO_CHOICE);
 		for (PetSource source : xpSources)
 		{
-			box.addItem(source.getLabel());
+			// Say up front which methods cannot produce an estimate, so picking one is not a dead end
+			boolean usable = source.isVerified()
+				&& entry.getPet().getMethodFor(source.getId()).filter(m -> m.isVerified() && m.getXpPerAction() != null).isPresent();
+			box.addItem(source.getLabel() + (usable ? "" : NO_XP_SUFFIX));
 		}
 		String chosen = entry.getAssumedSourceId();
 		box.setSelectedItem(xpSources.stream().filter(s -> s.getId().equals(chosen)).map(PetSource::getLabel)

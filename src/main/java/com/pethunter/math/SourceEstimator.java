@@ -274,8 +274,8 @@ public final class SourceEstimator
 		Double xpPerAction = method.filter(HuntMethod::isVerified).map(HuntMethod::getXpPerAction).orElse(null);
 		if (xpPerAction == null)
 		{
-			return DrynessResult.unknown(source.getLabel() + ": XP per action is not yet verified in the dataset, "
-				+ "so XP cannot be converted into attempts.");
+			return DrynessResult.unknown(source.getLabel() + ": XP per action is not yet verified in the dataset, so XP "
+				+ "cannot be converted into attempts. Choose another method, or none, to estimate from your total XP.");
 		}
 
 		OptionalLong xp = progress.getXp(skill);

@@ -3297,7 +3297,7 @@
           "countWarning": null,
           "verified": false,
           "sources": [],
-          "notes": "Placeholder for the per-rune base chance table."
+          "notes": "Base chances exist per altar, but whether a roll happens per essence used or per rune crafted is not settled, so no estimate is made until it is."
         }
       ],
       "methods": []
@@ -3383,7 +3383,7 @@
             "https://oldschool.runescape.wiki/w/Rock_golem",
             "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
           ],
-          "notes": "The same base chance at every star size. XP per stardust varies by size, so no estimate is made from this method yet."
+          "notes": "The same base chance at every star size. Free worlds award half the experience per stardust, which would halve the estimated number of stars mined."
         },
         {
           "id": "rock_golem.gem_rocks",
@@ -3510,6 +3510,19 @@
             "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Mining"
           ],
           "notes": null
+        },
+        {
+          "id": "rock_golem.crashed_stars",
+          "actionsPerHour": null,
+          "xpPerAction": 32,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Stardust",
+            "https://oldschool.runescape.wiki/w/Crashed_star"
+          ],
+          "notes": "32 Mining XP per stardust, the same at every star size, on members worlds."
         },
         {
           "id": "rock_golem.gem_rocks",
@@ -3685,7 +3698,7 @@
           "countWarning": null,
           "verified": false,
           "sources": [],
-          "notes": "Placeholder for the per-activity base chance table."
+          "notes": "The wiki does not publish base chances for this pet yet."
         }
       ],
       "methods": []
@@ -3717,7 +3730,7 @@
           "countWarning": null,
           "verified": false,
           "sources": [],
-          "notes": "Placeholder for the per-crop table. Rolls on check-health or final harvest depending on the patch."
+          "notes": "Per-crop base chances exist, but the pet rolls on checking health or on the final harvest depending on the patch, so what counts as one action is not settled. No estimate is made until it is."
         }
       ],
       "methods": []
@@ -3998,7 +4011,7 @@
           "countWarning": null,
           "verified": false,
           "sources": [],
-          "notes": "The wiki gives a 1/(B - level*25) formula for this pet. Base chance not yet entered."
+          "notes": "The wiki gives a 1/(B - level*25) formula for this pet but does not publish the base chance yet."
         }
       ],
       "methods": []
