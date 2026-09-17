@@ -33,15 +33,16 @@ class PetDetailPanel extends JPanel
 		}
 		for (PetSource source : pet.getSources())
 		{
-			add(sourceLine(source));
+			add(sourceLine(source, entry));
 		}
 
 		add(heading("Dryness"));
 		add(wrapped(DrynessFormat.explanation(entry), ColorScheme.LIGHT_GRAY_COLOR));
 	}
 
-	private static Component sourceLine(PetSource source)
+	private static Component sourceLine(PetSource source, PetEntry entry)
 	{
+		String count = DrynessFormat.counter(source, entry.getProgress());
 		String rate = DrynessFormat.rate(source);
 		Color rateColor = DrynessFormat.UNKNOWN.equals(rate) ? ColorScheme.MEDIUM_GRAY_COLOR : ColorScheme.TEXT_COLOR;
 		StringBuilder html = new StringBuilder()
@@ -55,6 +56,10 @@ class PetDetailPanel extends JPanel
 			html.append(", ").append(source.getCitations().size()).append(source.getCitations().size() == 1 ? " source" : " sources");
 		}
 		html.append("</font>");
+		if (count != null)
+		{
+			html.append("<br>").append(escape(count));
+		}
 
 		JLabel label = htmlLabel(html.toString(), ColorScheme.LIGHT_GRAY_COLOR);
 		label.setBorder(BorderFactory.createEmptyBorder(2, 0, 2, 0));

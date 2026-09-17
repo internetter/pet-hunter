@@ -4,7 +4,11 @@ import com.pethunter.data.Pet;
 import com.pethunter.data.PetRepository;
 import com.pethunter.math.PlayerProgress;
 import com.pethunter.math.SourceEstimator;
+import com.pethunter.state.AccountState;
 import java.awt.BorderLayout;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -31,7 +35,11 @@ public class PetHunterPanel extends PluginPanel
 {
 	static final String EMPTY_DATASET = "No pets could be loaded. The bundled dataset may be damaged; try reinstalling the plugin.";
 	static final String NO_MATCHES = "No pets match the current filter and search.";
-	static final String NOT_SYNCED = "Collection log not synced yet. Open your collection log in-game so obtained pets and kill counts can be read.";
+	static final String NOT_SYNCED = "Pets not synced yet. Open your collection log in-game and view the All Pets page (under Other).";
+	static final String NOT_LOADED = "Log in to load this account's pets.";
+	static final String PENDING_PET = "You received a pet! Open the All Pets page of your collection log to record which one.";
+
+	private static final DateTimeFormatter SYNC_TIME = DateTimeFormatter.ofPattern("MMM d, HH:mm").withZone(ZoneId.systemDefault());
 	static final String LOGGED_OUT = "You are logged out. Log in to read your progress.";
 	static final String ATTRIBUTION = "Rates from the Old School RuneScape Wiki (CC BY-NC-SA 3.0). Every figure is an estimate or a count; hover for what it rests on.";
 
@@ -41,7 +49,8 @@ public class PetHunterPanel extends PluginPanel
 	private final JLabel obtainedLabel = smallLabel("", ColorScheme.TEXT_COLOR);
 	private final JProgressBar progressBar = new JProgressBar();
 	private final JLabel loggedOutLabel = wrappedLabel(LOGGED_OUT, ColorScheme.PROGRESS_ERROR_COLOR);
-	private final JLabel syncLabel = wrappedLabel(NOT_SYNCED, ColorScheme.LIGHT_GRAY_COLOR);
+	private final JLabel syncLabel = wrappedLabel(NOT_LOADED, ColorScheme.LIGHT_GRAY_COLOR);
+	private final JLabel pendingPetLabel = wrappedLabel(PENDING_PET, ColorScheme.BRAND_ORANGE);
 
 	private final JComboBox<PetListModel.Filter> filterBox = new JComboBox<>(PetListModel.Filter.values());
 	private final JComboBox<PetListModel.Grouping> groupingBox = new JComboBox<>(PetListModel.Grouping.values());
@@ -52,6 +61,7 @@ public class PetHunterPanel extends PluginPanel
 	private final Set<String> expandedPetIds = new HashSet<>();
 
 	private List<PetEntry> entries = List.of();
+	private AccountState state = AccountState.EMPTY;
 
 	public PetHunterPanel(PetRepository repository, PetIconLoader icons)
 	{
@@ -77,6 +87,7 @@ public class PetHunterPanel extends PluginPanel
 		progressBar.setPreferredSize(new Dimension(0, 8));
 		north.add(progressBar);
 		north.add(loggedOutLabel);
+		north.add(pendingPetLabel);
 		north.add(syncLabel);
 
 		searchField.setIcon(IconTextField.Icon.SEARCH);
@@ -132,16 +143,29 @@ public class PetHunterPanel extends PluginPanel
 	}
 
 	/**
-	 * Recomputes every pet's dryness. Progress is empty until game state is read in later phases,
-	 * so every figure is UNKNOWN or not applicable, which is correct.
+	 * Shows an account's progress. Pass {@link AccountState#EMPTY} when logged out, so the previous
+	 * account's data is never left on screen.
+	 */
+	public void update(AccountState state)
+	{
+		this.state = state;
+		refreshEntries();
+	}
+
+	/**
+	 * Recomputes every pet's dryness from the current account state.
 	 */
 	void refreshEntries()
 	{
-		PlayerProgress progress = PlayerProgress.empty();
+		PlayerProgress.PlayerProgressBuilder builder = PlayerProgress.builder();
+		state.getCounters().forEach((key, counter) -> builder.counter(key, counter.getValue()));
+		PlayerProgress progress = builder.build();
+
 		List<PetEntry> computed = new ArrayList<>(pets.size());
 		for (Pet pet : pets)
 		{
-			computed.add(new PetEntry(pet, false, SourceEstimator.estimatePet(pet, progress, null)));
+			computed.add(new PetEntry(pet, state.getObtainedPetIds().contains(pet.getId()),
+				SourceEstimator.estimatePet(pet, progress, null), progress));
 		}
 		entries = computed;
 
@@ -150,7 +174,24 @@ public class PetHunterPanel extends PluginPanel
 		progressBar.setMaximum(Math.max(1, entries.size()));
 		progressBar.setValue((int) obtained);
 
+		syncLabel.setText(wrap(syncText(state)));
+		pendingPetLabel.setVisible(state.getPendingPetEpochMillis() != null);
+
 		rebuildList();
+	}
+
+	static String syncText(AccountState state)
+	{
+		if (!state.isLoaded())
+		{
+			return NOT_LOADED;
+		}
+		if (state.getLastLogSyncEpochMillis() == null)
+		{
+			return NOT_SYNCED;
+		}
+		return "Pets last synced " + SYNC_TIME.format(Instant.ofEpochMilli(state.getLastLogSyncEpochMillis()))
+			+ ". Opening a collection log page updates it.";
 	}
 
 	void rebuildList()
@@ -261,6 +302,21 @@ public class PetHunterPanel extends PluginPanel
 
 	private static JLabel wrappedLabel(String text, java.awt.Color color)
 	{
-		return smallLabel("<html><body style='width:190px'>" + PetDetailPanel.escape(text) + "</body></html>", color);
+		return smallLabel(wrap(text), color);
+	}
+
+	private static String wrap(String text)
+	{
+		return "<html><body style='width:190px'>" + PetDetailPanel.escape(text) + "</body></html>";
+	}
+
+	JLabel getSyncLabel()
+	{
+		return syncLabel;
+	}
+
+	JLabel getPendingPetLabel()
+	{
+		return pendingPetLabel;
 	}
 }

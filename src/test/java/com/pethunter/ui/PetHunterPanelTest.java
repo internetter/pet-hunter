@@ -2,10 +2,14 @@ package com.pethunter.ui;
 
 import com.google.gson.Gson;
 import com.pethunter.data.PetRepository;
+import com.pethunter.state.AccountState;
 import java.awt.Component;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.concurrent.atomic.AtomicReference;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
@@ -150,6 +154,45 @@ public class PetHunterPanelTest
 					assertEquals(bundled.getPets().size(), rowCount(panel));
 				}
 			}
+		});
+	}
+
+	@Test
+	public void showsAccountProgressAndClearsItForEmptyState() throws Exception
+	{
+		PetRepository bundled = PetRepository.loadBundled(new Gson());
+		AccountState state = new AccountState(true, Set.of("pet_kraken", "beef"),
+			Map.of("callisto_kills", new AccountState.Counter(20, 1L)), 1_700_000_000_000L, 1_700_000_100_000L);
+
+		onEdt(bundled, panel ->
+		{
+			assertTrue(labelTexts(panel.getSyncLabel()).get(0).contains("Log in to load"));
+			assertFalse(panel.getPendingPetLabel().isVisible());
+
+			panel.update(state);
+
+			assertTrue(labelTexts(panel).stream().anyMatch(t -> t.equals("2 / 71 pets obtained")));
+			assertTrue(panel.getEntries().stream().filter(PetEntry::isObtained).map(e -> e.getPet().getId())
+				.collect(Collectors.toSet()).containsAll(Set.of("pet_kraken", "beef")));
+			assertTrue(labelTexts(panel.getSyncLabel()).get(0).contains("Pets last synced"));
+			assertTrue(panel.getPendingPetLabel().isVisible());
+
+			panel.getFilterBox().setSelectedItem(PetListModel.Filter.OBTAINED);
+			assertEquals(2, rowCount(panel));
+
+			panel.update(AccountState.EMPTY);
+			assertEquals(0, rowCount(panel));
+			assertFalse(panel.getPendingPetLabel().isVisible());
+		});
+	}
+
+	@Test
+	public void neverSyncedAccountSaysHowToSync() throws Exception
+	{
+		onEdt(PetRepository.loadBundled(new Gson()), panel ->
+		{
+			panel.update(new AccountState(true, Set.of(), Map.of(), null, null));
+			assertTrue(labelTexts(panel.getSyncLabel()).get(0).contains("All Pets page"));
 		});
 	}
 

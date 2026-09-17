@@ -4,8 +4,11 @@ import com.pethunter.data.ContributionRange;
 import com.pethunter.data.PetSource;
 import com.pethunter.math.Confidence;
 import com.pethunter.math.DrynessResult;
+import com.pethunter.math.PlayerProgress;
 import com.pethunter.math.TieredValue;
 import java.util.Locale;
+import java.util.OptionalLong;
+import javax.annotation.Nullable;
 
 /**
  * Text for every number the panel shows. Each formatter takes the tier with the value, so a figure
@@ -116,6 +119,25 @@ public final class DrynessFormat
 			default:
 				return source.isVerified() && source.getFlatRate() != null ? "1/" + integer(source.getFlatRate()) : UNKNOWN;
 		}
+	}
+
+	/**
+	 * The attempt count recorded for a source, labelled as exact because it was read from the game,
+	 * or null when the source has no counter or nothing has been recorded.
+	 */
+	@Nullable
+	public static String counter(PetSource source, PlayerProgress progress)
+	{
+		if (source.getCounterKey() == null)
+		{
+			return null;
+		}
+		OptionalLong value = progress.getCounter(source.getCounterKey());
+		if (value.isEmpty())
+		{
+			return null;
+		}
+		return "Count: " + integer(value.getAsLong()) + " (exact, from the game)";
 	}
 
 	public static String rateModelDescription(PetSource source)
