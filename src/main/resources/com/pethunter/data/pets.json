@@ -26,7 +26,7 @@
           "flatRate": null,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "abyssal_sire_kills",
           "verified": false,
           "sources": [],
           "notes": "Received by using an unsired at the Font of Consumption."
@@ -194,7 +194,7 @@
           "flatRate": null,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "brutus_kills",
           "verified": false,
           "sources": [],
           "notes": null
@@ -256,7 +256,7 @@
           "flatRate": null,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "callisto_kills",
           "verified": false,
           "sources": [],
           "notes": null
@@ -269,7 +269,7 @@
           "flatRate": null,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "artio_kills",
           "verified": false,
           "sources": [],
           "notes": null
