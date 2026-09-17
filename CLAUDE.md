@@ -15,7 +15,7 @@ V1 is **local only**. No backend, no website, no outbound network requests of an
 These are not preferences. Violating any of them breaks the project.
 
 1. **Never invent a drop rate, base chance, or XP-per-action value.** Every numeric rate in
-   `src/main/resources/pets.json` must carry a `sources` array with at least one URL and a
+   `src/main/resources/com/pethunter/data/pets.json` must carry a `sources` array with at least one URL and a
    `verified` boolean. If a value is not verified, it stays `null` and the UI renders it as
    `UNKNOWN`. A plausible-looking wrong number is worse than a blank, because users will grind
    thousands of hours against it.
@@ -39,7 +39,8 @@ These are not preferences. Violating any of them breaks the project.
 - Based on the `runelite/example-plugin` template
 - Swing for the panel (`PluginPanel` + `NavigationButton`)
 - Gson for dataset loading (already a RuneLite transitive dep)
-- JUnit 4 + Mockito for tests (as used by other hub plugins)
+- JUnit 4 for tests (Mockito only once a test genuinely needs a mocked `Client`; the math
+  layer never should)
 
 ## Layout
 
@@ -64,11 +65,16 @@ src/main/java/com/pethunter/
     PetHunterPanel.java         # root panel, filters, grouping
     PetRow.java                 # collapsed row
     PetDetailPanel.java         # expanded: sources, methods, assumptions
-src/main/resources/
+src/main/resources/com/pethunter/data/
   pets.json                     # the dataset (see docs/DATA.md)
-  pets.schema.json              # validated in CI
+  pets.schema.json              # validated by ./gradlew validateDataset (part of build)
+  LICENSE                       # CC BY-NC-SA 3.0 notice; the dataset is not BSD
 src/test/java/...               # math is the priority for test coverage
 ```
+
+If your JVM rejects HTTPS during dependency resolution (e.g. antivirus TLS inspection on
+Windows), put `org.gradle.jvmargs=-Djavax.net.ssl.trustStoreType=Windows-ROOT` in
+`~/.gradle/gradle.properties`, never in the repo.
 
 ## Conventions
 

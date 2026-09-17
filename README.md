@@ -81,7 +81,7 @@ website.
 ## Contributing
 
 The dataset is the bottleneck, not the code. If a rate is missing or wrong, a PR editing
-`src/main/resources/pets.json` with a source URL is the single most useful contribution.
+`src/main/resources/com/pethunter/data/pets.json` with a source URL is the single most useful contribution.
 
 ## License
 

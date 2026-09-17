@@ -1,0 +1,22 @@
+Pet Hunter dataset (pets.json and pets.schema.json in this directory)
+
+This dataset is NOT covered by the BSD-2-Clause licence that applies to the
+plugin's source code.
+
+Rates and related facts in this dataset are derived from the Old School
+RuneScape Wiki (https://oldschool.runescape.wiki), whose content is licensed
+under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
+licence (CC BY-NC-SA 3.0):
+https://creativecommons.org/licenses/by-nc-sa/3.0/
+
+Accordingly, this dataset is distributed under CC BY-NC-SA 3.0.
+
+Attribution: every rate-bearing entry lists the wiki pages it was taken from in
+its "sources" array. Those URLs are the attribution for that entry and must be
+kept with it.
+
+Non-commercial: this dataset may not be redistributed as part of a
+commercially monetised product. See docs/DATA.md, "Licensing constraint".
+
+Old School RuneScape is a trademark of Jagex Ltd. This project is not
+affiliated with or endorsed by Jagex or the Old School RuneScape Wiki.

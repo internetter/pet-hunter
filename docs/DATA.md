@@ -45,7 +45,7 @@ Model each of these explicitly. Do not force them into `SKILL_LEVEL_SCALED` with
 
 ## Schema
 
-See `data/pets.schema.json` for the machine-readable version. Shape:
+See `src/main/resources/com/pethunter/data/pets.schema.json` for the machine-readable version. Shape:
 
 ```json
 {
@@ -102,6 +102,10 @@ Field notes:
   forces `UNKNOWN` or a manual entry.
 - `flatRate` — a denominator for flat models (`1/flatRate`). Mutually exclusive with
   `baseChance`.
+- `contributionRange` — `[denominator at minimum contribution, denominator at maximum
+  contribution]` for `CONTRIBUTION_SCALED`. With no contribution data, estimates use the rarer
+  of the two rates (the larger denominator), so they never overstate dryness, and the
+  assumption text quotes the other end of the range.
 - `minLevel` — XP earned before this level produced no rolls for this source and must be
   excluded from band integration.
 - `xpPerAction` — required to convert XP into an action count. Without it, a
@@ -110,15 +114,35 @@ Field notes:
 
 ## Validation
 
-A CI step validates `pets.json` against `pets.schema.json` and additionally asserts:
+The `validateDataset` Gradle task (part of `check`, so part of `build`) validates `pets.json`
+against `pets.schema.json` and additionally asserts:
 
-1. Every `id` is unique across pets, sources, and methods.
-2. No object has `verified: true` with an empty `sources` array.
+1. Pet ids are unique. Source ids are unique across the dataset, as are method ids. Every
+   source and method id is prefixed with its own pet's id (`<petId>.`). A method id equalling a
+   source id is required by rule 5, so ids are *not* unique across kinds.
+2. No object has `verified: true` with an empty `sources` array, except `ONE_OFF` sources,
+   which carry no rate.
 3. No object has a non-null rate with `verified: false`. (Populate the rate and the source
-   together, or neither.)
-4. Exactly one of `baseChance` / `flatRate` is non-null per source, except `ONE_OFF`.
+   together, or neither.) "Rate" means `baseChance`, `flatRate` and `contributionRange` on
+   sources, and `xpPerAction` and `actionsPerHour` on methods.
+4. Each source uses only the rate field its `rateModel` defines, and all other rate fields are
+   null. A `verified: true` source must populate that field. `ONE_OFF` sources have every rate
+   field null.
+
+   | rateModel | Rate field |
+   |---|---|
+   | `FLAT_PER_KILL`, `FLAT_PER_ROLL`, `STATIC_IGNORES_FORMULA`, `UNIQUE_CONDITIONAL` | `flatRate` (for `UNIQUE_CONDITIONAL`, 1/N per unique) |
+   | `SKILL_LEVEL_SCALED` | `baseChance` |
+   | `CONTRIBUTION_SCALED` | `contributionRange` |
+   | `ONE_OFF` | none |
 5. Every `method.id` matches an existing `source.id` on the same pet.
-6. `SKILL_LEVEL_SCALED` sources declare a `skill`.
+6. A pet with any `SKILL_LEVEL_SCALED` or `STATIC_IGNORES_FORMULA` source declares `skill`, and
+   `skill` names a RuneLite `Skill` enum constant (e.g. `MINING`).
+7. `baseChance` is greater than 2475 (99 × 25), so the denominator stays positive at every
+   level. Every `contributionRange` value is at least 1.
+
+The validator reads JSON strictly and rejects duplicate keys, and it fails on any JSON Schema
+keyword it does not implement, so a schema edit can never silently skip a check.
 
 Failing validation fails the build. This is the mechanism that enforces the golden rule, so do
 not weaken it to get a commit through.

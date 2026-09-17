@@ -5,6 +5,10 @@
   "required": ["schemaVersion", "pets"],
   "additionalProperties": false,
   "properties": {
+    "_comment": {
+      "type": "string",
+      "description": "Free-text note for dataset maintainers. Ignored by the plugin."
+    },
     "schemaVersion": { "type": "integer", "const": 1 },
     "gameUpdateChecked": {
       "type": "string",
@@ -84,7 +88,7 @@
         },
         "contributionRange": {
           "type": ["array", "null"],
-          "description": "[minDenominator, maxDenominator] for CONTRIBUTION_SCALED.",
+          "description": "[denominator at minimum contribution, denominator at maximum contribution] for CONTRIBUTION_SCALED.",
           "items": { "type": "integer" },
           "minItems": 2,
           "maxItems": 2
