@@ -39,11 +39,13 @@ public final class DrynessResult
 	@Nullable
 	private final String attemptPool;
 	private final int unknownSourceCount;
+	private final boolean explicitUpperBound;
 
 	private DrynessResult(Status status, @Nullable Confidence confidence, double logProbabilityStillDry,
 		double expectedDrops, @Nullable Double attempts, String explanation, @Nullable String attemptPool,
-		int unknownSourceCount)
+		int unknownSourceCount, boolean explicitUpperBound)
 	{
+		this.explicitUpperBound = explicitUpperBound;
 		if (explanation == null || explanation.isBlank())
 		{
 			throw new IllegalArgumentException("every result needs an explanation");
@@ -66,6 +68,17 @@ public final class DrynessResult
 	static DrynessResult figure(double logProbabilityStillDry, double expectedDrops, @Nullable Double attempts,
 		Confidence confidence, String assumption, String attemptPool, int unknownSourceCount)
 	{
+		return figure(logProbabilityStillDry, expectedDrops, attempts, confidence, assumption, attemptPool,
+			unknownSourceCount, false);
+	}
+
+	/**
+	 * @param explicitUpperBound true when the figure already rests on the least favourable rate, so the
+	 * player is at least this dry even though nothing is uncounted
+	 */
+	static DrynessResult figure(double logProbabilityStillDry, double expectedDrops, @Nullable Double attempts,
+		Confidence confidence, String assumption, String attemptPool, int unknownSourceCount, boolean explicitUpperBound)
+	{
 		Objects.requireNonNull(confidence, "confidence");
 		if (confidence == Confidence.UNKNOWN)
 		{
@@ -80,7 +93,7 @@ public final class DrynessResult
 			throw new IllegalArgumentException("expected drops must be finite and non-negative: " + expectedDrops);
 		}
 		return new DrynessResult(Status.FIGURE, confidence, logProbabilityStillDry, expectedDrops, attempts,
-			assumption, attemptPool, unknownSourceCount);
+			assumption, attemptPool, unknownSourceCount, explicitUpperBound);
 	}
 
 	static DrynessResult unknown(String reason)
@@ -90,12 +103,12 @@ public final class DrynessResult
 
 	static DrynessResult unknown(String reason, int unknownSourceCount)
 	{
-		return new DrynessResult(Status.UNKNOWN, Confidence.UNKNOWN, 0, 0, null, reason, null, unknownSourceCount);
+		return new DrynessResult(Status.UNKNOWN, Confidence.UNKNOWN, 0, 0, null, reason, null, unknownSourceCount, false);
 	}
 
 	static DrynessResult notApplicable(String reason)
 	{
-		return new DrynessResult(Status.NOT_APPLICABLE, null, 0, 0, null, reason, null, 0);
+		return new DrynessResult(Status.NOT_APPLICABLE, null, 0, 0, null, reason, null, 0, false);
 	}
 
 	public Status getStatus()
@@ -178,7 +191,7 @@ public final class DrynessResult
 	 */
 	public boolean isUpperBound()
 	{
-		return status == Status.FIGURE && unknownSourceCount > 0;
+		return status == Status.FIGURE && (unknownSourceCount > 0 || explicitUpperBound);
 	}
 
 	double rawLogProbabilityStillDry()

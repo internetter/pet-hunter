@@ -477,21 +477,51 @@ public class SourceEstimatorTest
 	}
 
 	@Test
-	public void severalXpMethodsWithNoChoiceIsUnknownForThatPart()
+	public void withNoChoiceTotalXpIsEvaluatedAtTheWorstRateAsABound()
 	{
-		// Two usable XP sources and no choice: the plugin must ask rather than pick one
-		Pet heron = heronWithMinnowsMethod(26.0);
-		PetSource secondUsable = PetSource.builder().id("heron.generic_fishing").label("Standard fishing methods")
-			.rateModel(RateModel.SKILL_LEVEL_SCALED).baseChance(300_000).verified(true).citations(FIXTURE_CITATION).build();
-		heron = Pet.builder().id(heron.getId()).name(heron.getName()).category(heron.getCategory()).skill(heron.getSkill())
-			.sources(List.of(heron.getSources().get(0), heron.getSources().get(1), secondUsable))
-			.methods(List.of(method("heron.minnows", 26.0), method("heron.generic_fishing", 40.0)))
+		// Two usable methods: 1/(100,000 - level*25) and the rarer 1/(300,000 - level*25)
+		PetSource fast = PetSource.builder().id("fixture_pet.fast").label("Fast method").rateModel(RateModel.SKILL_LEVEL_SCALED)
+			.baseChance(100_000).verified(true).citations(FIXTURE_CITATION).build();
+		PetSource slow = PetSource.builder().id("fixture_pet.slow").label("Slow method").rateModel(RateModel.SKILL_LEVEL_SCALED)
+			.baseChance(300_000).verified(true).citations(FIXTURE_CITATION).build();
+		Pet pet = Pet.builder().id("fixture_pet").name("Fixture pet").category(PetCategory.SKILLING).skill("MINING")
+			.sources(List.of(fast, slow)).methods(List.of(method("fixture_pet.fast", 50.0), method("fixture_pet.slow", 50.0)))
+			.build();
+		PlayerProgress progress = PlayerProgress.builder().xp("MINING", 5_000_000L).build();
+
+		DrynessResult mixed = SourceEstimator.estimatePet(pet, progress, null);
+		DrynessResult worst = SourceEstimator.estimate(pet, slow, progress);
+		DrynessResult best = SourceEstimator.estimate(pet, fast, progress);
+
+		assertTrue(mixed.hasFigure());
+		assertTrue("the worst rate leaves the most players still without it", mixed.isUpperBound());
+		assertEquals(worst.getLogProbabilityStillDry().orElseThrow().getValue(),
+			mixed.getLogProbabilityStillDry().orElseThrow().getValue(), EPS);
+		assertTrue(worst.getProbabilityStillDry().orElseThrow().getValue()
+			> best.getProbabilityStillDry().orElseThrow().getValue());
+
+		String assumption = mixed.getProbabilityStillDry().orElseThrow().getAssumption();
+		assertTrue(assumption, assumption.contains("No method chosen"));
+		assertTrue(assumption, assumption.contains("Slow method"));
+		assertTrue(assumption, assumption.contains("Fast method"));
+		assertTrue(assumption, assumption.contains(SourceEstimator.formatPercent(
+			best.getProbabilityStillDry().orElseThrow().getValue())));
+	}
+
+	@Test
+	public void withNoChoiceAndNothingUsableTheReasonIsKept()
+	{
+		// Both XP sources lack a verified rate or method, so the reason must say what is missing
+		Pet pet = Pet.builder().id("fixture_pet").name("Fixture pet").category(PetCategory.SKILLING).skill("MINING")
+			.sources(List.of(
+				PetSource.builder().id("fixture_pet.a").label("A").rateModel(RateModel.SKILL_LEVEL_SCALED).build(),
+				PetSource.builder().id("fixture_pet.b").label("B").rateModel(RateModel.SKILL_LEVEL_SCALED).build()))
 			.build();
 
-		DrynessResult result = SourceEstimator.estimatePet(heron, PlayerProgress.builder().xp("FISHING", 1_000_000L).build(), null);
+		DrynessResult result = SourceEstimator.estimatePet(pet, PlayerProgress.builder().xp("MINING", 1_000L).build(), null);
 
 		assertEquals(DrynessResult.Status.UNKNOWN, result.getStatus());
-		assertTrue(result.getExplanation(), result.getExplanation().contains("Choose which method you trained Fishing with"));
+		assertTrue(result.getExplanation(), result.getExplanation().contains("not yet verified"));
 	}
 
 	@Test

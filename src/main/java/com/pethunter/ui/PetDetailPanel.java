@@ -35,7 +35,7 @@ class PetDetailPanel extends JPanel
 	static final long MAX_MANUAL_COUNT = 10_000_000L;
 
 	static final String METHOD_PROMPT = "Which method did you train with?";
-	static final String NO_CHOICE = "Not chosen";
+	static final String NO_CHOICE = "No method chosen (worst case)";
 
 	PetDetailPanel(PetEntry entry, ManualCountListener manualCounts, MethodChoiceListener methodChoices)
 	{
@@ -134,7 +134,8 @@ class PetDetailPanel extends JPanel
 
 		container.add(box, BorderLayout.NORTH);
 		container.add(htmlLabel("<font color='" + hex(ColorScheme.MEDIUM_GRAY_COLOR) + "'>" + escape(METHOD_PROMPT)
-			+ " The estimate assumes all of your XP in this skill came from it.</font>", ColorScheme.MEDIUM_GRAY_COLOR),
+			+ " The estimate assumes all of your XP in this skill came from it. With no choice, the worst rate for this"
+			+ " pet is used, so the figure never says you are drier than you are.</font>", ColorScheme.MEDIUM_GRAY_COLOR),
 			BorderLayout.CENTER);
 		return container;
 	}

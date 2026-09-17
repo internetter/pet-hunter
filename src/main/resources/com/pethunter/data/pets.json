@@ -2644,7 +2644,7 @@
             "https://oldschool.runescape.wiki/w/Giant_Squirrel",
             "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
           ],
-          "notes": "Base chance verified. XP per action is not confirmed on a second wiki page yet, so no estimate is made from this method."
+          "notes": null
         },
         {
           "id": "giant_squirrel.canifis_rooftop",
@@ -2729,7 +2729,7 @@
             "https://oldschool.runescape.wiki/w/Giant_Squirrel",
             "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
           ],
-          "notes": "Base chance verified. XP per action is not confirmed on a second wiki page yet, so no estimate is made from this method."
+          "notes": null
         },
         {
           "id": "giant_squirrel.rellekka_rooftop",
@@ -2746,7 +2746,7 @@
             "https://oldschool.runescape.wiki/w/Giant_Squirrel",
             "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
           ],
-          "notes": "Base chance verified. XP per action is not confirmed on a second wiki page yet, so no estimate is made from this method."
+          "notes": null
         },
         {
           "id": "giant_squirrel.varrock_rooftop",
@@ -2763,7 +2763,7 @@
             "https://oldschool.runescape.wiki/w/Giant_Squirrel",
             "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
           ],
-          "notes": "Base chance verified. XP per action is not confirmed on a second wiki page yet, so no estimate is made from this method."
+          "notes": null
         }
       ],
       "methods": [
@@ -2779,6 +2779,19 @@
             "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Agility"
           ],
           "notes": null
+        },
+        {
+          "id": "giant_squirrel.ardougne_rooftop",
+          "actionsPerHour": null,
+          "xpPerAction": 889.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Ardougne_Rooftop_Course",
+            "https://oldschool.runescape.wiki/w/Module:Skill_calc/Agility"
+          ],
+          "notes": "XP per lap, the sum of the course's obstacles as listed on its article."
         },
         {
           "id": "giant_squirrel.canifis_rooftop",
@@ -2831,6 +2844,45 @@
             "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Agility"
           ],
           "notes": null
+        },
+        {
+          "id": "giant_squirrel.prifddinas",
+          "actionsPerHour": null,
+          "xpPerAction": 1285.2,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Prifddinas_Agility_Course",
+            "https://oldschool.runescape.wiki/w/Module:Skill_calc/Agility"
+          ],
+          "notes": "XP per lap, the sum of the course's obstacles as listed on its article."
+        },
+        {
+          "id": "giant_squirrel.rellekka_rooftop",
+          "actionsPerHour": null,
+          "xpPerAction": 920.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Rellekka_Rooftop_Course",
+            "https://oldschool.runescape.wiki/w/Module:Skill_calc/Agility"
+          ],
+          "notes": "XP per lap, the sum of the course's obstacles as listed on its article."
+        },
+        {
+          "id": "giant_squirrel.varrock_rooftop",
+          "actionsPerHour": null,
+          "xpPerAction": 269.7,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Varrock_Rooftop_Course",
+            "https://oldschool.runescape.wiki/w/Module:Skill_calc/Agility"
+          ],
+          "notes": "XP per lap, the sum of the course's obstacles as listed on its article."
         }
       ]
     },
@@ -2910,6 +2962,57 @@
           "flatRate": null,
           "contributionRange": null,
           "minLevel": 65,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Heron",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.leaping_salmon",
+          "label": "Barbarian fishing (leaping salmon)",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 1280862,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 58,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Heron",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.leaping_sturgeon",
+          "label": "Barbarian fishing (leaping sturgeon)",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 1280862,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 70,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Heron",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.leaping_trout",
+          "label": "Barbarian fishing (leaping trout)",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 1280862,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 48,
           "counterKey": null,
           "countWarning": null,
           "verified": true,
@@ -3060,6 +3163,45 @@
             "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Fishing"
           ],
           "notes": null
+        },
+        {
+          "id": "heron.leaping_salmon",
+          "actionsPerHour": null,
+          "xpPerAction": 70.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Leaping_salmon",
+            "https://oldschool.runescape.wiki/w/Module:Skill_calc/Fishing"
+          ],
+          "notes": "Fishing XP per fish caught; barbarian fishing also gives Strength and Agility XP."
+        },
+        {
+          "id": "heron.leaping_sturgeon",
+          "actionsPerHour": null,
+          "xpPerAction": 80.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Leaping_sturgeon",
+            "https://oldschool.runescape.wiki/w/Module:Skill_calc/Fishing"
+          ],
+          "notes": "Fishing XP per fish caught; barbarian fishing also gives Strength and Agility XP."
+        },
+        {
+          "id": "heron.leaping_trout",
+          "actionsPerHour": null,
+          "xpPerAction": 50.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Leaping_trout",
+            "https://oldschool.runescape.wiki/w/Module:Skill_calc/Fishing"
+          ],
+          "notes": "Fishing XP per fish caught; barbarian fishing also gives Strength and Agility XP."
         },
         {
           "id": "heron.lobster",
@@ -3225,6 +3367,23 @@
             "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
           ],
           "notes": null
+        },
+        {
+          "id": "rock_golem.crashed_stars",
+          "label": "Crashed stars",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 521550,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 10,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Rock_golem",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": "The same base chance at every star size. XP per stardust varies by size, so no estimate is made from this method yet."
         },
         {
           "id": "rock_golem.gem_rocks",

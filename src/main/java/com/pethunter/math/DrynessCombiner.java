@@ -96,7 +96,8 @@ public final class DrynessCombiner
 
 		Double attempts = figures.size() == 1 ? figures.get(0).getAttempts().map(TieredValue::getValue).orElse(null) : null;
 		String pool = figures.size() == 1 ? figures.get(0).getAttemptPool().orElse(null) : null;
-		return DrynessResult.figure(logPDry, expectedDrops, attempts, confidence, explanation, pool, unknownCount);
+		boolean bounded = figures.stream().anyMatch(DrynessResult::isUpperBound);
+		return DrynessResult.figure(logPDry, expectedDrops, attempts, confidence, explanation, pool, unknownCount, bounded);
 	}
 
 	private static String joinExplanations(List<DrynessResult> results)

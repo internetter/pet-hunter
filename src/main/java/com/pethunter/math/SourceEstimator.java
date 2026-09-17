@@ -53,14 +53,8 @@ public final class SourceEstimator
 
 		if (!xpSources.isEmpty())
 		{
-			PetSource chosen = xpSources.stream()
-				.filter(s -> s.getId().equals(assumedSourceId))
-				.findFirst()
-				.orElseGet(() -> defaultXpSource(pet, xpSources));
-			results.add(chosen != null
-				? estimate(pet, chosen, progress)
-				: DrynessResult.unknown("Choose which method you trained " + skillName(pet.getSkill())
-				+ " with to estimate this pet."));
+			PetSource chosen = xpSources.stream().filter(s -> s.getId().equals(assumedSourceId)).findFirst().orElse(null);
+			results.add(chosen != null ? estimate(pet, chosen, progress) : withoutAChosenMethod(pet, xpSources, progress));
 		}
 
 		return DrynessCombiner.combine(results);
@@ -131,22 +125,69 @@ public final class SourceEstimator
 	}
 
 	/**
-	 * With no choice from the player, use the only XP-derived source, or the only one that could
-	 * actually produce an estimate (a verified rate and a verified XP per action). Anything else is
-	 * a guess about how they trained, so the panel asks instead.
+	 * Estimates from total skill XP when the player has not said which activity it came from.
+	 *
+	 * <p>No mix can be inferred from the client, and assuming one would invent a number. Instead the
+	 * whole XP is evaluated at the worst rate of any usable activity for this pet, which cannot claim
+	 * the player is drier than they are, and the assumption quotes the best-case figure as well.
 	 */
-	@Nullable
-	private static PetSource defaultXpSource(Pet pet, List<PetSource> xpSources)
+	private static DrynessResult withoutAChosenMethod(Pet pet, List<PetSource> xpSources, PlayerProgress progress)
 	{
 		if (xpSources.size() == 1)
 		{
-			return xpSources.get(0);
+			return estimate(pet, xpSources.get(0), progress);
 		}
-		List<PetSource> usable = xpSources.stream()
-			.filter(PetSource::isVerified)
-			.filter(s -> pet.getMethodFor(s.getId()).filter(HuntMethod::isVerified).map(HuntMethod::getXpPerAction).isPresent())
-			.collect(java.util.stream.Collectors.toList());
-		return usable.size() == 1 ? usable.get(0) : null;
+
+		List<DrynessResult> figures = new ArrayList<>();
+		List<PetSource> figureSources = new ArrayList<>();
+		for (PetSource source : xpSources)
+		{
+			DrynessResult result = estimate(pet, source, progress);
+			if (result.hasFigure())
+			{
+				figures.add(result);
+				figureSources.add(source);
+			}
+		}
+		if (figures.isEmpty())
+		{
+			// Nothing usable: report the first source's reason, which says what the dataset is missing
+			return estimate(pet, xpSources.get(0), progress);
+		}
+		if (figures.size() == 1)
+		{
+			return figures.get(0);
+		}
+
+		int worst = 0;
+		int best = 0;
+		for (int i = 1; i < figures.size(); i++)
+		{
+			// The worst rate leaves the most players still without the pet
+			worst = figures.get(i).rawLogProbabilityStillDry() > figures.get(worst).rawLogProbabilityStillDry() ? i : worst;
+			best = figures.get(i).rawLogProbabilityStillDry() < figures.get(best).rawLogProbabilityStillDry() ? i : best;
+		}
+
+		DrynessResult worstResult = figures.get(worst);
+		String assumption = "No method chosen, so this assumes all " + formatXp(progress.getXp(pet.getSkill()).orElse(0))
+			+ " " + skillName(pet.getSkill()) + " XP came from " + figureSources.get(worst).getLabel()
+			+ ", the worst rate for this pet, so you are at least this dry. All of it from "
+			+ figureSources.get(best).getLabel() + " instead would leave "
+			+ formatPercent(Math.exp(figures.get(best).rawLogProbabilityStillDry()))
+			+ " still without it. Choose the method you trained with for a sharper estimate.";
+		return DrynessResult.figure(worstResult.rawLogProbabilityStillDry(), worstResult.rawExpectedDrops(),
+			worstResult.getAttempts().map(TieredValue::getValue).orElse(null), Confidence.ESTIMATED, assumption,
+			"xp:" + pet.getSkill(), 0, true);
+	}
+
+	static String formatPercent(double fraction)
+	{
+		double percent = fraction * 100;
+		if (percent > 0 && percent < 0.1)
+		{
+			return "<0.1%";
+		}
+		return String.format(Locale.ROOT, "%.1f%%", percent);
 	}
 
 	/**

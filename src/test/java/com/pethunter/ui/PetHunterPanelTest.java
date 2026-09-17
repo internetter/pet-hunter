@@ -305,10 +305,12 @@ public class PetHunterPanelTest
 
 		onEdt(repository, ManualCountListener.NONE, (petId, sourceId) -> chosen.add(petId + "=" + sourceId), panel ->
 		{
-			// Two usable methods and no choice: the panel must ask instead of guessing
+			// Two usable methods and no choice: the worst rate is used and marked as a bound
 			panel.update(new AccountState(true, Set.of(), Map.of(), Map.of(), Map.of(), 1L, null), Map.of("FISHING", 1_000_000L));
-			assertFalse(panel.getEntries().get(0).getDryness().hasFigure());
-			assertTrue(panel.getEntries().get(0).getDryness().getExplanation().contains("Choose which method"));
+			PetEntry mixed = panel.getEntries().get(0);
+			assertTrue(mixed.getDryness().hasFigure());
+			assertTrue(mixed.getDryness().isUpperBound());
+			assertTrue(mixed.getDryness().getExplanation().contains("No method chosen"));
 
 			PetRow row = (PetRow) panel.getListPanel().getComponents()[1];
 			row.setExpanded(true);
