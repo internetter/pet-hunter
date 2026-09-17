@@ -72,7 +72,7 @@ public class DrynessFormatTest
 			.verified(true).citations(UiFixtures.FIXTURE_CITATION).build();
 		com.pethunter.data.Pet pet = UiFixtures.pet("w", "Warned", PetCategory.BOSS, null, warned);
 		com.pethunter.math.PlayerProgress progress = com.pethunter.math.PlayerProgress.builder().counter("w_kc", 100L).build();
-		PetEntry entry = new PetEntry(pet, false, com.pethunter.math.SourceEstimator.estimatePet(pet, progress, null), progress);
+		PetEntry entry = new PetEntry(pet, false, com.pethunter.math.SourceEstimator.estimatePet(pet, progress, null), progress, null);
 
 		assertTrue(DrynessFormat.hasCountWarning(entry));
 		assertEquals("36.6% !", DrynessFormat.rowStatus(entry));
@@ -80,7 +80,7 @@ public class DrynessFormatTest
 
 		// No marker without a figure built from that count
 		PetEntry noCount = new PetEntry(pet, false, com.pethunter.math.SourceEstimator.estimatePet(pet,
-			com.pethunter.math.PlayerProgress.empty(), null), com.pethunter.math.PlayerProgress.empty());
+			com.pethunter.math.PlayerProgress.empty(), null), com.pethunter.math.PlayerProgress.empty(), null);
 		assertFalse(DrynessFormat.hasCountWarning(noCount));
 		assertFalse(DrynessFormat.hasCountWarning(figureEntry("a", "A", 100, 100)));
 	}

@@ -18,7 +18,7 @@ public class AccountState
 		long lastSeenEpochMillis;
 	}
 
-	public static final AccountState EMPTY = new AccountState(false, Set.of(), Map.of(), Map.of(), null, null);
+	public static final AccountState EMPTY = new AccountState(false, Set.of(), Map.of(), Map.of(), Map.of(), null, null);
 
 	/** False when no account is logged in, so nothing has been loaded. */
 	boolean loaded;
@@ -26,6 +26,8 @@ public class AccountState
 	Map<String, Counter> counters;
 	/** Attempt counts the player typed in, keyed by source id. */
 	Map<String, Long> manualCounts;
+	/** The XP-derived source the player says they trained with, keyed by pet id. */
+	Map<String, String> methodOverrides;
 	/** When the All Pets page was last read in full, or null if never. */
 	@Nullable
 	Long lastLogSyncEpochMillis;

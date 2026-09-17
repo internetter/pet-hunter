@@ -9,6 +9,7 @@ import com.pethunter.state.CollectionLogReader;
 import com.pethunter.state.GameIds;
 import com.pethunter.state.ProgressTracker;
 import com.pethunter.state.RsProfileStore;
+import com.pethunter.state.SkillXpTracker;
 import com.pethunter.ui.PetHunterPanel;
 import javax.inject.Inject;
 import javax.swing.SwingUtilities;
@@ -20,6 +21,7 @@ import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.ScriptPostFired;
+import net.runelite.api.events.StatChanged;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.RuneScapeProfileChanged;
@@ -56,6 +58,7 @@ public class PetHunterPlugin extends Plugin
 	private PetHunterPanel panel;
 	private NavigationButton navButton;
 	private AccountStateService accountState;
+	private SkillXpTracker skillXp;
 	private ProgressTracker tracker;
 
 	@Override
@@ -64,13 +67,15 @@ public class PetHunterPlugin extends Plugin
 		PetRepository repository = PetRepository.loadBundled(gson);
 		log.debug("Pet Hunter loaded {} pets", repository.getPets().size());
 
+		skillXp = new SkillXpTracker();
 		accountState = new AccountStateService(new RsProfileStore(configManager), gson);
 		accountState.reload();
 		tracker = new ProgressTracker(repository, accountState, System::currentTimeMillis);
 
-		panel = new PetHunterPanel(repository, (itemId, label) -> itemManager.getImage(itemId).addTo(label), this::onManualCount);
+		panel = new PetHunterPanel(repository, (itemId, label) -> itemManager.getImage(itemId).addTo(label),
+			this::onManualCount, this::onMethodChosen);
 		panel.setLoggedIn(client.getGameState() == GameState.LOGGED_IN);
-		panel.update(accountState.snapshot());
+		panel.update(accountState.snapshot(), skillXp.snapshot());
 
 		navButton = NavigationButton.builder()
 			.tooltip("Pet Hunter")
@@ -89,6 +94,7 @@ public class PetHunterPlugin extends Plugin
 		panel = null;
 		tracker = null;
 		accountState = null;
+		skillXp = null;
 	}
 
 	@Subscribe
@@ -133,12 +139,24 @@ public class PetHunterPlugin extends Plugin
 	}
 
 	@Subscribe
+	public void onStatChanged(StatChanged event)
+	{
+		SkillXpTracker xp = skillXp;
+		if (xp != null && xp.record(event.getSkill().name(), event.getXp()))
+		{
+			pushStateToPanel();
+		}
+	}
+
+	@Subscribe
 	public void onRuneScapeProfileChanged(RuneScapeProfileChanged event)
 	{
-		if (accountState == null)
+		if (accountState == null || skillXp == null)
 		{
 			return;
 		}
+		// XP belongs to the character that just left, so never show it for the next one
+		skillXp.clear();
 		accountState.reload();
 		pushStateToPanel();
 	}
@@ -152,6 +170,11 @@ public class PetHunterPlugin extends Plugin
 			return;
 		}
 		boolean loggedIn = event.getGameState() == GameState.LOGGED_IN;
+		if (!loggedIn && skillXp != null)
+		{
+			skillXp.clear();
+			pushStateToPanel();
+		}
 		SwingUtilities.invokeLater(() -> current.setLoggedIn(loggedIn));
 	}
 
@@ -164,15 +187,26 @@ public class PetHunterPlugin extends Plugin
 		}
 	}
 
+	private void onMethodChosen(String petId, String sourceId)
+	{
+		AccountStateService service = accountState;
+		if (service != null && service.setMethodOverride(petId, sourceId))
+		{
+			pushStateToPanel();
+		}
+	}
+
 	private void pushStateToPanel()
 	{
 		PetHunterPanel current = panel;
 		AccountStateService service = accountState;
-		if (current == null || service == null)
+		SkillXpTracker xp = skillXp;
+		if (current == null || service == null || xp == null)
 		{
 			return;
 		}
 		AccountState snapshot = service.snapshot();
-		SwingUtilities.invokeLater(() -> current.update(snapshot));
+		java.util.Map<String, Long> xpSnapshot = xp.snapshot();
+		SwingUtilities.invokeLater(() -> current.update(snapshot, xpSnapshot));
 	}
 }

@@ -56,7 +56,7 @@ public final class SourceEstimator
 			PetSource chosen = xpSources.stream()
 				.filter(s -> s.getId().equals(assumedSourceId))
 				.findFirst()
-				.orElse(xpSources.size() == 1 ? xpSources.get(0) : null);
+				.orElseGet(() -> defaultXpSource(pet, xpSources));
 			results.add(chosen != null
 				? estimate(pet, chosen, progress)
 				: DrynessResult.unknown("Choose which method you trained " + skillName(pet.getSkill())
@@ -128,6 +128,34 @@ public final class SourceEstimator
 			default:
 				return OptionalDouble.empty();
 		}
+	}
+
+	/**
+	 * With no choice from the player, use the only XP-derived source, or the only one that could
+	 * actually produce an estimate (a verified rate and a verified XP per action). Anything else is
+	 * a guess about how they trained, so the panel asks instead.
+	 */
+	@Nullable
+	private static PetSource defaultXpSource(Pet pet, List<PetSource> xpSources)
+	{
+		if (xpSources.size() == 1)
+		{
+			return xpSources.get(0);
+		}
+		List<PetSource> usable = xpSources.stream()
+			.filter(PetSource::isVerified)
+			.filter(s -> pet.getMethodFor(s.getId()).filter(HuntMethod::isVerified).map(HuntMethod::getXpPerAction).isPresent())
+			.collect(java.util.stream.Collectors.toList());
+		return usable.size() == 1 ? usable.get(0) : null;
+	}
+
+	/**
+	 * The XP-derived sources of a pet, which the player picks between because they all consume the
+	 * same skill XP.
+	 */
+	public static List<PetSource> xpDerivedSources(Pet pet)
+	{
+		return pet.getSources().stream().filter(s -> isXpDerived(s.getRateModel())).collect(java.util.stream.Collectors.toList());
 	}
 
 	static boolean isXpDerived(RateModel model)

@@ -14,6 +14,7 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
@@ -46,6 +47,7 @@ public class PetHunterPanel extends PluginPanel
 	private final List<Pet> pets;
 	private final PetIconLoader icons;
 	private final ManualCountListener manualCounts;
+	private final MethodChoiceListener methodChoices;
 
 	private final JLabel obtainedLabel = smallLabel("", ColorScheme.TEXT_COLOR);
 	private final JProgressBar progressBar = new JProgressBar();
@@ -63,17 +65,20 @@ public class PetHunterPanel extends PluginPanel
 
 	private List<PetEntry> entries = List.of();
 	private AccountState state = AccountState.EMPTY;
+	private Map<String, Long> xpBySkill = Map.of();
 
 	public PetHunterPanel(PetRepository repository, PetIconLoader icons)
 	{
-		this(repository, icons, ManualCountListener.NONE);
+		this(repository, icons, ManualCountListener.NONE, MethodChoiceListener.NONE);
 	}
 
-	public PetHunterPanel(PetRepository repository, PetIconLoader icons, ManualCountListener manualCounts)
+	public PetHunterPanel(PetRepository repository, PetIconLoader icons, ManualCountListener manualCounts,
+		MethodChoiceListener methodChoices)
 	{
 		this.pets = repository.getPets();
 		this.icons = icons;
 		this.manualCounts = manualCounts;
+		this.methodChoices = methodChoices;
 
 		setLayout(new BorderLayout(0, 6));
 		setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
@@ -155,7 +160,16 @@ public class PetHunterPanel extends PluginPanel
 	 */
 	public void update(AccountState state)
 	{
+		update(state, xpBySkill);
+	}
+
+	/**
+	 * Shows an account's progress together with its current skill XP.
+	 */
+	public void update(AccountState state, Map<String, Long> xpBySkill)
+	{
 		this.state = state;
+		this.xpBySkill = Map.copyOf(xpBySkill);
 		refreshEntries();
 	}
 
@@ -167,13 +181,15 @@ public class PetHunterPanel extends PluginPanel
 		PlayerProgress.PlayerProgressBuilder builder = PlayerProgress.builder();
 		state.getCounters().forEach((key, counter) -> builder.counter(key, counter.getValue()));
 		state.getManualCounts().forEach(builder::manualCount);
+		xpBySkill.forEach(builder::xp);
 		PlayerProgress progress = builder.build();
 
 		List<PetEntry> computed = new ArrayList<>(pets.size());
 		for (Pet pet : pets)
 		{
+			String assumed = state.getMethodOverrides().get(pet.getId());
 			computed.add(new PetEntry(pet, state.getObtainedPetIds().contains(pet.getId()),
-				SourceEstimator.estimatePet(pet, progress, null), progress));
+				SourceEstimator.estimatePet(pet, progress, assumed), progress, assumed));
 		}
 		entries = computed;
 
@@ -240,7 +256,7 @@ public class PetHunterPanel extends PluginPanel
 	{
 		String petId = entry.getPet().getId();
 		PetRow[] holder = new PetRow[1];
-		holder[0] = new PetRow(entry, icons, manualCounts, expandedPetIds.contains(petId), () ->
+		holder[0] = new PetRow(entry, icons, manualCounts, methodChoices, expandedPetIds.contains(petId), () ->
 		{
 			if (holder[0].isExpanded())
 			{

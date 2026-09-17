@@ -464,9 +464,29 @@ public class SourceEstimatorTest
 	}
 
 	@Test
+	public void withNoChoiceTheOnlyUsableXpSourceIsUsed()
+	{
+		// heron has three XP sources, but only minnows has both a verified rate and a verified method
+		Pet heron = heronWithMinnowsMethod(26.0);
+		long xp = 1_000_000;
+
+		DrynessResult result = SourceEstimator.estimatePet(heron, PlayerProgress.builder().xp("FISHING", xp).build(), null);
+
+		assertTrue(result.hasFigure());
+		assertTrue(result.getExplanation(), result.getExplanation().contains("Minnows"));
+	}
+
+	@Test
 	public void severalXpMethodsWithNoChoiceIsUnknownForThatPart()
 	{
+		// Two usable XP sources and no choice: the plugin must ask rather than pick one
 		Pet heron = heronWithMinnowsMethod(26.0);
+		PetSource secondUsable = PetSource.builder().id("heron.generic_fishing").label("Standard fishing methods")
+			.rateModel(RateModel.SKILL_LEVEL_SCALED).baseChance(300_000).verified(true).citations(FIXTURE_CITATION).build();
+		heron = Pet.builder().id(heron.getId()).name(heron.getName()).category(heron.getCategory()).skill(heron.getSkill())
+			.sources(List.of(heron.getSources().get(0), heron.getSources().get(1), secondUsable))
+			.methods(List.of(method("heron.minnows", 26.0), method("heron.generic_fishing", 40.0)))
+			.build();
 
 		DrynessResult result = SourceEstimator.estimatePet(heron, PlayerProgress.builder().xp("FISHING", 1_000_000L).build(), null);
 

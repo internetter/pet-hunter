@@ -2,6 +2,7 @@ package com.pethunter.ui;
 
 import com.google.gson.Gson;
 import com.pethunter.data.PetRepository;
+import com.pethunter.math.Confidence;
 import com.pethunter.state.AccountState;
 import java.awt.Component;
 import java.io.StringReader;
@@ -24,6 +25,8 @@ import org.junit.Test;
  */
 public class PetHunterPanelTest
 {
+	private static final char SINGLE_QUOTE = (char) 39;
+
 	private interface PanelAction
 	{
 		void run(PetHunterPanel panel) throws Exception;
@@ -36,12 +39,18 @@ public class PetHunterPanelTest
 
 	private static void onEdt(PetRepository repository, ManualCountListener manualCounts, PanelAction action) throws Exception
 	{
+		onEdt(repository, manualCounts, MethodChoiceListener.NONE, action);
+	}
+
+	private static void onEdt(PetRepository repository, ManualCountListener manualCounts, MethodChoiceListener methodChoices,
+		PanelAction action) throws Exception
+	{
 		AtomicReference<Throwable> failure = new AtomicReference<>();
 		SwingUtilities.invokeAndWait(() ->
 		{
 			try
 			{
-				action.run(new PetHunterPanel(repository, PetIconLoader.NONE, manualCounts));
+				action.run(new PetHunterPanel(repository, PetIconLoader.NONE, manualCounts, methodChoices));
 			}
 			catch (Throwable t)
 			{
@@ -167,7 +176,7 @@ public class PetHunterPanelTest
 	{
 		PetRepository bundled = PetRepository.loadBundled(new Gson());
 		AccountState state = new AccountState(true, Set.of("pet_kraken", "beef"),
-			Map.of("callisto_kills", new AccountState.Counter(20, 1L)), Map.of(), 1_700_000_000_000L, 1_700_000_100_000L);
+			Map.of("callisto_kills", new AccountState.Counter(20, 1L)), Map.of(), Map.of(), 1_700_000_000_000L, 1_700_000_100_000L);
 
 		onEdt(bundled, panel ->
 		{
@@ -196,7 +205,7 @@ public class PetHunterPanelTest
 	{
 		onEdt(PetRepository.loadBundled(new Gson()), panel ->
 		{
-			panel.update(new AccountState(true, Set.of(), Map.of(), Map.of(), null, null));
+			panel.update(new AccountState(true, Set.of(), Map.of(), Map.of(), Map.of(), null, null));
 			assertTrue(labelTexts(panel.getSyncLabel()).get(0).contains("All Pets page"));
 		});
 	}
@@ -270,6 +279,55 @@ public class PetHunterPanelTest
 		assertEquals(null, PetDetailPanel.parseCount("-5"));
 		assertEquals(null, PetDetailPanel.parseCount("12.5"));
 		assertEquals(null, PetDetailPanel.parseCount("99999999999"));
+	}
+
+	/** A skilling pet with two XP-derived methods, so the chooser has something to choose between. */
+	private static PetRepository twoMethodSkillingPet()
+	{
+		String json = "{'schemaVersion':1,'pets':[{'id':'fixture_pet','name':'Fixture pet','category':'SKILLING',"
+			+ "'skill':'FISHING','obtainableOn':['MAIN'],'sources':["
+			+ "{'id':'fixture_pet.fast','label':'Fast method','rateModel':'SKILL_LEVEL_SCALED','baseChance':100000,"
+			+ "'verified':true,'sources':['https://fixture.invalid/x']},"
+			+ "{'id':'fixture_pet.slow','label':'Slow method','rateModel':'SKILL_LEVEL_SCALED','baseChance':300000,"
+			+ "'verified':true,'sources':['https://fixture.invalid/x']}],"
+			+ "'methods':[{'id':'fixture_pet.fast','xpPerAction':50,'verified':true,'sources':['https://fixture.invalid/x']},"
+			+ "{'id':'fixture_pet.slow','xpPerAction':100,'verified':true,'sources':['https://fixture.invalid/x']}]}]}";
+		return PetRepository.load(new Gson(), new StringReader(json.replace(SINGLE_QUOTE, '"')));
+	}
+
+	@Test
+	public void methodChoiceDrivesTheEstimateAndIsReported() throws Exception
+	{
+		PetRepository repository = twoMethodSkillingPet();
+		List<String> chosen = new ArrayList<>();
+		AccountState withChoice = new AccountState(true, Set.of(), Map.of(), Map.of(),
+			Map.of("fixture_pet", "fixture_pet.slow"), 1L, null);
+
+		onEdt(repository, ManualCountListener.NONE, (petId, sourceId) -> chosen.add(petId + "=" + sourceId), panel ->
+		{
+			// Two usable methods and no choice: the panel must ask instead of guessing
+			panel.update(new AccountState(true, Set.of(), Map.of(), Map.of(), Map.of(), 1L, null), Map.of("FISHING", 1_000_000L));
+			assertFalse(panel.getEntries().get(0).getDryness().hasFigure());
+			assertTrue(panel.getEntries().get(0).getDryness().getExplanation().contains("Choose which method"));
+
+			PetRow row = (PetRow) panel.getListPanel().getComponents()[1];
+			row.setExpanded(true);
+			javax.swing.JComboBox<?> box = findNamed(row, "method:fixture_pet", javax.swing.JComboBox.class);
+			assertEquals(PetDetailPanel.NO_CHOICE, box.getSelectedItem());
+			box.setSelectedItem("Fast method");
+			assertEquals(List.of("fixture_pet=fixture_pet.fast"), chosen);
+
+			// With a choice stored, the estimate appears and names that method
+			panel.update(withChoice, Map.of("FISHING", 1_000_000L));
+			PetEntry entry = panel.getEntries().get(0);
+			assertTrue(entry.getDryness().hasFigure());
+			assertTrue(entry.getDryness().getExplanation(), entry.getDryness().getExplanation().contains("Slow method"));
+			assertEquals(Confidence.ESTIMATED, entry.getDryness().getConfidence().orElseThrow());
+
+			// Without XP there is no estimate at all
+			panel.update(withChoice, Map.of());
+			assertFalse(panel.getEntries().get(0).getDryness().hasFigure());
+		});
 	}
 
 	@Test

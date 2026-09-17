@@ -16,14 +16,19 @@ public class PetEntry
 	boolean obtained;
 	DrynessResult dryness;
 	PlayerProgress progress;
+	/** The XP-derived source in use for this pet, or null when none is chosen. */
+	@javax.annotation.Nullable
+	String assumedSourceId;
 
 	public PetEntry(Pet pet, boolean obtained, DrynessResult dryness)
 	{
-		this(pet, obtained, dryness, PlayerProgress.empty());
+		this(pet, obtained, dryness, PlayerProgress.empty(), null);
 	}
 
-	public PetEntry(Pet pet, boolean obtained, DrynessResult dryness, PlayerProgress progress)
+	public PetEntry(Pet pet, boolean obtained, DrynessResult dryness, PlayerProgress progress,
+		@javax.annotation.Nullable String assumedSourceId)
 	{
+		this.assumedSourceId = assumedSourceId;
 		this.pet = pet;
 		this.obtained = obtained;
 		this.dryness = dryness;

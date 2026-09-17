@@ -249,6 +249,23 @@ public class ProgressTrackerTest
 	}
 
 	@Test
+	public void methodChoicePersistsPerAccount()
+	{
+		assertTrue(state.setMethodOverride("heron", "heron.minnows"));
+		assertFalse(state.setMethodOverride("heron", "heron.minnows"));
+		assertEquals(Map.of("heron", "heron.minnows"), relog().getMethodOverrides());
+
+		store.logIn("alt");
+		state.reload();
+		assertTrue(state.snapshot().getMethodOverrides().isEmpty());
+
+		store.logIn("main");
+		state.reload();
+		assertTrue(state.setMethodOverride("heron", null));
+		assertTrue(relog().getMethodOverrides().isEmpty());
+	}
+
+	@Test
 	public void eventsWhileLoggedOutAreDropped()
 	{
 		store.logOut();

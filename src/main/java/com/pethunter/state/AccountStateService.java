@@ -26,6 +26,7 @@ public class AccountStateService
 	// "killCounts" held values from before counter settling (2026-09-17) and is abandoned, not migrated
 	static final String KEY_COUNTERS = "counters";
 	static final String KEY_MANUAL = "manualCounts";
+	static final String KEY_METHODS = "methodOverrides";
 	static final String KEY_LAST_SYNC = "lastLogSyncEpoch";
 	static final String KEY_PENDING_PET = "pendingPetEpoch";
 
@@ -33,6 +34,9 @@ public class AccountStateService
 	{
 	}.getType();
 	private static final Type LONG_MAP = new TypeToken<Map<String, Long>>()
+	{
+	}.getType();
+	private static final Type STRING_MAP = new TypeToken<Map<String, String>>()
 	{
 	}.getType();
 	private static final Type COUNTER_MAP = new TypeToken<Map<String, AccountState.Counter>>()
@@ -46,6 +50,7 @@ public class AccountStateService
 	private final Set<String> obtained = new TreeSet<>();
 	private final Map<String, AccountState.Counter> counters = new HashMap<>();
 	private final Map<String, Long> manualCounts = new HashMap<>();
+	private final Map<String, String> methodOverrides = new HashMap<>();
 	private Long lastSync;
 	private Long pendingPet;
 
@@ -64,6 +69,7 @@ public class AccountStateService
 		obtained.clear();
 		counters.clear();
 		manualCounts.clear();
+		methodOverrides.clear();
 		lastSync = null;
 		pendingPet = null;
 		loaded = store.isAvailable();
@@ -99,6 +105,17 @@ public class AccountStateService
 				}
 			});
 		}
+		Map<String, String> storedMethods = read(KEY_METHODS, STRING_MAP);
+		if (storedMethods != null)
+		{
+			storedMethods.forEach((petId, sourceId) ->
+			{
+				if (petId != null && sourceId != null)
+				{
+					methodOverrides.put(petId, sourceId);
+				}
+			});
+		}
 		lastSync = readLong(KEY_LAST_SYNC);
 		pendingPet = readLong(KEY_PENDING_PET);
 	}
@@ -109,7 +126,8 @@ public class AccountStateService
 		{
 			return AccountState.EMPTY;
 		}
-		return new AccountState(true, Set.copyOf(obtained), Map.copyOf(counters), Map.copyOf(manualCounts), lastSync, pendingPet);
+		return new AccountState(true, Set.copyOf(obtained), Map.copyOf(counters), Map.copyOf(manualCounts),
+			Map.copyOf(methodOverrides), lastSync, pendingPet);
 	}
 
 	/**
@@ -176,6 +194,27 @@ public class AccountStateService
 			return false;
 		}
 		write(KEY_MANUAL, gson.toJson(manualCounts));
+		return true;
+	}
+
+	/**
+	 * Records which XP-derived source the player trained with for a pet.
+	 *
+	 * @param sourceId the source, or null to go back to no choice
+	 * @return true if the stored value changed
+	 */
+	public synchronized boolean setMethodOverride(String petId, String sourceId)
+	{
+		if (!loaded)
+		{
+			return false;
+		}
+		String previous = sourceId == null ? methodOverrides.remove(petId) : methodOverrides.put(petId, sourceId);
+		if (java.util.Objects.equals(previous, sourceId))
+		{
+			return false;
+		}
+		write(KEY_METHODS, gson.toJson(methodOverrides));
 		return true;
 	}
 

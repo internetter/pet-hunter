@@ -7,11 +7,13 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
+import java.util.List;
 import java.util.OptionalLong;
 import javax.annotation.Nullable;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -32,7 +34,10 @@ class PetDetailPanel extends JPanel
 	/** Largest count accepted from the text box; anything bigger is a typo. */
 	static final long MAX_MANUAL_COUNT = 10_000_000L;
 
-	PetDetailPanel(PetEntry entry, ManualCountListener manualCounts)
+	static final String METHOD_PROMPT = "Which method did you train with?";
+	static final String NO_CHOICE = "Not chosen";
+
+	PetDetailPanel(PetEntry entry, ManualCountListener manualCounts, MethodChoiceListener methodChoices)
 	{
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setBackground(ColorScheme.DARKER_GRAY_COLOR);
@@ -51,6 +56,13 @@ class PetDetailPanel extends JPanel
 			{
 				add(manualCountInput(source, entry, manualCounts));
 			}
+		}
+
+		List<PetSource> xpSources = SourceEstimator.xpDerivedSources(pet);
+		if (!entry.isObtained() && !xpSources.isEmpty())
+		{
+			add(heading("Method"));
+			add(methodChooser(entry, xpSources, methodChoices));
 		}
 
 		add(heading("Dryness"));
@@ -91,6 +103,40 @@ class PetDetailPanel extends JPanel
 		JLabel label = htmlLabel(html.toString(), ColorScheme.LIGHT_GRAY_COLOR);
 		label.setBorder(BorderFactory.createEmptyBorder(2, 0, 2, 0));
 		return label;
+	}
+
+	/**
+	 * Lets the player say which activity their XP came from. Only one XP-derived source can be used
+	 * per pet, because they all draw on the same skill XP.
+	 */
+	private static Component methodChooser(PetEntry entry, List<PetSource> xpSources, MethodChoiceListener listener)
+	{
+		JPanel container = new JPanel(new BorderLayout());
+		container.setOpaque(false);
+		container.setAlignmentX(LEFT_ALIGNMENT);
+
+		JComboBox<String> box = new JComboBox<>();
+		box.setName("method:" + entry.getPet().getId());
+		box.setFont(FontManager.getRunescapeSmallFont());
+		box.addItem(NO_CHOICE);
+		for (PetSource source : xpSources)
+		{
+			box.addItem(source.getLabel());
+		}
+		String chosen = entry.getAssumedSourceId();
+		box.setSelectedItem(xpSources.stream().filter(s -> s.getId().equals(chosen)).map(PetSource::getLabel)
+			.findFirst().orElse(NO_CHOICE));
+		box.addActionListener(e ->
+		{
+			int index = box.getSelectedIndex();
+			listener.onMethodChosen(entry.getPet().getId(), index <= 0 ? null : xpSources.get(index - 1).getId());
+		});
+
+		container.add(box, BorderLayout.NORTH);
+		container.add(htmlLabel("<font color='" + hex(ColorScheme.MEDIUM_GRAY_COLOR) + "'>" + escape(METHOD_PROMPT)
+			+ " The estimate assumes all of your XP in this skill came from it.</font>", ColorScheme.MEDIUM_GRAY_COLOR),
+			BorderLayout.CENTER);
+		return container;
 	}
 
 	private static Component manualCountInput(PetSource source, PetEntry entry, ManualCountListener listener)
