@@ -42,7 +42,7 @@ public class PetHunterPanel extends PluginPanel
 
 	private static final DateTimeFormatter SYNC_TIME = DateTimeFormatter.ofPattern("MMM d, HH:mm").withZone(ZoneId.systemDefault());
 	static final String LOGGED_OUT = "You are logged out. Log in to read your progress.";
-	static final String ATTRIBUTION = "Rates from the Old School RuneScape Wiki (CC BY-NC-SA 3.0). Every figure is an estimate or a count; hover for what it rests on.";
+	static final String ATTRIBUTION = "Rates from the Old School RuneScape Wiki (CC BY-NC-SA 3.0). Figures are rough guides, not facts; hover to see what each one rests on.";
 
 	private final List<Pet> pets;
 	private final PetIconLoader icons;

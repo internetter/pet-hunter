@@ -41,7 +41,7 @@ import net.runelite.client.util.ImageUtil;
 @Slf4j
 @PluginDescriptor(
 	name = "Pet Hunter",
-	description = "Tracks pet progress and estimates dryness with labelled confidence",
+	description = "Lists every pet, marks the ones you have, and estimates how dry you are on the rest",
 	tags = {"pet", "pets", "collection", "dryness", "skilling", "boss"}
 )
 public class PetHunterPlugin extends Plugin
