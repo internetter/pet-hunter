@@ -30,6 +30,21 @@ public class SkillXpTracker
 	}
 
 	/**
+	 * Records every skill at once, for the login snapshot.
+	 *
+	 * @return true if any skill's XP changed
+	 */
+	public boolean recordAll(Map<String, Long> xpBySkillName)
+	{
+		boolean changed = false;
+		for (Map.Entry<String, Long> entry : xpBySkillName.entrySet())
+		{
+			changed |= record(entry.getKey(), entry.getValue());
+		}
+		return changed;
+	}
+
+	/**
 	 * Drops everything, for logout or an account switch, so one character's XP is never shown for
 	 * another.
 	 */

@@ -11,17 +11,21 @@ import com.pethunter.state.ProgressTracker;
 import com.pethunter.state.RsProfileStore;
 import com.pethunter.state.SkillXpTracker;
 import com.pethunter.ui.PetHunterPanel;
+import java.util.HashMap;
+import java.util.Map;
 import javax.inject.Inject;
 import javax.swing.SwingUtilities;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
+import net.runelite.api.Skill;
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.ScriptPostFired;
 import net.runelite.api.events.StatChanged;
+import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.RuneScapeProfileChanged;
@@ -51,6 +55,9 @@ public class PetHunterPlugin extends Plugin
 
 	@Inject
 	private ConfigManager configManager;
+
+	@Inject
+	private ClientThread clientThread;
 
 	@Inject
 	private Gson gson;
@@ -170,7 +177,17 @@ public class PetHunterPlugin extends Plugin
 			return;
 		}
 		boolean loggedIn = event.getGameState() == GameState.LOGGED_IN;
-		if (!loggedIn && skillXp != null)
+		if (skillXp == null)
+		{
+			return;
+		}
+		if (loggedIn)
+		{
+			// StatChanged only fires as XP changes, so skills not trained this session would be
+			// missing. Read them all once, on the client thread.
+			clientThread.invokeLater(this::readAllSkillXp);
+		}
+		else
 		{
 			skillXp.clear();
 			pushStateToPanel();
@@ -182,6 +199,27 @@ public class PetHunterPlugin extends Plugin
 	{
 		AccountStateService service = accountState;
 		if (service != null && service.setManualCount(sourceId, count))
+		{
+			pushStateToPanel();
+		}
+	}
+
+	private void readAllSkillXp()
+	{
+		SkillXpTracker xp = skillXp;
+		if (xp == null || client.getGameState() != GameState.LOGGED_IN)
+		{
+			return;
+		}
+		Map<String, Long> all = new HashMap<>();
+		for (Skill skill : Skill.values())
+		{
+			if (skill != Skill.OVERALL)
+			{
+				all.put(skill.name(), (long) client.getSkillExperience(skill));
+			}
+		}
+		if (xp.recordAll(all))
 		{
 			pushStateToPanel();
 		}
@@ -206,7 +244,7 @@ public class PetHunterPlugin extends Plugin
 			return;
 		}
 		AccountState snapshot = service.snapshot();
-		java.util.Map<String, Long> xpSnapshot = xp.snapshot();
+		Map<String, Long> xpSnapshot = xp.snapshot();
 		SwingUtilities.invokeLater(() -> current.update(snapshot, xpSnapshot));
 	}
 }
