@@ -34,6 +34,20 @@ tasks.withType(JavaCompile).configureEach {
 	options.release.set(11)
 }
 
+def datasetDir = 'src/main/resources/com/pethunter/data'
+
+tasks.register('validateDataset', JavaExec) {
+	group = 'verification'
+	description = 'Validates pets.json against pets.schema.json and the rules in docs/DATA.md'
+	classpath = sourceSets.test.runtimeClasspath
+	mainClass = 'com.pethunter.validation.DatasetValidator'
+	args file("${datasetDir}/pets.json"), file("${datasetDir}/pets.schema.json")
+}
+
+tasks.named('check') {
+	dependsOn 'validateDataset'
+}
+
 tasks.register('run', JavaExec) {
 	classpath = sourceSets.test.runtimeClasspath
 	mainClass = pluginMainClass
