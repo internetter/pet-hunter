@@ -30,9 +30,14 @@ invent one.
 
 ```
 EXACT      attempt count read from a real counter (collection log KC, chat KC)
-ESTIMATED  attempt count derived from XP under a stated method assumption
-UNKNOWN    no attempt count available; show a call to action, never a number
+ESTIMATED  attempt count derived from XP under a stated method assumption, or entered manually
+           by the user (the assumption text says "your manually entered count of N")
+UNKNOWN    no attempt count or no verified rate; show a call to action, never a number
 ```
+
+`ONE_OFF` pets have no tier at all: their result is "not applicable", distinct from `UNKNOWN`.
+In code, a figure exists only as a `TieredValue`, which cannot be built without a tier and an
+assumption, and cannot be `UNKNOWN`.
 
 Rendering rules:
 - `EXACT` — plain text figure.
@@ -67,23 +72,32 @@ systematically overstates how dry they are, because early XP was earned at a wor
 properly:
 
 ```
-for each level band L in [startLevel .. currentLevel]:
-    xpInBand      = min(currentXp, xpAtLevel(L+1)) - xpAtLevel(L)
-    actionsInBand = xpInBand / method.xpPerAction
-    rateInBand    = 1 / (method.baseChance - (L * 25))
-    accumulate:  logPDry += actionsInBand * log(1 - rateInBand)
+for each level band L in [startLevel .. currentLevel]:        # currentLevel <= 99
+    bandEnd       = (L == 99) ? currentXp : min(currentXp, xpAtLevel(L+1))
+    xpInBand      = bandEnd - xpAtLevel(L)
+    actionsInBand = xpInBand / method.xpPerAction              # fractional, never floored
+    rateInBand    = 1 / (source.baseChance - (L * 25))
+    accumulate:  logPDry += actionsInBand * log1p(-rateInBand)
+
+if actionsAt200m > 0:                                          # terminal band
+    logPDry += actionsAt200m * log1p(-15 / (source.baseChance - 99 * 25))
 
 P(still dry) = exp(logPDry)
 ```
 
 Notes:
 - The level used is the **unboosted** level. Temporary boosts do not affect pet rates.
-- The rate stops improving above level 99. Clamp `L` at 99 in the band loop.
-- If the player has 200m XP in the skill, divide the final denominator by 15, not `B`. Apply
-  this only to the portion of XP earned after reaching 200m, which in practice means the band
-  loop gets one extra terminal band.
-- `startLevel` is 1 unless the skill has a minimum level for the method, in which case XP below
-  that threshold contributed no rolls and must be excluded.
+- The rate stops improving above level 99, so the level-99 band runs all the way to current XP.
+  (Capping it at a virtual level-100 threshold would silently drop everything from 14.39m to
+  200m XP.)
+- At 200m XP the **final denominator** is divided by 15: `(B − 99×25) / 15`, not `B/15 − 99×25`.
+  XP stops accruing at 200m, so actions performed after it cannot be recovered from the client
+  retrospectively. The integrator takes them as an explicit input that is 0 unless a real count
+  exists; in V1 the 200m rate matters mainly for forward-looking method comparison.
+- `startLevel` is 1 unless the source has a `minLevel`, in which case XP below that threshold
+  contributed no rolls and must be excluded.
+- `STATIC_IGNORES_FORMULA` sources skip banding entirely: every action is evaluated at the fixed
+  `1/flatRate`, and the 200m divisor is not applied.
 
 ### 4.3 Multi-source pets
 
@@ -94,8 +108,20 @@ Combine independent sources multiplicatively:
 P(still dry overall) = product over sources of P(still dry | source)
 ```
 
-Only include a source when its attempt count is known. An `UNKNOWN` source makes the overall
-figure a **lower bound** on dryness, and the UI must say so.
+Only include a source when its attempt count and rate are known. Leaving out a factor that is at
+most 1 can only raise the product, so with any `UNKNOWN` source the shown P(still dry) is an
+**upper bound**: the player is *at least* this dry. The UI must say so in those words, not "lower
+bound", which reads backwards next to a percentage.
+
+Sources are only independent if they consume different attempts. All sources derived from one
+skill's XP draw on the same XP, and the client cannot tell how that XP was split between
+activities. So per pet, **at most one XP-derived source is used**: the method the player chose
+(`methodOverrides`). The other XP-derived sources are alternative explanations of the same XP,
+not missing sources, and do not make the figure a bound. In code every figure carries an attempt
+pool (`counter:<key>`, `source:<id>`, `xp:<SKILL>`) and combining two figures from the same pool
+is an error.
+
+The combined tier is the weakest tier among the combined figures.
 
 ## 5. Game state reads
 
@@ -127,7 +153,9 @@ obtainedPetIds        set of pet ids
 killCounts            map: counterKey -> { value, lastSeenEpoch }
 lastLogSyncEpoch      when the collection log was last successfully scraped
 methodOverrides       map: petId -> methodId   (user's choice of assumed method)
-manualAttemptCounts   map: counterKey -> int   (user-entered, for UNKNOWN sources)
+manualAttemptCounts   map: sourceId -> int     (user-entered, for UNKNOWN sources; keyed by
+                                                source id because those sources usually have
+                                                a null counterKey)
 ```
 
 Persisted values are a cache of game state, never the source of truth. On conflict, live game
