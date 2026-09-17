@@ -3297,7 +3297,7 @@
           "countWarning": null,
           "verified": false,
           "sources": [],
-          "notes": "Base chances exist per altar, but whether a roll happens per essence used or per rune crafted is not settled, so no estimate is made until it is."
+          "notes": "The wiki publishes a base chance per altar, and the chance per action is the usual 1/(base - level x 25). What is missing is whether a roll happens per essence used or per rune crafted, which changes the action count by the multiplier from your level, so no estimate is made."
         }
       ],
       "methods": []
@@ -3730,7 +3730,7 @@
           "countWarning": null,
           "verified": false,
           "sources": [],
-          "notes": "Per-crop base chances exist, but the pet rolls on checking health or on the final harvest depending on the patch, so what counts as one action is not settled. No estimate is made until it is."
+          "notes": "The wiki publishes a base chance per crop, and the chance per action is the usual 1/(base - level x 25). What is missing is the number of actions: the pet rolls when you check a patch's health or take its final harvest, and farming XP cannot be turned into that count, because one tree check is worth thousands of XP and one herb harvest is worth a few. Counting patches is the only honest way to estimate this pet."
         }
       ],
       "methods": []
