@@ -137,6 +137,12 @@ against and when.
 | Account identity | Account hash, for keying persisted state |
 | Membership / game mode | Only to suppress pets that are unobtainable on the current account type |
 
+Verified in-game on 2026-09-17 (details and IDs in `state/GameIds.java`): the collection log item
+grid is `Collection.ITEMS_CONTENTS`, obtained items draw at opacity 0 and missing ones at 175, and
+each page header lists `<Label>: n` counters such as `Callisto kills`. Counter keys are that label
+in snake case (`callisto_kills`), and kill count chat messages map to the same key. A dataset
+source's `counterKey` should only be set once its label has been seen in-game.
+
 Ownership detection must be **additive and sticky**. Once a pet is recorded as obtained for an
 account, a later failed scrape never un-obtains it.
 
@@ -146,7 +152,10 @@ rather than an empty list that looks broken.
 
 ## 6. Persistence
 
-Keyed by account hash, stored through `ConfigManager` under the plugin's config group:
+Keyed by account hash, stored through `ConfigManager` under the plugin's config group. In practice
+this is RuneLite's RS profile configuration (`setRSProfileConfiguration`, group `pethunter`), which
+RuneLite keys by account hash and game mode, so a Leagues or Deadman character is also kept apart
+from the main account. State reloads on `RuneScapeProfileChanged`.
 
 ```
 obtainedPetIds        set of pet ids
