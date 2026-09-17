@@ -17,28 +17,35 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 /**
- * Each test breaks the real seed dataset in exactly one way and asserts the validator catches it.
- * Fixture URLs use the reserved .invalid TLD and fixture numbers are arbitrary: none of this is
+ * Each test breaks a frozen copy of the seed dataset in exactly one way and asserts the validator
+ * catches it. The copy is used rather than the live pets.json so these tests stay stable while the
+ * dataset grows; the live file is checked by the validateDataset task. The schema is the live one.
+ *
+ * <p>Fixture URLs use the reserved .invalid TLD and fixture numbers are arbitrary: none of this is
  * game data.
  */
 public class DatasetValidatorTest
 {
-	private static final String DATA_DIR = "/com/pethunter/data/";
 	private static final String FIXTURE_URL = "https://fixture.invalid/not-a-real-source";
 
-	private static Reader resource(String name)
+	private static Reader resource(String path)
 	{
-		return new InputStreamReader(DatasetValidatorTest.class.getResourceAsStream(DATA_DIR + name), StandardCharsets.UTF_8);
+		return new InputStreamReader(DatasetValidatorTest.class.getResourceAsStream(path), StandardCharsets.UTF_8);
+	}
+
+	private static Reader schemaReader()
+	{
+		return resource("/com/pethunter/data/pets.schema.json");
 	}
 
 	private static JsonObject seed() throws IOException
 	{
-		return StrictJson.parse(resource("pets.json")).getAsJsonObject();
+		return StrictJson.parse(resource("/com/pethunter/fixtures/seed-dataset.json")).getAsJsonObject();
 	}
 
 	private static JsonObject schema() throws IOException
 	{
-		return StrictJson.parse(resource("pets.schema.json")).getAsJsonObject();
+		return StrictJson.parse(schemaReader()).getAsJsonObject();
 	}
 
 	private static List<String> validate(JsonElement dataset, JsonElement schema)
@@ -106,7 +113,7 @@ public class DatasetValidatorTest
 	public void rejectsDuplicateJsonKeys()
 	{
 		List<String> errors = DatasetValidator.validate(
-			new StringReader("{\"schemaVersion\":1,\"schemaVersion\":1,\"pets\":[]}"), resource("pets.schema.json"));
+			new StringReader("{\"schemaVersion\":1,\"schemaVersion\":1,\"pets\":[]}"), schemaReader());
 
 		assertSingleError(errors, "Duplicate key \"schemaVersion\"");
 	}
@@ -115,7 +122,7 @@ public class DatasetValidatorTest
 	public void rejectsTrailingCommaAndOtherLenientSyntax()
 	{
 		List<String> errors = DatasetValidator.validate(
-			new StringReader("{\"schemaVersion\":1,\"pets\":[],}"), resource("pets.schema.json"));
+			new StringReader("{\"schemaVersion\":1,\"pets\":[],}"), schemaReader());
 
 		assertSingleError(errors, "dataset is not valid JSON");
 	}

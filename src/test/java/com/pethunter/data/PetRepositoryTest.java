@@ -1,7 +1,13 @@
 package com.pethunter.data;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.io.StringReader;
+import java.nio.charset.StandardCharsets;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
@@ -36,9 +42,40 @@ public class PetRepositoryTest
 	}
 
 	@Test
-	public void loadsBundledSeedDataset()
+	public void bundledDatasetLoadsWithoutSkippingAnything() throws IOException
 	{
+		JsonObject raw;
+		try (Reader reader = new InputStreamReader(
+			PetRepository.class.getResourceAsStream(PetRepository.BUNDLED_RESOURCE), StandardCharsets.UTF_8))
+		{
+			raw = GSON.fromJson(reader, JsonObject.class);
+		}
+		int rawSources = 0;
+		int rawMethods = 0;
+		for (JsonElement pet : raw.getAsJsonArray("pets"))
+		{
+			rawSources += pet.getAsJsonObject().getAsJsonArray("sources").size();
+			JsonElement methods = pet.getAsJsonObject().get("methods");
+			rawMethods += methods == null ? 0 : methods.getAsJsonArray().size();
+		}
+
 		PetRepository repo = PetRepository.loadBundled(GSON);
+
+		assertFalse(repo.isEmpty());
+		assertEquals(raw.getAsJsonArray("pets").size(), repo.getPets().size());
+		assertEquals(rawSources, repo.getPets().stream().mapToInt(p -> p.getSources().size()).sum());
+		assertEquals(rawMethods, repo.getPets().stream().mapToInt(p -> p.getMethods().size()).sum());
+	}
+
+	@Test
+	public void loadsSeedShapes() throws IOException
+	{
+		PetRepository repo;
+		try (Reader reader = new InputStreamReader(
+			PetRepositoryTest.class.getResourceAsStream("/com/pethunter/fixtures/seed-dataset.json"), StandardCharsets.UTF_8))
+		{
+			repo = PetRepository.load(GSON, reader);
+		}
 
 		assertEquals(5, repo.getPets().size());
 

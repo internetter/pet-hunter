@@ -48,6 +48,11 @@ tasks.named('check') {
 	dependsOn 'validateDataset'
 }
 
+tasks.named('test') {
+	// Report a bad dataset with the validator's message before any test output
+	mustRunAfter 'validateDataset'
+}
+
 tasks.register('run', JavaExec) {
 	classpath = sourceSets.test.runtimeClasspath
 	mainClass = pluginMainClass
