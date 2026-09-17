@@ -1,88 +1,96 @@
 # Pet Hunter
 
-A RuneLite plugin that tracks your progress toward every pet in Old School RuneScape, estimates
-how dry you are on the ones you're missing, and helps you decide what to hunt next.
+A RuneLite plugin that shows every pet in Old School RuneScape in one list, marks the ones you
+have, and estimates how dry you are on the ones you don't.
 
-## Why
+## What it does
 
-There are 71 obtainable pets. Existing tools cover pieces of this:
+- **Every pet in one place.** All 71 collection log pets, filterable by obtained or missing,
+  grouped by source type, skill or dryness, searchable, and sortable by how dry you are.
+- **Dryness per pet**, as the share of players who would still be without it at your count:
+  "36.6% of players would still be without this pet at your count".
+- **Confidence on every figure**, so you always know what it rests on:
+  - plain text means an exact count read from the game, such as a boss kill count;
+  - `~` means an estimate, from your skill XP or a count you entered yourself;
+  - `<=` means you are at least that dry, because something could not be counted;
+  - `!` means the count includes attempts that may never have rolled the pet, such as group
+    kills at a boss where only the MVP rolls;
+  - `UNKNOWN` means there is no honest number to show, and the pet says why.
+- **The ways to hunt each pet.** Expanding a pet lists every activity that can drop it, with its
+  rate and, for skilling pets, a dropdown to say which one you trained.
+- **Your own counts** where the game keeps none, such as Chambers of Xeric uniques.
 
-- The in-game collection log tells you **which** pets you have, not how close you are.
-- Collection-log luck plugins can calculate luck for items where a kill count exists, which
-  leaves every skilling pet largely uncovered, because a skilling pet's rate depends on the
-  specific activity you performed, not just the skill.
-- Web calculators can do the probability math, but you have to hand-feed them a level, a
-  method, and an action count you don't actually know.
+## How it reads your progress
 
-Pet Hunter reads what your client already knows — your levels, your XP, your kill counts, your
-collection log — and does the bookkeeping for you.
+- **Collection log:** open it and the plugin records which pets you have and the kill counts on
+  each page. Ownership only ever gets added, so a half-drawn page can never un-obtain a pet.
+- **Chat:** the collection log item message, the ogre bow's chompy kill check, and kill or
+  harvest count messages.
+- **Skill XP**, read at login and as it changes.
 
-## Features (V1)
+Everything is stored per character and game mode, and nothing leaves your machine.
 
-- **Sidebar panel** listing all pets, grouped by source type, filterable by obtained / missing.
-- **Dryness estimate per pet**, with the probability that a player with your stats would still
-  be without it.
-- **Confidence tiers** on every figure, so you always know whether a number is derived from a
-  real kill count or from an assumption about how you trained.
-- **Method comparison** for pets you're missing: expected rolls per hour, per-roll rate at your
-  level, and expected hours to the pet for each viable method.
-- **Level-banded estimation** for skilling pets. Because a skilling pet's rate improves as your
-  level rises, historical XP is split into level bands and each band is evaluated at the rate
-  that actually applied.
+## How the estimates work
 
-## Not in V1
+Boss and activity pets are a flat chance per kill or per reward roll, so after `n` attempts at
+rate `p` the chance you would still be without the pet is `(1 - p)^n`.
 
-- No account sync, no website, no shareable collection page.
-- No outbound network requests at all.
-- No prospective per-action roll counting. V1 estimates from totals; exact live roll attribution
-  is a V2 feature (see `docs/ROADMAP.md`).
+Most skilling pets use `1 / (B - level x 25)`, where `B` is a base chance that varies by
+**activity**, not by skill. Your XP is split into level bands and each band is evaluated at the
+rate that actually applied then, because early XP was earned at a worse rate.
 
-## How the math works
+Nobody trains one activity exclusively, so with no method chosen the plugin evaluates your whole
+XP at that pet's **worst-rate** activity. That can never claim you are drier than you are, and
+the tooltip gives the best case too. Choosing the method you trained gives a sharper figure.
 
-Boss and activity pets are a flat chance per kill or per reward roll. After `n` rolls at rate
-`p`, the chance you'd still be without the pet is `(1 - p)^n`.
+## Accuracy
 
-Most skilling pets use the wiki formula `1 / (B - Level x 25)`, where `B` is a base chance that
-varies **by activity**, not by skill. The rate stops improving after level 99, with one
-exception: 200 million XP in the matching skill makes you 15 times more likely, applied by
-dividing the final denominator.
+RuneLite's Plugin Hub review does not check whether a plugin's information is correct, so treat
+every figure here as an estimate.
 
-Several pets follow neither pattern and are modelled individually, including static rates that
-ignore the formula, rates that scale with minigame contribution, rates that only roll on a
-specific chest or interaction, and pets rolled off a unique drop rather than off a completion.
+Every rate in the dataset was taken from the Old School RuneScape Wiki and checked against a
+second wiki page before being used, and each entry carries the pages it came from. Where a rate
+or a count could not be verified, the plugin shows `UNKNOWN` and says why rather than guessing.
+Known gaps at 1.0:
 
-## Accuracy and limitations
+- **Theatre of Blood and Tombs of Amascut**: the pet chance depends on raid performance and raid
+  level, which a completion count cannot capture.
+- **Tangleroot and Rift guardian**: whether a roll happens per harvest, per check-health, per
+  essence or per rune is not settled, so no estimate is made.
+- **Soup and Mr McGroot**: the wiki does not publish their base chances yet.
+- **Scorpia's offspring, Lil' Zik, Tumeken's guardian**: rate shown, no estimate.
+- Kill counts read from the collection log can include attempts that never rolled the pet in
+  groups; those figures are marked `!` and explain themselves.
 
-RuneLite's Plugin Hub review process explicitly does not verify that information displayed by a
-plugin is factually accurate. Treat every figure here as an estimate. Where the plugin cannot
-determine a real attempt count, it says so rather than guessing.
+Estimates are also weaker when you trained a skill with a mix of methods, or when your kill count
+for a boss is not recorded anywhere the client can read.
 
-Estimates degrade in these situations, and the UI flags each one:
+## Not in this version
 
-- You trained a skill with a method other than the one assumed.
-- Your kill count for a boss isn't tracked anywhere the client can read.
-- You obtained XP from sources that don't roll for the pet at all.
-- You have not opened your collection log since installing, so no ownership data exists yet.
+- No account sync, no website, no outbound network requests of any kind.
+- No comparison of which method is fastest, and no expected hours to the pet.
+- No live per-action roll counting; estimates come from your totals.
 
 ## Setup
 
-1. Install from the Plugin Hub (or build locally with `./gradlew shadowJar`).
+1. Install from the Plugin Hub, or build locally with `./gradlew shadowJar`.
 2. Open the Pet Hunter icon in the RuneLite sidebar.
-3. Open your in-game collection log once and click through the Pets page so ownership and kill
-   counts can be read.
+3. Open your in-game collection log once, including the All Pets page under Other, so ownership
+   and kill counts can be read.
 
 ## Data sources
 
-Drop rates and base chances are sourced from the Old School RuneScape Wiki and from Jagex's
-published figures. Every rate in the dataset carries its source. Wiki content is licensed
-CC BY-NC-SA 3.0; see `docs/DATA.md` for how that constrains redistribution and any future
-website.
+Rates come from the Old School RuneScape Wiki and from Jagex figures the wiki cites. Every rate
+carries its sources. Wiki content is licensed CC BY-NC-SA 3.0, which is why the dataset lives in
+`src/main/resources/com/pethunter/data/` under its own licence, separate from the BSD-2-Clause
+code. See `docs/DATA.md`.
 
 ## Contributing
 
-The dataset is the bottleneck, not the code. If a rate is missing or wrong, a PR editing
-`src/main/resources/com/pethunter/data/pets.json` with a source URL is the single most useful contribution.
+The dataset is the bottleneck, not the code. If a rate is missing or wrong, a pull request
+editing `src/main/resources/com/pethunter/data/pets.json` with a source URL is the most useful
+contribution. `./gradlew build` validates the dataset and fails on an unsourced rate.
 
 ## License
 
-BSD-2-Clause, matching the Plugin Hub convention.
+BSD-2-Clause for the code; the dataset is CC BY-NC-SA 3.0.

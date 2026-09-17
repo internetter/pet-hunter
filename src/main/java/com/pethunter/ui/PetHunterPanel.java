@@ -61,6 +61,7 @@ public class PetHunterPanel extends PluginPanel
 	private final IconTextField searchField = new IconTextField();
 
 	private final JPanel listPanel = new JPanel(new DynamicGridLayout(0, 1, 0, 0));
+	private ViewListener viewListener = ViewListener.NONE;
 	private final Set<String> expandedPetIds = new HashSet<>();
 
 	private List<PetEntry> entries = List.of();
@@ -131,10 +132,15 @@ public class PetHunterPanel extends PluginPanel
 		for (JComboBox<?> box : List.of(filterBox, groupingBox, sortBox))
 		{
 			box.setFont(FontManager.getRunescapeSmallFont());
-			box.addActionListener(e -> rebuildList());
+			box.addActionListener(e ->
+			{
+				rebuildList();
+				viewListener.onViewChanged((PetListModel.Filter) filterBox.getSelectedItem(),
+					(PetListModel.Grouping) groupingBox.getSelectedItem(),
+					(PetListModel.SortOrder) sortBox.getSelectedItem());
+			});
 			north.add(box);
 		}
-		sortBox.setToolTipText("Expected hours needs method data, which is not in the dataset yet; until then that order is A to Z.");
 
 		add(north, BorderLayout.NORTH);
 
@@ -145,6 +151,31 @@ public class PetHunterPanel extends PluginPanel
 
 		setLoggedIn(false);
 		refreshEntries();
+	}
+
+	/**
+	 * Restores the view the player last used, without reporting it back as a fresh choice.
+	 */
+	public void setView(PetListModel.Filter filter, PetListModel.Grouping grouping, PetListModel.SortOrder sort)
+	{
+		ViewListener previous = viewListener;
+		viewListener = ViewListener.NONE;
+		try
+		{
+			filterBox.setSelectedItem(filter);
+			groupingBox.setSelectedItem(grouping);
+			sortBox.setSelectedItem(sort);
+		}
+		finally
+		{
+			viewListener = previous;
+		}
+		rebuildList();
+	}
+
+	public void setViewListener(ViewListener listener)
+	{
+		this.viewListener = listener;
 	}
 
 	public void setLoggedIn(boolean loggedIn)

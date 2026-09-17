@@ -63,9 +63,7 @@ public final class PetListModel
 	public enum SortOrder
 	{
 		DRYNESS("Sort: driest first"),
-		ALPHABETICAL("Sort: A to Z"),
-		/** Needs method data (P4). Until then every pet is unknown, so this falls back to A to Z. */
-		EXPECTED_HOURS("Sort: fewest expected hours");
+		ALPHABETICAL("Sort: A to Z");
 
 		@Getter
 		private final String label;

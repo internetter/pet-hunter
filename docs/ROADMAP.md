@@ -34,21 +34,28 @@ estimation, assumption strings surfaced in the UI.
 Exit: changing the assumed method visibly changes the estimate, and the assumption text always
 matches the method actually used in the calculation.
 
-## P4 — Method comparison
+## P4 — Method comparison (cut from V1, 2026-09-17)
 
-The hunt planner table: actions per hour, per-roll rate at the player's level, expected hours to
-pet, requirements, and XP-efficiency notes. Sortable, with the fastest option marked.
+Dropped by the plugin's author before 1.0. Ranking methods by expected hours needs actions-per-hour
+figures that vary hugely per player, so a ranking would look authoritative while being wrong for
+most people. The panel keeps what the comparison was for: every activity that drops a pet, with its
+rate, and a choice of which one you trained.
 
-Exit: for a missing pet with two or more populated methods, the table ranks them correctly and
-the ranking changes appropriately with the player's level.
+If it returns, it needs verified actions-per-hour data and an honest statement of how much that
+varies.
 
-## P5 — Dataset fill
+## P5 — Dataset fill (partly done)
 
 Populate per `docs/DATA.md` population strategy. Code should need no changes during this phase.
 If it does, the model is wrong and the model gets fixed, not worked around.
 
 Exit: all boss and raid pets verified; every skilling pet has at least one verified method;
 special cases modelled explicitly.
+
+Status at 1.0: every boss and raid rate verified except Scorpia's offspring (verified, no counter
+split), Lil' Zik and Tumeken's guardian (rate depends on raid performance). Six skilling pets have
+per-activity rates and methods. Tangleroot, Rift guardian, Soup and Mr McGroot have no estimate,
+each for a stated reason.
 
 ## P6 — Hub submission
 

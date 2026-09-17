@@ -109,7 +109,7 @@ public class PetHunterPanelTest
 			// Every control still works with nothing to show
 			panel.getFilterBox().setSelectedItem(PetListModel.Filter.OBTAINED);
 			panel.getGroupingBox().setSelectedItem(PetListModel.Grouping.DRYNESS);
-			panel.getSortBox().setSelectedItem(PetListModel.SortOrder.EXPECTED_HOURS);
+			panel.getSortBox().setSelectedItem(PetListModel.SortOrder.ALPHABETICAL);
 			panel.getSearchField().setText("anything");
 			assertEquals(0, rowCount(panel));
 		});
@@ -329,6 +329,25 @@ public class PetHunterPanelTest
 			// Without XP there is no estimate at all
 			panel.update(withChoice, Map.of());
 			assertFalse(panel.getEntries().get(0).getDryness().hasFigure());
+		});
+	}
+
+	@Test
+	public void theViewIsRestoredAndChangesAreReported() throws Exception
+	{
+		List<String> reported = new ArrayList<>();
+		onEdt(PetRepository.loadBundled(new Gson()), panel ->
+		{
+			panel.setViewListener((filter, grouping, sort) -> reported.add(filter + "|" + grouping + "|" + sort));
+
+			panel.setView(PetListModel.Filter.MISSING, PetListModel.Grouping.SKILL, PetListModel.SortOrder.ALPHABETICAL);
+			assertEquals("restoring a saved view is not a new choice", List.of(), reported);
+			assertEquals(PetListModel.Filter.MISSING, panel.getFilterBox().getSelectedItem());
+			assertEquals(PetListModel.Grouping.SKILL, panel.getGroupingBox().getSelectedItem());
+			assertEquals(PetListModel.SortOrder.ALPHABETICAL, panel.getSortBox().getSelectedItem());
+
+			panel.getSortBox().setSelectedItem(PetListModel.SortOrder.DRYNESS);
+			assertEquals(List.of("Missing|Group: skill|Sort: driest first"), reported);
 		});
 	}
 

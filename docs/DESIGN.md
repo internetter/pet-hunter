@@ -177,7 +177,7 @@ Single `PluginPanel` behind a `NavigationButton`.
 **Header:** obtained count out of total, overall completion bar, last-sync timestamp.
 
 **Controls:** filter (All / Missing / Obtained), group-by (Source type / Skill / Dryness),
-sort (Dryness descending / Alphabetical / Expected hours ascending), and a search box.
+sort (Dryness descending / Alphabetical), and a search box. The chosen view is remembered.
 
 **Collapsed row:** pet icon, name, source summary, and either a dryness figure with its
 confidence marker, an obtained checkmark, or an unknown indicator.
@@ -185,14 +185,14 @@ confidence marker, an obtained checkmark, or an unknown indicator.
 **Expanded detail:**
 - Every source for the pet, each with its attempt count, per-attempt rate, and confidence.
 - The method assumption in use, with a dropdown to change it. Changing it recomputes live.
-- A method comparison table for missing pets: method name, requirements, actions per hour,
-  per-roll rate at the player's level, expected hours to pet, and any notes.
 - An "assumptions" line stating in plain words what the estimate rests on.
 - A manual attempt-count input where the source is `UNKNOWN`.
 
-**Method comparison** is the differentiating feature, so give it room. Sort by expected hours
-ascending and mark the fastest option. Where a method is faster for the pet but worse for XP,
-note that, because it's the trade-off players actually care about.
+**Method comparison was cut from V1** (2026-09-17). The panel's job is: see every pet, see how
+likely you are to still be without it, and see the ways it can be hunted. Ranking methods by
+expected hours needs actions-per-hour figures that vary too much per player to state honestly, so
+the expanded view lists each activity with its rate and lets the player say which one they trained,
+without ranking them.
 
 **Empty and error states:** no collection log sync yet; logged out; dataset entry unpopulated;
 pet unobtainable on this account type. Each needs a specific message.

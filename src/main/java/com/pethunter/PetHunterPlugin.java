@@ -1,6 +1,7 @@
 package com.pethunter;
 
 import com.google.gson.Gson;
+import com.google.inject.Provides;
 import com.pethunter.data.PetRepository;
 import com.pethunter.state.AccountState;
 import com.pethunter.state.AccountStateService;
@@ -11,6 +12,7 @@ import com.pethunter.state.ProgressTracker;
 import com.pethunter.state.RsProfileStore;
 import com.pethunter.state.SkillXpTracker;
 import com.pethunter.ui.PetHunterPanel;
+import com.pethunter.ui.PetListModel;
 import java.util.HashMap;
 import java.util.Map;
 import javax.inject.Inject;
@@ -62,6 +64,9 @@ public class PetHunterPlugin extends Plugin
 	@Inject
 	private Gson gson;
 
+	@Inject
+	private PetHunterConfig config;
+
 	private PetHunterPanel panel;
 	private NavigationButton navButton;
 	private AccountStateService accountState;
@@ -82,6 +87,8 @@ public class PetHunterPlugin extends Plugin
 		panel = new PetHunterPanel(repository, (itemId, label) -> itemManager.getImage(itemId).addTo(label),
 			this::onManualCount, this::onMethodChosen);
 		panel.setLoggedIn(client.getGameState() == GameState.LOGGED_IN);
+		panel.setView(config.filter(), config.grouping(), config.sort());
+		panel.setViewListener(this::onViewChanged);
 		panel.update(accountState.snapshot(), skillXp.snapshot());
 
 		navButton = NavigationButton.builder()
@@ -91,6 +98,12 @@ public class PetHunterPlugin extends Plugin
 			.panel(panel)
 			.build();
 		clientToolbar.addNavigation(navButton);
+	}
+
+	@Provides
+	PetHunterConfig provideConfig(ConfigManager configManager)
+	{
+		return configManager.getConfig(PetHunterConfig.class);
 	}
 
 	@Override
@@ -223,6 +236,13 @@ public class PetHunterPlugin extends Plugin
 		{
 			pushStateToPanel();
 		}
+	}
+
+	private void onViewChanged(PetListModel.Filter filter, PetListModel.Grouping grouping, PetListModel.SortOrder sort)
+	{
+		configManager.setConfiguration(PetHunterConfig.GROUP, "filter", filter);
+		configManager.setConfiguration(PetHunterConfig.GROUP, "grouping", grouping);
+		configManager.setConfiguration(PetHunterConfig.GROUP, "sort", sort);
 	}
 
 	private void onMethodChosen(String petId, String sourceId)

@@ -72,14 +72,6 @@ public class PetListModelTest
 	}
 
 	@Test
-	public void expectedHoursFallsBackToAlphabeticalUntilMethodDataExists()
-	{
-		List<Group> groups = PetListModel.build(List.of(veryDry, dry, onRate), Filter.ALL, Grouping.SOURCE_TYPE, SortOrder.EXPECTED_HOURS, "");
-
-		assertEquals(List.of("Alpha", "Beta", "Zeta"), names(groups));
-	}
-
-	@Test
 	public void filters()
 	{
 		assertEquals(List.of("Aardvark"), names(PetListModel.build(all, Filter.OBTAINED, Grouping.SOURCE_TYPE, SortOrder.ALPHABETICAL, "")));
