@@ -679,7 +679,7 @@
           "countWarning": null,
           "verified": false,
           "sources": [],
-          "notes": "Rate varies with the player's individual performance in the raid."
+          "notes": "The rate depends on your own performance in each raid, from 1/650 at best to 1/6,500. Completion count alone cannot show how dry you are, so no estimate is made yet."
         },
         {
           "id": "lil_zik.theatre_of_blood_hard",
@@ -693,7 +693,7 @@
           "countWarning": null,
           "verified": false,
           "sources": [],
-          "notes": "Hard mode has its own base rate. Whether it scales with performance the same way needs confirming."
+          "notes": "Hard mode has its own base rate, and performance in each raid changes it. Completion count alone cannot show how dry you are, so no estimate is made yet."
         }
       ],
       "methods": []
@@ -1117,7 +1117,7 @@
             "https://oldschool.runescape.wiki/w/Ancient_chest",
             "https://oldschool.runescape.wiki/w/Olmlet"
           ],
-          "notes": "Rolled only for the player who receives the unique, not on every completion. Requires a unique count."
+          "notes": "Rolled only for the player who receives a unique (purple). The collection log only counts completions, so enter how many uniques you have received to get an estimate."
         }
       ],
       "methods": []
@@ -1919,7 +1919,7 @@
           "countWarning": null,
           "verified": false,
           "sources": [],
-          "notes": "Rate varies with reward points and raid level; obtainable in Entry mode at a much lower rate. A two-value contribution range may not capture this."
+          "notes": "The rate depends on reward points and raid level in each raid, and entry mode rolls at a much lower rate. Completion count alone cannot show how dry you are, so no estimate is made yet."
         }
       ],
       "methods": []
@@ -2653,14 +2653,14 @@
           "flatRate": 4000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "rifts_searches",
           "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Rewards_Guardian"
           ],
-          "notes": null
+          "notes": "One roll per search of the Rewards Guardian."
         }
       ],
       "methods": []
@@ -2795,7 +2795,7 @@
           "flatRate": 400,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "spoils_of_war_opened",
           "countWarning": null,
           "verified": true,
           "sources": [
