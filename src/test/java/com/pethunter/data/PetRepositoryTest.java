@@ -88,7 +88,7 @@ public class PetRepositoryTest
 
 		PetSource minnows = repo.getSource("heron.minnows").orElseThrow();
 		assertEquals(RateModel.STATIC_IGNORES_FORMULA, minnows.getRateModel());
-		assertEquals(Integer.valueOf(977778), minnows.getFlatRate());
+		assertEquals(Double.valueOf(977778), minnows.getFlatRate());
 		assertTrue(minnows.isVerified());
 		assertEquals(1, minnows.getCitations().size());
 
@@ -161,7 +161,7 @@ public class PetRepositoryTest
 	public void wrongTypedRateSkipsSource()
 	{
 		String bad = "{'id':'p.bad','label':'x','rateModel':'FLAT_PER_KILL','flatRate':'5000','verified':true,'sources':[]}";
-		String fractional = "{'id':'p.frac','label':'x','rateModel':'FLAT_PER_KILL','flatRate':12.5,'verified':true,'sources':[]}";
+		String fractional = "{'id':'p.frac','label':'x','rateModel':'SKILL_LEVEL_SCALED','baseChance':3000.5,'verified':true,'sources':[]}";
 		PetRepository repo = load(dataset(pet("p", bad + "," + fractional + "," + source("p.ok", "FLAT_PER_KILL"), "")));
 
 		assertEquals(1, repo.getPet("p").orElseThrow().getSources().size());

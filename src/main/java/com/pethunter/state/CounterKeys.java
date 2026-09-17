@@ -25,6 +25,15 @@ public final class CounterKeys
 		return slug(Text.removeTags(activity) + " kills");
 	}
 
+	/**
+	 * "Your herbiboar harvest count is" maps to "herbiboar_harvests". There is no collection log
+	 * counter for this, so the chat message is the only source.
+	 */
+	public static String fromHarvestCountActivity(String activity)
+	{
+		return slug(Text.removeTags(activity) + " harvests");
+	}
+
 	static String slug(String text)
 	{
 		return text.toLowerCase(Locale.ROOT)

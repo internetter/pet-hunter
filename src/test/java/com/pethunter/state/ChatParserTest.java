@@ -47,6 +47,22 @@ public class ChatParserTest
 	}
 
 	@Test
+	public void harvestCountHasItsOwnKey()
+	{
+		ChatParser.Event event = parse("Your herbiboar harvest count is: <col=ff0000>2,345</col>.");
+
+		assertEquals(ChatParser.Kind.KILL_COUNT, event.getKind());
+		assertEquals("herbiboar_harvests", event.getSubject());
+		assertEquals(2_345L, event.getCount());
+	}
+
+	@Test
+	public void colouredBossNameIsUnwrapped()
+	{
+		assertEquals("vorkath_kills", parse("Your <col=ff0000>Vorkath</col> kill count is: <col=ff0000>1,313</col>.").getSubject());
+	}
+
+	@Test
 	public void unrelatedMessagesAreIgnored()
 	{
 		assertFalse(ChatParser.parse("Welcome to Old School RuneScape.").isPresent());

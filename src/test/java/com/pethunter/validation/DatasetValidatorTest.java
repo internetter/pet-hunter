@@ -149,10 +149,27 @@ public class DatasetValidatorTest
 	}
 
 	@Test
-	public void rejectsFractionalIntegerRate() throws IOException
+	public void rejectsFractionalBaseChance() throws IOException
 	{
-		assertSingleError(validateSeedWith(d -> source(d, "heron.minnows").addProperty("flatRate", 977778.5)),
-			"expected type");
+		assertSingleError(validateSeedWith(d ->
+		{
+			JsonObject s = source(d, "rock_golem.gem_rocks_shilo");
+			s.addProperty("baseChance", 300000.5);
+			s.addProperty("verified", true);
+			s.add("sources", citations(FIXTURE_URL));
+		}), "expected type");
+	}
+
+	@Test
+	public void acceptsFractionalFlatRate() throws IOException
+	{
+		assertEquals(List.of(), validateSeedWith(d -> source(d, "heron.minnows").addProperty("flatRate", 2015.75)));
+	}
+
+	@Test
+	public void rejectsFlatRateBelowOne() throws IOException
+	{
+		assertSingleError(validateSeedWith(d -> source(d, "heron.minnows").addProperty("flatRate", 0.5)), "below the minimum");
 	}
 
 	@Test

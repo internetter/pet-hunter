@@ -18,8 +18,9 @@ public class PetSource
 	RateModel rateModel;
 	@Nullable
 	Integer baseChance;
+	/** Denominator of a fixed 1/N rate. Not always whole: Scorpia's offspring is 1/2,015.75. */
 	@Nullable
-	Integer flatRate;
+	Double flatRate;
 	@Nullable
 	ContributionRange contributionRange;
 	@Nullable
@@ -40,7 +41,7 @@ public class PetSource
 
 	@Builder
 	public PetSource(String id, String label, RateModel rateModel, @Nullable Integer baseChance,
-		@Nullable Integer flatRate, @Nullable ContributionRange contributionRange, @Nullable Integer minLevel,
+		@Nullable Number flatRate, @Nullable ContributionRange contributionRange, @Nullable Integer minLevel,
 		@Nullable String counterKey, @Nullable String countWarning, boolean verified, @Nullable List<String> citations,
 		@Nullable String notes)
 	{
@@ -48,7 +49,7 @@ public class PetSource
 		this.label = label == null ? id : label;
 		this.rateModel = Objects.requireNonNull(rateModel, "rateModel");
 		this.baseChance = baseChance;
-		this.flatRate = flatRate;
+		this.flatRate = flatRate == null ? null : flatRate.doubleValue();
 		this.contributionRange = contributionRange;
 		this.minLevel = minLevel;
 		this.counterKey = counterKey;

@@ -78,11 +78,11 @@ public final class SourceEstimator
 				case ONE_OFF:
 					return DrynessResult.notApplicable(source.getLabel() + ": obtained without a drop chance, so there is no dryness.");
 				case FLAT_PER_KILL:
-					return estimateCounted(source, progress, verifiedInt(source, source.getFlatRate()), "kills", "");
+					return estimateCounted(source, progress, verifiedRate(source, source.getFlatRate()), "kills", "");
 				case FLAT_PER_ROLL:
-					return estimateCounted(source, progress, verifiedInt(source, source.getFlatRate()), "reward rolls", "");
+					return estimateCounted(source, progress, verifiedRate(source, source.getFlatRate()), "reward rolls", "");
 				case UNIQUE_CONDITIONAL:
-					return estimateCounted(source, progress, verifiedInt(source, source.getFlatRate()), "unique drops",
+					return estimateCounted(source, progress, verifiedRate(source, source.getFlatRate()), "unique drops",
 						" Rolled only when a unique is received, not on every completion.");
 				case CONTRIBUTION_SCALED:
 					return estimateContribution(source, progress);
@@ -136,7 +136,7 @@ public final class SourceEstimator
 	}
 
 	private static DrynessResult estimateCounted(PetSource source, PlayerProgress progress,
-		@Nullable Integer denominator, String unit, String suffix)
+		@Nullable Double denominator, String unit, String suffix)
 	{
 		if (denominator == null)
 		{
@@ -150,7 +150,7 @@ public final class SourceEstimator
 
 		double p = DrynessCalculator.probabilityOf(denominator);
 		Count c = count.get();
-		String assumption = c.describe(unit) + " at 1/" + formatInt(denominator) + " (" + source.getLabel() + ")." + suffix
+		String assumption = c.describe(unit) + " at 1/" + formatRate(denominator) + " (" + source.getLabel() + ")." + suffix
 			+ countWarning(source);
 		return DrynessResult.figure(
 			DrynessCalculator.logProbabilityStillDry(c.value, p),
@@ -187,7 +187,9 @@ public final class SourceEstimator
 	private static DrynessResult estimateFromXp(Pet pet, PetSource source, PlayerProgress progress)
 	{
 		boolean levelScaled = source.getRateModel() == RateModel.SKILL_LEVEL_SCALED;
-		Integer rate = verifiedInt(source, levelScaled ? source.getBaseChance() : source.getFlatRate());
+		Double rate = verifiedRate(source, levelScaled
+			? (source.getBaseChance() == null ? null : source.getBaseChance().doubleValue())
+			: source.getFlatRate());
 		if (rate == null)
 		{
 			return unverifiedRate(source);
@@ -225,7 +227,7 @@ public final class SourceEstimator
 		String rateClause;
 		if (levelScaled)
 		{
-			LevelBandIntegrator.Result r = LevelBandIntegrator.integrate(xp.getAsLong(), rate, xpPerAction, minLevel, 0);
+			LevelBandIntegrator.Result r = LevelBandIntegrator.integrate(xp.getAsLong(), source.getBaseChance(), xpPerAction, minLevel, 0);
 			logPDry = r.getLogProbabilityStillDry();
 			expectedDrops = r.getExpectedDrops();
 			actions = r.getActions();
@@ -238,7 +240,7 @@ public final class SourceEstimator
 			double p = DrynessCalculator.probabilityOf(rate);
 			logPDry = DrynessCalculator.logProbabilityStillDry(actions, p);
 			expectedDrops = DrynessCalculator.expectedDrops(actions, p);
-			rateClause = ", at a fixed 1/" + formatInt(rate) + " per action that does not change with level.";
+			rateClause = ", at a fixed 1/" + formatRate(rate) + " per action that does not change with level.";
 		}
 
 		String assumption = "Assumes " + xpClause + " came from " + source.getLabel() + " at "
@@ -298,9 +300,17 @@ public final class SourceEstimator
 	}
 
 	@Nullable
-	private static Integer verifiedInt(PetSource source, @Nullable Integer value)
+	private static Double verifiedRate(PetSource source, @Nullable Double value)
 	{
 		return source.isVerified() ? value : null;
+	}
+
+	/**
+	 * A rate denominator as written in the dataset: whole numbers with grouping, decimals as given.
+	 */
+	public static String formatRate(double denominator)
+	{
+		return denominator == Math.rint(denominator) ? formatInt((long) denominator) : formatDecimal(denominator);
 	}
 
 	private static DrynessResult unverifiedRate(PetSource source)

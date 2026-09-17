@@ -82,7 +82,7 @@
           "minimum": 1
         },
         "flatRate": {
-          "type": ["integer", "null"],
+          "type": ["number", "null"],
           "description": "Denominator of a fixed 1/N rate. Mutually exclusive with baseChance.",
           "minimum": 1
         },

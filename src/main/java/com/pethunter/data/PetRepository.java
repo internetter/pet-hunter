@@ -257,7 +257,7 @@ public final class PetRepository
 				.label(optString(obj, "label"))
 				.rateModel(rateModel)
 				.baseChance(optInteger(obj, "baseChance"))
-				.flatRate(optInteger(obj, "flatRate"))
+				.flatRate(optDouble(obj, "flatRate"))
 				.contributionRange(parseContributionRange(obj))
 				.minLevel(optInteger(obj, "minLevel"))
 				.counterKey(optString(obj, "counterKey"))

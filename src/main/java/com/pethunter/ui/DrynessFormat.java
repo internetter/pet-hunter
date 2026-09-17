@@ -5,6 +5,7 @@ import com.pethunter.data.PetSource;
 import com.pethunter.math.Confidence;
 import com.pethunter.math.DrynessResult;
 import com.pethunter.math.PlayerProgress;
+import com.pethunter.math.SourceEstimator;
 import com.pethunter.math.TieredValue;
 import java.util.Locale;
 import java.util.OptionalLong;
@@ -135,7 +136,7 @@ public final class DrynessFormat
 					? "1/" + integer(range.getCommonestDenominator()) + " to 1/" + integer(range.getRarestDenominator())
 					: UNKNOWN;
 			default:
-				return source.isVerified() && source.getFlatRate() != null ? "1/" + integer(source.getFlatRate()) : UNKNOWN;
+				return source.isVerified() && source.getFlatRate() != null ? "1/" + SourceEstimator.formatRate(source.getFlatRate()) : UNKNOWN;
 		}
 	}
 

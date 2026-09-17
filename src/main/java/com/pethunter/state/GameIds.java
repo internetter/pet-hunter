@@ -56,10 +56,11 @@ public final class GameIds
 	public static final String COLLECTION_LOG_ITEM_PREFIX = "New item added to your collection log: ";
 
 	/**
-	 * Verified: pattern "Your (.+) (?:kill|success) count is: ?&lt;col=[0-9a-f]{6}&gt;([0-9,]+)&lt;/col&gt;"
-	 * in RuneLite 1.12.39's chat commands plugin (2026-09-17). Only "kill" counts are recorded;
-	 * other wordings (success, completions, raids) are ignored until their collection log labels
-	 * are confirmed. Not yet observed in-game by this plugin.
+	 * Verified: RuneLite 1.12.39's chat commands plugin KILLCOUNT_PATTERN (2026-09-17) matches
+	 * "Your &lt;boss&gt; &lt;kill|harvest|lap|completion|success&gt; count is: &lt;col=..&gt;n&lt;/col&gt;", and
+	 * lists Herbiboar among its bosses. Only "kill" and "harvest" are recorded here; the other
+	 * wordings are ignored until their collection log labels are confirmed. Not yet observed
+	 * in-game by this plugin.
 	 */
-	public static final String KILL_COUNT_REGEX = "Your (.+) kill count is: ?<col=[0-9a-f]{6}>([0-9,]+)</col>";
+	public static final String KILL_COUNT_REGEX = "Your (?:<col=[0-9a-f]{6}>)?(.+?)(?:</col>)? (kill|harvest) count is: ?<col=[0-9a-f]{6}>([0-9,]+)</col>";
 }

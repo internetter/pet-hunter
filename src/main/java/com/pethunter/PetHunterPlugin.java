@@ -126,6 +126,11 @@ public class PetHunterPlugin extends Plugin
 		{
 			return;
 		}
+		// TEMPORARY: capture the ogre bow's chompy kill check message so its format can be verified
+		if (event.getMessage().toLowerCase().contains("chompy"))
+		{
+			log.debug("[verify] chompy chat type={} message={}", event.getType(), event.getMessage());
+		}
 		if (tracker.onChatMessage(event.getMessage()))
 		{
 			pushStateToPanel();

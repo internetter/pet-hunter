@@ -65,8 +65,10 @@ public final class ChatParser
 		Matcher killCount = KILL_COUNT.matcher(rawMessage);
 		if (killCount.find())
 		{
-			return Optional.of(new Event(Kind.KILL_COUNT, CounterKeys.fromKillCountActivity(killCount.group(1)),
-				CollectionLogParser.parseNumber(killCount.group(2))));
+			String key = "harvest".equals(killCount.group(2))
+				? CounterKeys.fromHarvestCountActivity(killCount.group(1))
+				: CounterKeys.fromKillCountActivity(killCount.group(1));
+			return Optional.of(new Event(Kind.KILL_COUNT, key, CollectionLogParser.parseNumber(killCount.group(3))));
 		}
 		return Optional.empty();
 	}
