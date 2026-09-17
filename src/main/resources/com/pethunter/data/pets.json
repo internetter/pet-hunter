@@ -377,14 +377,14 @@
           "flatRate": 500,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "deep_delves",
           "countWarning": null,
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl"
           ],
-          "notes": null
+          "notes": "The collection log's deep delves count is kills at delve level 8 or deeper, so it is attached here, the rarest of those levels. Evaluating every deep delve at 1/500 can only understate dryness; delve levels 6 and 7 are not counted, so the figure is shown as an upper bound."
         },
         {
           "id": "dom.delve_9_plus",
@@ -1563,7 +1563,7 @@
       "id": "phoenix",
       "name": "Phoenix",
       "itemId": 20693,
-      "category": "BOSS",
+      "category": "MINIGAME",
       "skill": "FIREMAKING",
       "collectionLogPage": null,
       "obtainableOn": [
@@ -1649,14 +1649,17 @@
           "label": "Scorpia",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2015.75,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "scorpia_kills",
           "countWarning": null,
-          "verified": false,
-          "sources": [],
-          "notes": null
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Scorpia"
+          ],
+          "notes": "1/128 rarer than the intended 1/2,000 because of the pre-rolled malediction and odium shard table."
         }
       ],
       "methods": []
@@ -1858,7 +1861,7 @@
       "id": "tiny_tempor",
       "name": "Tiny tempor",
       "itemId": 25602,
-      "category": "BOSS",
+      "category": "MINIGAME",
       "skill": "FISHING",
       "collectionLogPage": null,
       "obtainableOn": [
@@ -2647,13 +2650,16 @@
           "label": "Guardians of the Rift reward searches",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 4000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
           "countWarning": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Rewards_Guardian"
+          ],
           "notes": null
         }
       ],
@@ -2679,13 +2685,17 @@
           "label": "Master clue scroll caskets",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 1000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
           "countWarning": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Reward_casket_(master)",
+            "https://oldschool.runescape.wiki/w/Bloodhound"
+          ],
           "notes": null
         }
       ],
@@ -2711,13 +2721,16 @@
           "label": "Chompy birds",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 500,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
           "countWarning": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Chompy_bird"
+          ],
           "notes": "Requires the elite Western Provinces Diary."
         }
       ],
@@ -2743,14 +2756,18 @@
           "label": "Herbiboar harvests",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 6500,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "herbiboar_harvests",
           "countWarning": null,
-          "verified": false,
-          "sources": [],
-          "notes": null
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Herbiboar",
+            "https://oldschool.runescape.wiki/w/Herbi"
+          ],
+          "notes": "Rolled when harvesting the herbiboar. The count comes from the harvest count message shown after each harvest, so it appears after your next harvest."
         }
       ],
       "methods": []
@@ -2775,14 +2792,17 @@
           "label": "Soul Wars spoils of war",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 400,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
           "countWarning": null,
-          "verified": false,
-          "sources": [],
-          "notes": null
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Spoils_of_War"
+          ],
+          "notes": "One roll per spoils of war opened."
         }
       ],
       "methods": []
@@ -2807,13 +2827,17 @@
           "label": "Barbarian Assault high level gambles",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 1000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
           "countWarning": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Barbarian_Assault%2FGambles",
+            "https://oldschool.runescape.wiki/w/Pet_Penance_Queen"
+          ],
           "notes": null
         }
       ],
