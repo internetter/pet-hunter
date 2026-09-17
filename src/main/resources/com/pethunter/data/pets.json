@@ -61,7 +61,7 @@
           "flatRate": 2000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "mad_angel_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -95,7 +95,7 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "giant_mole_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -129,7 +129,7 @@
           "flatRate": 2500,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "duke_sucellus_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -163,14 +163,14 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "royal_titan_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Branda_the_Fire_Queen",
             "https://oldschool.runescape.wiki/w/Bran"
           ],
-          "notes": null
+          "notes": "The collection log keeps one total for all variants, so it is attached here, the rarest variant. Evaluating every attempt at the rarest rate can only understate dryness, and the other variants stay uncounted, so the figure is shown as an upper bound."
         },
         {
           "id": "bran.royal_titans_sacrifice",
@@ -249,7 +249,7 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "vardorvis_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -415,7 +415,7 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "shellbane_gryphon_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -449,7 +449,7 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "cerberus_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -483,7 +483,7 @@
           "flatRate": 400,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "hueycoatl_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -517,7 +517,7 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "alchemical_hydra_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -551,14 +551,14 @@
           "flatRate": 100,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "tzkal_zuk_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/TzKal-Zuk",
             "https://oldschool.runescape.wiki/w/Jal-Nib-Rek"
           ],
-          "notes": null
+          "notes": "The collection log keeps one total for all variants, so it is attached here, the rarest variant. Evaluating every attempt at the rarest rate can only understate dryness, and the other variants stay uncounted, so the figure is shown as an upper bound."
         },
         {
           "id": "jal_nib_rek.inferno_on_task",
@@ -619,7 +619,7 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "kalphite_queen_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -697,7 +697,7 @@
           "flatRate": 2500,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "leviathan_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -799,14 +799,14 @@
           "flatRate": 4000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "nightmare_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/The_Nightmare",
             "https://oldschool.runescape.wiki/w/Little_Nightmare"
           ],
-          "notes": null
+          "notes": "The collection log keeps one total for all variants, so it is attached here, the rarest variant. Evaluating every attempt at the rarest rate can only understate dryness, and the other variants stay uncounted, so the figure is shown as an upper bound."
         },
         {
           "id": "little_nightmare.phosanis_nightmare",
@@ -816,7 +816,7 @@
           "flatRate": 1400,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "phosanis_nightmare_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -851,7 +851,7 @@
           "flatRate": 3500,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "maggot_king_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -885,7 +885,7 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "amoxliatl_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -919,7 +919,7 @@
           "flatRate": 2500,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "phantom_muspah_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -953,7 +953,7 @@
           "flatRate": 500,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "nex_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -987,13 +987,13 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "araxxor_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Araxxor"
           ],
-          "notes": null
+          "notes": "The collection log keeps one total for all variants, so it is attached here, the rarest variant. Evaluating every attempt at the rarest rate can only understate dryness, and the other variants stay uncounted, so the figure is shown as an upper bound."
         },
         {
           "id": "nid.araxxor_destroy",
@@ -1037,7 +1037,7 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "grotesque_guardian_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1106,7 +1106,7 @@
           "flatRate": 300,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "chaos_elemental_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1122,7 +1122,7 @@
           "flatRate": 1000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "chaos_fanatic_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1156,7 +1156,7 @@
           "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "dagannoth_prime_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1190,7 +1190,7 @@
           "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "dagannoth_rex_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1224,7 +1224,7 @@
           "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "dagannoth_supreme_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1258,7 +1258,7 @@
           "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "corporeal_beast_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1292,7 +1292,7 @@
           "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "general_graardor_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1326,7 +1326,7 @@
           "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "kril_tsutsaroth_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1360,7 +1360,7 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "kraken_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1394,7 +1394,7 @@
           "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "kreearra_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1428,7 +1428,7 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "thermonuclear_smoke_devil_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1462,7 +1462,7 @@
           "flatRate": 4000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "zulrah_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1496,7 +1496,7 @@
           "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "commander_zilyana_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1564,7 +1564,7 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "king_black_dragon_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1598,7 +1598,7 @@
           "flatRate": null,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "scorpia_kills",
           "verified": false,
           "sources": [],
           "notes": null
@@ -1663,7 +1663,7 @@
           "flatRate": 65,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "skotizo_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1697,7 +1697,7 @@
           "flatRate": 2250,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "zalcano_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1731,7 +1731,7 @@
           "flatRate": 200,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "sol_heredit_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1782,7 +1782,7 @@
           "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "sarachnis_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1881,13 +1881,13 @@
           "flatRate": 200,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "tztok_jad_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/TzTok-Jad"
           ],
-          "notes": null
+          "notes": "The collection log keeps one total for all variants, so it is attached here, the rarest variant. Evaluating every attempt at the rarest rate can only understate dryness, and the other variants stay uncounted, so the figure is shown as an upper bound."
         },
         {
           "id": "tzrek_jad.fight_cave_on_task",
@@ -1947,7 +1947,7 @@
           "flatRate": 1500,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "venenatis_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1963,7 +1963,7 @@
           "flatRate": 2800,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "spindel_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -1997,7 +1997,7 @@
           "flatRate": 1500,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "vetion_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -2013,7 +2013,7 @@
           "flatRate": 2800,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "calvarion_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -2081,7 +2081,7 @@
           "flatRate": 2000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "whisperer_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -2115,7 +2115,7 @@
           "flatRate": 2500,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "yama_kills",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -2166,7 +2166,7 @@
           "flatRate": 2000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "gauntlet_completion_count",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
@@ -2182,7 +2182,7 @@
           "flatRate": 800,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": null,
+          "counterKey": "corrupted_gauntlet_completion_count",
           "verified": true,
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
