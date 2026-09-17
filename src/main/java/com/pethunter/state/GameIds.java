@@ -62,5 +62,11 @@ public final class GameIds
 	 * wordings are ignored until their collection log labels are confirmed. Not yet observed
 	 * in-game by this plugin.
 	 */
+	/**
+	 * Ogre bow "Check kills" message. Verified in-game 2026-09-17: "You've scratched up a total of
+	 * 302 chompy bird kills so far!" (GAMEMESSAGE). No collection log counter exists for chompies.
+	 */
+	public static final String CHOMPY_KILLS_REGEX = "You've scratched up a total of ([0-9,]+) chompy bird kills so far";
+
 	public static final String KILL_COUNT_REGEX = "Your (?:<col=[0-9a-f]{6}>)?(.+?)(?:</col>)? (kill|harvest) count is: ?<col=[0-9a-f]{6}>([0-9,]+)</col>";
 }

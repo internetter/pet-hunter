@@ -12,6 +12,10 @@ import lombok.Value;
 public final class ChatParser
 {
 	private static final Pattern KILL_COUNT = Pattern.compile(GameIds.KILL_COUNT_REGEX);
+	private static final Pattern CHOMPY_KILLS = Pattern.compile(GameIds.CHOMPY_KILLS_REGEX);
+
+	/** Counter key for the ogre bow's chompy kill check. */
+	public static final String CHOMPY_KILLS_KEY = "chompy_bird_kills";
 
 	private ChatParser()
 	{
@@ -60,6 +64,12 @@ public final class ChatParser
 		{
 			String item = plain.substring(GameIds.COLLECTION_LOG_ITEM_PREFIX.length()).trim();
 			return item.isEmpty() ? Optional.empty() : Optional.of(new Event(Kind.COLLECTION_LOG_ITEM, item, 0));
+		}
+
+		Matcher chompy = CHOMPY_KILLS.matcher(plain);
+		if (chompy.find())
+		{
+			return Optional.of(new Event(Kind.KILL_COUNT, CHOMPY_KILLS_KEY, CollectionLogParser.parseNumber(chompy.group(1))));
 		}
 
 		Matcher killCount = KILL_COUNT.matcher(rawMessage);
