@@ -284,23 +284,6 @@
       ],
       "sources": [
         {
-          "id": "callisto_cub.callisto",
-          "label": "Callisto",
-          "rateModel": "FLAT_PER_KILL",
-          "baseChance": null,
-          "flatRate": 1500,
-          "contributionRange": null,
-          "minLevel": null,
-          "counterKey": "callisto_kills",
-          "countWarning": "In groups, the pet only rolls for players who receive a drop, which depends on contribution. Kills without a drop are still in the kill count, so group kills make this overstate dryness.",
-          "verified": true,
-          "sources": [
-            "https://oldschool.runescape.wiki/w/Pet",
-            "https://oldschool.runescape.wiki/w/Callisto"
-          ],
-          "notes": null
-        },
-        {
           "id": "callisto_cub.artio",
           "label": "Artio",
           "rateModel": "FLAT_PER_KILL",
@@ -314,6 +297,23 @@
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Artio"
+          ],
+          "notes": null
+        },
+        {
+          "id": "callisto_cub.callisto",
+          "label": "Callisto",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": 1500,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": "callisto_kills",
+          "countWarning": "In groups, the pet only rolls for players who receive a drop, which depends on contribution. Kills without a drop are still in the kill count, so group kills make this overstate dryness.",
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Callisto"
           ],
           "notes": null
         }
@@ -562,6 +562,23 @@
       ],
       "sources": [
         {
+          "id": "jal_nib_rek.infernal_cape_sacrifice",
+          "label": "Infernal cape sacrifice",
+          "rateModel": "FLAT_PER_ROLL",
+          "baseChance": null,
+          "flatRate": 100,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Jal-Nib-Rek"
+          ],
+          "notes": "Gambling an infernal cape makes the same roll as a completion."
+        },
+        {
           "id": "jal_nib_rek.inferno",
           "label": "Inferno completions",
           "rateModel": "FLAT_PER_KILL",
@@ -596,23 +613,6 @@
             "https://oldschool.runescape.wiki/w/Jal-Nib-Rek"
           ],
           "notes": null
-        },
-        {
-          "id": "jal_nib_rek.infernal_cape_sacrifice",
-          "label": "Infernal cape sacrifice",
-          "rateModel": "FLAT_PER_ROLL",
-          "baseChance": null,
-          "flatRate": 100,
-          "contributionRange": null,
-          "minLevel": null,
-          "counterKey": null,
-          "countWarning": null,
-          "verified": true,
-          "sources": [
-            "https://oldschool.runescape.wiki/w/Pet",
-            "https://oldschool.runescape.wiki/w/Jal-Nib-Rek"
-          ],
-          "notes": "Gambling an infernal cape makes the same roll as a completion."
         }
       ],
       "methods": []
@@ -749,60 +749,6 @@
       ],
       "sources": [
         {
-          "id": "little_nightmare.nightmare_solo",
-          "label": "The Nightmare (solo)",
-          "rateModel": "FLAT_PER_KILL",
-          "baseChance": null,
-          "flatRate": 800,
-          "contributionRange": null,
-          "minLevel": null,
-          "counterKey": null,
-          "countWarning": null,
-          "verified": true,
-          "sources": [
-            "https://oldschool.runescape.wiki/w/Pet",
-            "https://oldschool.runescape.wiki/w/The_Nightmare",
-            "https://oldschool.runescape.wiki/w/Little_Nightmare"
-          ],
-          "notes": "Rate depends on the number of players in the room when the fight started."
-        },
-        {
-          "id": "little_nightmare.nightmare_duo",
-          "label": "The Nightmare (duo)",
-          "rateModel": "FLAT_PER_KILL",
-          "baseChance": null,
-          "flatRate": 1600,
-          "contributionRange": null,
-          "minLevel": null,
-          "counterKey": null,
-          "countWarning": null,
-          "verified": true,
-          "sources": [
-            "https://oldschool.runescape.wiki/w/Pet",
-            "https://oldschool.runescape.wiki/w/The_Nightmare",
-            "https://oldschool.runescape.wiki/w/Little_Nightmare"
-          ],
-          "notes": null
-        },
-        {
-          "id": "little_nightmare.nightmare_trio",
-          "label": "The Nightmare (trio)",
-          "rateModel": "FLAT_PER_KILL",
-          "baseChance": null,
-          "flatRate": 2400,
-          "contributionRange": null,
-          "minLevel": null,
-          "counterKey": null,
-          "countWarning": null,
-          "verified": true,
-          "sources": [
-            "https://oldschool.runescape.wiki/w/Pet",
-            "https://oldschool.runescape.wiki/w/The_Nightmare",
-            "https://oldschool.runescape.wiki/w/Little_Nightmare"
-          ],
-          "notes": null
-        },
-        {
           "id": "little_nightmare.nightmare_4",
           "label": "The Nightmare (4 players)",
           "rateModel": "FLAT_PER_KILL",
@@ -837,6 +783,60 @@
             "https://oldschool.runescape.wiki/w/Little_Nightmare"
           ],
           "notes": "The collection log keeps one total for all variants, so it is attached here, the rarest variant. Evaluating every attempt at the rarest rate can only understate dryness, and the other variants stay uncounted, so the figure is shown as an upper bound."
+        },
+        {
+          "id": "little_nightmare.nightmare_duo",
+          "label": "The Nightmare (duo)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": 1600,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/The_Nightmare",
+            "https://oldschool.runescape.wiki/w/Little_Nightmare"
+          ],
+          "notes": null
+        },
+        {
+          "id": "little_nightmare.nightmare_solo",
+          "label": "The Nightmare (solo)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": 800,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/The_Nightmare",
+            "https://oldschool.runescape.wiki/w/Little_Nightmare"
+          ],
+          "notes": "Rate depends on the number of players in the room when the fight started."
+        },
+        {
+          "id": "little_nightmare.nightmare_trio",
+          "label": "The Nightmare (trio)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": 2400,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/The_Nightmare",
+            "https://oldschool.runescape.wiki/w/Little_Nightmare"
+          ],
+          "notes": null
         },
         {
           "id": "little_nightmare.phosanis_nightmare",
@@ -1015,23 +1015,6 @@
       ],
       "sources": [
         {
-          "id": "nid.araxxor_harvest",
-          "label": "Araxxor (harvest)",
-          "rateModel": "FLAT_PER_KILL",
-          "baseChance": null,
-          "flatRate": 3000,
-          "contributionRange": null,
-          "minLevel": null,
-          "counterKey": "araxxor_kills",
-          "countWarning": null,
-          "verified": true,
-          "sources": [
-            "https://oldschool.runescape.wiki/w/Pet",
-            "https://oldschool.runescape.wiki/w/Araxxor"
-          ],
-          "notes": "The collection log keeps one total for all variants, so it is attached here, the rarest variant. Evaluating every attempt at the rarest rate can only understate dryness, and the other variants stay uncounted, so the figure is shown as an upper bound."
-        },
-        {
           "id": "nid.araxxor_destroy",
           "label": "Araxxor (destroy)",
           "rateModel": "FLAT_PER_KILL",
@@ -1047,6 +1030,23 @@
             "https://oldschool.runescape.wiki/w/Araxxor"
           ],
           "notes": "Destroying the corpse gives up loot rolls and doubles the pet chance."
+        },
+        {
+          "id": "nid.araxxor_harvest",
+          "label": "Araxxor (harvest)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": 3000,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": "araxxor_kills",
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Araxxor"
+          ],
+          "notes": "The collection log keeps one total for all variants, so it is attached here, the rarest variant. Evaluating every attempt at the rarest rate can only understate dryness, and the other variants stay uncounted, so the figure is shown as an upper bound."
         }
       ],
       "methods": []
@@ -1785,23 +1785,6 @@
       ],
       "sources": [
         {
-          "id": "smol_heredit.sol_heredit",
-          "label": "Sol Heredit (Fortis Colosseum)",
-          "rateModel": "FLAT_PER_KILL",
-          "baseChance": null,
-          "flatRate": 200,
-          "contributionRange": null,
-          "minLevel": null,
-          "counterKey": "sol_heredit_kills",
-          "countWarning": null,
-          "verified": true,
-          "sources": [
-            "https://oldschool.runescape.wiki/w/Pet",
-            "https://oldschool.runescape.wiki/w/Smol_Heredit"
-          ],
-          "notes": null
-        },
-        {
           "id": "smol_heredit.dizanas_quiver_sacrifice",
           "label": "Dizana's quiver sacrifice",
           "rateModel": "FLAT_PER_ROLL",
@@ -1818,6 +1801,23 @@
             "https://oldschool.runescape.wiki/w/Smol_Heredit"
           ],
           "notes": "Gambling a Dizana's quiver makes the same roll as a kill."
+        },
+        {
+          "id": "smol_heredit.sol_heredit",
+          "label": "Sol Heredit (Fortis Colosseum)",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": 200,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": "sol_heredit_kills",
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Smol_Heredit"
+          ],
+          "notes": null
         }
       ],
       "methods": []
@@ -2009,23 +2009,6 @@
       ],
       "sources": [
         {
-          "id": "venenatis_spiderling.venenatis",
-          "label": "Venenatis",
-          "rateModel": "FLAT_PER_KILL",
-          "baseChance": null,
-          "flatRate": 1500,
-          "contributionRange": null,
-          "minLevel": null,
-          "counterKey": "venenatis_kills",
-          "countWarning": "In groups, the pet only rolls for players who receive a drop, which depends on contribution. Kills without a drop are still in the kill count, so group kills make this overstate dryness.",
-          "verified": true,
-          "sources": [
-            "https://oldschool.runescape.wiki/w/Pet",
-            "https://oldschool.runescape.wiki/w/Venenatis"
-          ],
-          "notes": null
-        },
-        {
           "id": "venenatis_spiderling.spindel",
           "label": "Spindel",
           "rateModel": "FLAT_PER_KILL",
@@ -2039,6 +2022,23 @@
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Spindel"
+          ],
+          "notes": null
+        },
+        {
+          "id": "venenatis_spiderling.venenatis",
+          "label": "Venenatis",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": 1500,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": "venenatis_kills",
+          "countWarning": "In groups, the pet only rolls for players who receive a drop, which depends on contribution. Kills without a drop are still in the kill count, so group kills make this overstate dryness.",
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Venenatis"
           ],
           "notes": null
         }
@@ -2061,23 +2061,6 @@
       ],
       "sources": [
         {
-          "id": "vetion_jr.vetion",
-          "label": "Vet'ion",
-          "rateModel": "FLAT_PER_KILL",
-          "baseChance": null,
-          "flatRate": 1500,
-          "contributionRange": null,
-          "minLevel": null,
-          "counterKey": "vetion_kills",
-          "countWarning": "In groups, the pet only rolls for players who receive a drop, which depends on contribution. Kills without a drop are still in the kill count, so group kills make this overstate dryness.",
-          "verified": true,
-          "sources": [
-            "https://oldschool.runescape.wiki/w/Pet",
-            "https://oldschool.runescape.wiki/w/Vet'ion"
-          ],
-          "notes": null
-        },
-        {
           "id": "vetion_jr.calvarion",
           "label": "Calvar'ion",
           "rateModel": "FLAT_PER_KILL",
@@ -2091,6 +2074,23 @@
           "sources": [
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Calvar'ion"
+          ],
+          "notes": null
+        },
+        {
+          "id": "vetion_jr.vetion",
+          "label": "Vet'ion",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": 1500,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": "vetion_kills",
+          "countWarning": "In groups, the pet only rolls for players who receive a drop, which depends on contribution. Kills without a drop are still in the kill count, so group kills make this overstate dryness.",
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Vet'ion"
           ],
           "notes": null
         }
@@ -2183,23 +2183,6 @@
       ],
       "sources": [
         {
-          "id": "yami.yama",
-          "label": "Yama",
-          "rateModel": "FLAT_PER_KILL",
-          "baseChance": null,
-          "flatRate": 2500,
-          "contributionRange": null,
-          "minLevel": null,
-          "counterKey": "yama_kills",
-          "countWarning": "The rate only applies with more than 15% contribution. Kills below that are still in the kill count, so they make this overstate dryness.",
-          "verified": true,
-          "sources": [
-            "https://oldschool.runescape.wiki/w/Pet",
-            "https://oldschool.runescape.wiki/w/Yama"
-          ],
-          "notes": null
-        },
-        {
           "id": "yami.contract_of_familiar_acquisition",
           "label": "Contract of Familiar Acquisition",
           "rateModel": "FLAT_PER_ROLL",
@@ -2214,6 +2197,23 @@
             "https://oldschool.runescape.wiki/w/Pet",
             "https://oldschool.runescape.wiki/w/Yama",
             "https://oldschool.runescape.wiki/w/Yami"
+          ],
+          "notes": null
+        },
+        {
+          "id": "yami.yama",
+          "label": "Yama",
+          "rateModel": "FLAT_PER_KILL",
+          "baseChance": null,
+          "flatRate": 2500,
+          "contributionRange": null,
+          "minLevel": null,
+          "counterKey": "yama_kills",
+          "countWarning": "The rate only applies with more than 15% contribution. Kills below that are still in the kill count, so they make this overstate dryness.",
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Yama"
           ],
           "notes": null
         }
@@ -2236,14 +2236,14 @@
       ],
       "sources": [
         {
-          "id": "youngllef.gauntlet",
-          "label": "The Gauntlet",
+          "id": "youngllef.corrupted_gauntlet",
+          "label": "The Corrupted Gauntlet",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": 2000,
+          "flatRate": 800,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": "gauntlet_completion_count",
+          "counterKey": "corrupted_gauntlet_completion_count",
           "countWarning": null,
           "verified": true,
           "sources": [
@@ -2253,14 +2253,14 @@
           "notes": null
         },
         {
-          "id": "youngllef.corrupted_gauntlet",
-          "label": "The Corrupted Gauntlet",
+          "id": "youngllef.gauntlet",
+          "label": "The Gauntlet",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": 800,
+          "flatRate": 2000,
           "contributionRange": null,
           "minLevel": null,
-          "counterKey": "corrupted_gauntlet_completion_count",
+          "counterKey": "gauntlet_completion_count",
           "countWarning": null,
           "verified": true,
           "sources": [
@@ -2288,21 +2288,85 @@
       ],
       "sources": [
         {
-          "id": "baby_chinchompa.chinchompas",
-          "label": "Chinchompas",
+          "id": "baby_chinchompa.black_chinchompa",
+          "label": "Black chinchompas",
           "rateModel": "SKILL_LEVEL_SCALED",
-          "baseChance": null,
+          "baseChance": 82758,
           "flatRate": null,
           "contributionRange": null,
-          "minLevel": null,
+          "minLevel": 73,
           "counterKey": null,
           "countWarning": null,
-          "verified": false,
-          "sources": [],
-          "notes": "Only chinchompas roll for this pet. Per-creature base chances not yet entered."
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Baby_chinchompa",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "baby_chinchompa.grey_chinchompa",
+          "label": "Grey chinchompas",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 131395,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 53,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Baby_chinchompa",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": "Base chance verified. XP per action is not confirmed on a second wiki page yet, so no estimate is made from this method."
+        },
+        {
+          "id": "baby_chinchompa.red_chinchompa",
+          "label": "Red chinchompas",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 98373,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 63,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Baby_chinchompa",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
         }
       ],
-      "methods": []
+      "methods": [
+        {
+          "id": "baby_chinchompa.black_chinchompa",
+          "actionsPerHour": null,
+          "xpPerAction": 315.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Black_chinchompa_(Hunter)",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Hunter"
+          ],
+          "notes": null
+        },
+        {
+          "id": "baby_chinchompa.red_chinchompa",
+          "actionsPerHour": null,
+          "xpPerAction": 265.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Carnivorous_chinchompa",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Hunter"
+          ],
+          "notes": null
+        }
+      ]
     },
     {
       "id": "beaver",
@@ -2320,21 +2384,218 @@
       ],
       "sources": [
         {
-          "id": "beaver.woodcutting",
-          "label": "Woodcutting",
+          "id": "beaver.magic",
+          "label": "Magic trees",
           "rateModel": "SKILL_LEVEL_SCALED",
-          "baseChance": null,
+          "baseChance": 72321,
           "flatRate": null,
           "contributionRange": null,
-          "minLevel": null,
+          "minLevel": 75,
           "counterKey": null,
           "countWarning": null,
-          "verified": false,
-          "sources": [],
-          "notes": "Placeholder for the per-tree base chance table."
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Beaver",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "beaver.maple",
+          "label": "Maple trees",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 221918,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 45,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Beaver",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "beaver.oak",
+          "label": "Oak trees",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 361146,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 15,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Beaver",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "beaver.redwood",
+          "label": "Redwood trees",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 72321,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 90,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Beaver",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "beaver.teak",
+          "label": "Teak trees",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 264336,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 35,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Beaver",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "beaver.willow",
+          "label": "Willow trees",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 289286,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 30,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Beaver",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "beaver.yew",
+          "label": "Yew trees",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 145013,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 60,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Beaver",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
         }
       ],
-      "methods": []
+      "methods": [
+        {
+          "id": "beaver.magic",
+          "actionsPerHour": null,
+          "xpPerAction": 250.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Magic_logs",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Woodcutting"
+          ],
+          "notes": null
+        },
+        {
+          "id": "beaver.maple",
+          "actionsPerHour": null,
+          "xpPerAction": 100.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Maple_logs",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Woodcutting"
+          ],
+          "notes": null
+        },
+        {
+          "id": "beaver.oak",
+          "actionsPerHour": null,
+          "xpPerAction": 37.5,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Oak_logs",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Woodcutting"
+          ],
+          "notes": null
+        },
+        {
+          "id": "beaver.redwood",
+          "actionsPerHour": null,
+          "xpPerAction": 380.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Redwood_logs",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Woodcutting"
+          ],
+          "notes": null
+        },
+        {
+          "id": "beaver.teak",
+          "actionsPerHour": null,
+          "xpPerAction": 85.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Teak_logs",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Woodcutting"
+          ],
+          "notes": null
+        },
+        {
+          "id": "beaver.willow",
+          "actionsPerHour": null,
+          "xpPerAction": 67.5,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Willow_logs",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Woodcutting"
+          ],
+          "notes": null
+        },
+        {
+          "id": "beaver.yew",
+          "actionsPerHour": null,
+          "xpPerAction": 175.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Yew_logs",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Woodcutting"
+          ],
+          "notes": null
+        }
+      ]
     },
     {
       "id": "giant_squirrel",
@@ -2352,21 +2613,226 @@
       ],
       "sources": [
         {
-          "id": "giant_squirrel.agility",
-          "label": "Agility courses",
+          "id": "giant_squirrel.al_kharid_rooftop",
+          "label": "Al Kharid Rooftop Course",
           "rateModel": "SKILL_LEVEL_SCALED",
-          "baseChance": null,
+          "baseChance": 26648,
           "flatRate": null,
           "contributionRange": null,
-          "minLevel": null,
+          "minLevel": 20,
           "counterKey": null,
           "countWarning": null,
-          "verified": false,
-          "sources": [],
-          "notes": "Placeholder for the per-course base chance table."
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Giant_Squirrel",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "giant_squirrel.ardougne_rooftop",
+          "label": "Ardougne Rooftop Course",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 34440,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 90,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Giant_Squirrel",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": "Base chance verified. XP per action is not confirmed on a second wiki page yet, so no estimate is made from this method."
+        },
+        {
+          "id": "giant_squirrel.canifis_rooftop",
+          "label": "Canifis Rooftop Course",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 36842,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 40,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Giant_Squirrel",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "giant_squirrel.draynor_rooftop",
+          "label": "Draynor Village Rooftop Course",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 33005,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 1,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Giant_Squirrel",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "giant_squirrel.falador_rooftop",
+          "label": "Falador Rooftop Course",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 26806,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 50,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Giant_Squirrel",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "giant_squirrel.pollnivneach_rooftop",
+          "label": "Pollnivneach Rooftop Course",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 33422,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 70,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Giant_Squirrel",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "giant_squirrel.prifddinas",
+          "label": "Prifddinas Agility Course",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 25146,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 75,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Giant_Squirrel",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": "Base chance verified. XP per action is not confirmed on a second wiki page yet, so no estimate is made from this method."
+        },
+        {
+          "id": "giant_squirrel.rellekka_rooftop",
+          "label": "Rellekka Rooftop Course",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 31063,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 80,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Giant_Squirrel",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": "Base chance verified. XP per action is not confirmed on a second wiki page yet, so no estimate is made from this method."
+        },
+        {
+          "id": "giant_squirrel.varrock_rooftop",
+          "label": "Varrock Rooftop Course",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 24410,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 30,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Giant_Squirrel",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": "Base chance verified. XP per action is not confirmed on a second wiki page yet, so no estimate is made from this method."
         }
       ],
-      "methods": []
+      "methods": [
+        {
+          "id": "giant_squirrel.al_kharid_rooftop",
+          "actionsPerHour": null,
+          "xpPerAction": 216.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Al_Kharid_Rooftop_Course",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Agility"
+          ],
+          "notes": null
+        },
+        {
+          "id": "giant_squirrel.canifis_rooftop",
+          "actionsPerHour": null,
+          "xpPerAction": 240.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Canifis_Rooftop_Course",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Agility"
+          ],
+          "notes": null
+        },
+        {
+          "id": "giant_squirrel.draynor_rooftop",
+          "actionsPerHour": null,
+          "xpPerAction": 120.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Draynor_Village_Rooftop_Course",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Agility"
+          ],
+          "notes": null
+        },
+        {
+          "id": "giant_squirrel.falador_rooftop",
+          "actionsPerHour": null,
+          "xpPerAction": 586.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Falador_Rooftop_Course",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Agility"
+          ],
+          "notes": null
+        },
+        {
+          "id": "giant_squirrel.pollnivneach_rooftop",
+          "actionsPerHour": null,
+          "xpPerAction": 1016.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pollnivneach_Rooftop_Course",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Agility"
+          ],
+          "notes": null
+        }
+      ]
     },
     {
       "id": "heron",
@@ -2384,20 +2850,38 @@
       ],
       "sources": [
         {
-          "id": "heron.minnows",
-          "label": "Minnows",
-          "rateModel": "STATIC_IGNORES_FORMULA",
-          "baseChance": null,
-          "flatRate": 977778,
+          "id": "heron.anglerfish",
+          "label": "Anglerfish",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 78649,
+          "flatRate": null,
           "contributionRange": null,
-          "minLevel": null,
+          "minLevel": 82,
           "counterKey": null,
           "countWarning": null,
           "verified": true,
           "sources": [
+            "https://oldschool.runescape.wiki/w/Heron",
             "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
           ],
-          "notes": "Static per-catch rate. The level formula does NOT apply here. Good regression test for the math layer: level changes must not move this number."
+          "notes": null
+        },
+        {
+          "id": "heron.dark_crab",
+          "label": "Dark crabs",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 149434,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 85,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Heron",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
         },
         {
           "id": "heron.fishing_trawler",
@@ -2419,21 +2903,230 @@
           "notes": "Per successful trip, scaling with contribution from 1/5000 at minimum to 1/2500 at maximum. Not derivable from client state, so this source is UNKNOWN unless the player enters a trip count. At most 12 games per hour is possible."
         },
         {
-          "id": "heron.generic_fishing",
-          "label": "Standard fishing methods",
+          "id": "heron.karambwan",
+          "label": "Karambwan",
           "rateModel": "SKILL_LEVEL_SCALED",
-          "baseChance": null,
+          "baseChance": 170874,
           "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 65,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Heron",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.lobster",
+          "label": "Lobsters",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 116129,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 40,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Heron",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.minnows",
+          "label": "Minnows",
+          "rateModel": "STATIC_IGNORES_FORMULA",
+          "baseChance": null,
+          "flatRate": 977778,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
           "countWarning": null,
-          "verified": false,
-          "sources": [],
-          "notes": "Per-fish base chances vary by fish. Needs the full table from the pet's wiki article."
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": "Static per-catch rate. The level formula does NOT apply here. Good regression test for the math layer: level changes must not move this number."
+        },
+        {
+          "id": "heron.monkfish",
+          "label": "Monkfish",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 138583,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 62,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Heron",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.shark",
+          "label": "Sharks",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 82243,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 76,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Heron",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.swordfish",
+          "label": "Swordfish",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 257770,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 50,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Heron",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.tuna",
+          "label": "Tuna",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 257770,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 35,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Heron",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
         }
       ],
-      "methods": []
+      "methods": [
+        {
+          "id": "heron.anglerfish",
+          "actionsPerHour": null,
+          "xpPerAction": 79.2,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Raw_anglerfish",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Fishing"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.dark_crab",
+          "actionsPerHour": null,
+          "xpPerAction": 130.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Raw_dark_crab",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Fishing"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.karambwan",
+          "actionsPerHour": null,
+          "xpPerAction": 50.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Raw_karambwan",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Fishing"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.lobster",
+          "actionsPerHour": null,
+          "xpPerAction": 90.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Raw_lobster",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Fishing"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.monkfish",
+          "actionsPerHour": null,
+          "xpPerAction": 120.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Raw_monkfish",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Fishing"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.shark",
+          "actionsPerHour": null,
+          "xpPerAction": 110.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Raw_shark",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Fishing"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.swordfish",
+          "actionsPerHour": null,
+          "xpPerAction": 100.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Raw_swordfish",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Fishing"
+          ],
+          "notes": null
+        },
+        {
+          "id": "heron.tuna",
+          "actionsPerHour": null,
+          "xpPerAction": 80.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Raw_tuna",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Fishing"
+          ],
+          "notes": null
+        }
+      ]
     },
     {
       "id": "rift_guardian",
@@ -2483,43 +3176,232 @@
       ],
       "sources": [
         {
-          "id": "rock_golem.gem_rocks_shilo",
-          "label": "Gem rocks (Shilo Village, underground)",
+          "id": "rock_golem.adamantite",
+          "label": "Adamantite rocks",
           "rateModel": "SKILL_LEVEL_SCALED",
-          "baseChance": null,
+          "baseChance": 59328,
           "flatRate": null,
           "contributionRange": null,
-          "minLevel": null,
+          "minLevel": 70,
           "counterKey": null,
           "countWarning": null,
-          "verified": false,
-          "sources": [],
-          "notes": "Widely cited as the fastest method for this pet. Base chance table lives on the pet's wiki article, framed as 'subtract your mining level times 25 from these numbers'."
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Rock_golem",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "rock_golem.amethyst",
+          "label": "Amethyst crystals",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 46350,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 92,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Rock_golem",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "rock_golem.coal",
+          "label": "Coal rocks",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 290640,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 30,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Rock_golem",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "rock_golem.gem_rocks",
+          "label": "Gem rocks",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 211886,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 40,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Rock_golem",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "rock_golem.gold",
+          "label": "Gold rocks",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 296640,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 40,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Rock_golem",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "rock_golem.iron",
+          "label": "Iron rocks",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 741600,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 15,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Rock_golem",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "rock_golem.runite",
+          "label": "Runite rocks",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 42377,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 85,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Rock_golem",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
         },
         {
           "id": "rock_golem.volcanic_mine",
           "label": "Volcanic Mine (ore fragments)",
           "rateModel": "SKILL_LEVEL_SCALED",
-          "baseChance": null,
+          "baseChance": 60000,
           "flatRate": null,
           "contributionRange": null,
-          "minLevel": null,
+          "minLevel": 50,
           "counterKey": null,
           "countWarning": null,
-          "verified": false,
-          "sources": [],
-          "notes": "Slightly slower for the pet than gem rocks but far better XP. Flag as xpEfficient so the comparison table can surface the trade-off. Roll occurs when ore fragments are acquired."
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Rock_golem",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": "Rolled when ore fragments are received. Base chance verified. XP per action is not confirmed on a second wiki page yet, so no estimate is made from this method."
         }
       ],
       "methods": [
         {
-          "id": "rock_golem.gem_rocks_shilo",
+          "id": "rock_golem.adamantite",
           "actionsPerHour": null,
-          "xpPerAction": null,
+          "xpPerAction": 95.0,
           "requirements": [],
-          "xpEfficient": false,
-          "verified": false,
-          "sources": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Adamantite_ore",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Mining"
+          ],
+          "notes": null
+        },
+        {
+          "id": "rock_golem.amethyst",
+          "actionsPerHour": null,
+          "xpPerAction": 240.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Amethyst",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Mining"
+          ],
+          "notes": null
+        },
+        {
+          "id": "rock_golem.coal",
+          "actionsPerHour": null,
+          "xpPerAction": 50.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Coal",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Mining"
+          ],
+          "notes": null
+        },
+        {
+          "id": "rock_golem.gem_rocks",
+          "actionsPerHour": null,
+          "xpPerAction": 65.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Gem_rocks",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Mining"
+          ],
+          "notes": null
+        },
+        {
+          "id": "rock_golem.gold",
+          "actionsPerHour": null,
+          "xpPerAction": 65.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Gold_ore",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Mining"
+          ],
+          "notes": null
+        },
+        {
+          "id": "rock_golem.iron",
+          "actionsPerHour": null,
+          "xpPerAction": 35.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Iron_ore",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Mining"
+          ],
+          "notes": null
+        },
+        {
+          "id": "rock_golem.runite",
+          "actionsPerHour": null,
+          "xpPerAction": 125.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Runite_ore",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Mining"
+          ],
           "notes": null
         },
         {
@@ -2550,21 +3432,72 @@
       ],
       "sources": [
         {
-          "id": "rocky.thieving",
-          "label": "Thieving",
+          "id": "rocky.elves",
+          "label": "Pickpocketing elves",
           "rateModel": "SKILL_LEVEL_SCALED",
-          "baseChance": null,
+          "baseChance": 99175,
           "flatRate": null,
           "contributionRange": null,
-          "minLevel": null,
+          "minLevel": 85,
           "counterKey": null,
           "countWarning": null,
-          "verified": false,
-          "sources": [],
-          "notes": "Placeholder for the per-target base chance table."
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Rocky",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": "Base chance verified. XP per action is not confirmed on a second wiki page yet, so no estimate is made from this method."
+        },
+        {
+          "id": "rocky.gem_stall",
+          "label": "Gem stall",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 36490,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 75,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Rocky",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": null
+        },
+        {
+          "id": "rocky.vyres",
+          "label": "Pickpocketing Vyres",
+          "rateModel": "SKILL_LEVEL_SCALED",
+          "baseChance": 99175,
+          "flatRate": null,
+          "contributionRange": null,
+          "minLevel": 82,
+          "counterKey": null,
+          "countWarning": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Rocky",
+            "https://oldschool.runescape.wiki/w/Calculator:Skill_pet_chance"
+          ],
+          "notes": "Base chance verified. XP per action is not confirmed on a second wiki page yet, so no estimate is made from this method."
         }
       ],
-      "methods": []
+      "methods": [
+        {
+          "id": "rocky.gem_stall",
+          "actionsPerHour": null,
+          "xpPerAction": 408.0,
+          "requirements": [],
+          "xpEfficient": null,
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Gem_stall",
+            "https://oldschool.runescape.wiki/w/Module%3ASkill_calc/Thieving"
+          ],
+          "notes": null
+        }
+      ]
     },
     {
       "id": "soup",
