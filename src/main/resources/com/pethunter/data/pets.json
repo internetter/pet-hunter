@@ -23,13 +23,17 @@
           "label": "Abyssal Sire",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2560,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "abyssal_sire_kills",
-          "verified": false,
-          "sources": [],
-          "notes": "Received by using an unsired at the Font of Consumption."
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Abyssal_orphan",
+            "https://oldschool.runescape.wiki/w/Unsired"
+          ],
+          "notes": "1/100 unsired per kill times 5/128 per unsired at the Font of Consumption. Assumes every unsired was offered at the Font."
         }
       ],
       "methods": []
@@ -54,12 +58,15 @@
           "label": "Mad Angel",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Mad_Angel"
+          ],
           "notes": null
         }
       ],
@@ -85,12 +92,15 @@
           "label": "Giant Mole",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Giant_Mole"
+          ],
           "notes": null
         }
       ],
@@ -116,12 +126,15 @@
           "label": "Duke Sucellus",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2500,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Duke_Sucellus"
+          ],
           "notes": null
         }
       ],
@@ -147,12 +160,16 @@
           "label": "Royal Titans (loot)",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Branda_the_Fire_Queen",
+            "https://oldschool.runescape.wiki/w/Bran"
+          ],
           "notes": null
         },
         {
@@ -160,13 +177,17 @@
           "label": "Royal Titans (sacrifice)",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 1500,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
-          "notes": "Sacrificing gives up loot rolls in exchange for a better pet chance."
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Branda_the_Fire_Queen",
+            "https://oldschool.runescape.wiki/w/Bran"
+          ],
+          "notes": "Sacrificing gives up loot rolls and doubles the pet chance."
         }
       ],
       "methods": []
@@ -191,12 +212,15 @@
           "label": "Brutus",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 1000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "brutus_kills",
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Brutus"
+          ],
           "notes": null
         }
       ],
@@ -222,12 +246,15 @@
           "label": "Vardorvis",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Vardorvis"
+          ],
           "notes": null
         }
       ],
@@ -253,25 +280,31 @@
           "label": "Callisto",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 1500,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "callisto_kills",
-          "verified": false,
-          "sources": [],
-          "notes": null
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Callisto"
+          ],
+          "notes": "In groups, a roll is made for each player who receives a drop, which depends on contribution."
         },
         {
           "id": "callisto_cub.artio",
           "label": "Artio",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2800,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "artio_kills",
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Artio"
+          ],
           "notes": null
         }
       ],
@@ -297,12 +330,15 @@
           "label": "Doom of Mokhaiotl (delve level 6)",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 1000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl"
+          ],
           "notes": null
         },
         {
@@ -310,12 +346,15 @@
           "label": "Doom of Mokhaiotl (delve level 7)",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 750,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl"
+          ],
           "notes": null
         },
         {
@@ -323,12 +362,15 @@
           "label": "Doom of Mokhaiotl (delve level 8)",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 500,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl"
+          ],
           "notes": null
         },
         {
@@ -336,12 +378,15 @@
           "label": "Doom of Mokhaiotl (delve level 9+)",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 250,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl"
+          ],
           "notes": "The wiki lists no pet chance below delve level 6."
         }
       ],
@@ -367,12 +412,15 @@
           "label": "Shellbane Gryphon",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Shellbane_gryphon"
+          ],
           "notes": null
         }
       ],
@@ -398,12 +446,15 @@
           "label": "Cerberus",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Cerberus"
+          ],
           "notes": null
         }
       ],
@@ -429,12 +480,15 @@
           "label": "The Hueycoatl",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 400,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/The_Hueycoatl"
+          ],
           "notes": null
         }
       ],
@@ -460,12 +514,15 @@
           "label": "Alchemical Hydra",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Alchemical_Hydra"
+          ],
           "notes": null
         }
       ],
@@ -491,12 +548,16 @@
           "label": "Inferno completions",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 100,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/TzKal-Zuk",
+            "https://oldschool.runescape.wiki/w/Jal-Nib-Rek"
+          ],
           "notes": null
         },
         {
@@ -504,12 +565,16 @@
           "label": "Inferno completions on a TzKal-Zuk Slayer task",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 75,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/TzKal-Zuk",
+            "https://oldschool.runescape.wiki/w/Jal-Nib-Rek"
+          ],
           "notes": null
         },
         {
@@ -517,12 +582,15 @@
           "label": "Infernal cape sacrifice",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 100,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Jal-Nib-Rek"
+          ],
           "notes": "Gambling an infernal cape makes the same roll as a completion."
         }
       ],
@@ -548,12 +616,15 @@
           "label": "Kalphite Queen",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Kalphite_Queen"
+          ],
           "notes": null
         }
       ],
@@ -623,12 +694,15 @@
           "label": "The Leviathan",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2500,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/The_Leviathan"
+          ],
           "notes": null
         }
       ],
@@ -654,12 +728,16 @@
           "label": "The Nightmare (solo)",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 800,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/The_Nightmare",
+            "https://oldschool.runescape.wiki/w/Little_Nightmare"
+          ],
           "notes": "Rate depends on the number of players in the room when the fight started."
         },
         {
@@ -667,12 +745,16 @@
           "label": "The Nightmare (duo)",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 1600,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/The_Nightmare",
+            "https://oldschool.runescape.wiki/w/Little_Nightmare"
+          ],
           "notes": null
         },
         {
@@ -680,12 +762,16 @@
           "label": "The Nightmare (trio)",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2400,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/The_Nightmare",
+            "https://oldschool.runescape.wiki/w/Little_Nightmare"
+          ],
           "notes": null
         },
         {
@@ -693,12 +779,16 @@
           "label": "The Nightmare (4 players)",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3200,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/The_Nightmare",
+            "https://oldschool.runescape.wiki/w/Little_Nightmare"
+          ],
           "notes": null
         },
         {
@@ -706,12 +796,16 @@
           "label": "The Nightmare (5+ players)",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 4000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/The_Nightmare",
+            "https://oldschool.runescape.wiki/w/Little_Nightmare"
+          ],
           "notes": null
         },
         {
@@ -719,12 +813,16 @@
           "label": "Phosani's Nightmare",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 1400,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Phosani's_Nightmare",
+            "https://oldschool.runescape.wiki/w/Little_Nightmare"
+          ],
           "notes": null
         }
       ],
@@ -750,12 +848,15 @@
           "label": "Maggot King",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3500,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Maggot_King"
+          ],
           "notes": null
         }
       ],
@@ -781,12 +882,15 @@
           "label": "Amoxliatl",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Amoxliatl"
+          ],
           "notes": null
         }
       ],
@@ -812,12 +916,15 @@
           "label": "Phantom Muspah",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2500,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Phantom_Muspah"
+          ],
           "notes": null
         }
       ],
@@ -843,12 +950,15 @@
           "label": "Nex",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 500,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Nex"
+          ],
           "notes": null
         }
       ],
@@ -874,12 +984,15 @@
           "label": "Araxxor (harvest)",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Araxxor"
+          ],
           "notes": null
         },
         {
@@ -887,13 +1000,16 @@
           "label": "Araxxor (destroy)",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 1500,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
-          "notes": "Destroying the corpse gives up loot rolls in exchange for a better pet chance."
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Araxxor"
+          ],
+          "notes": "Destroying the corpse gives up loot rolls and doubles the pet chance."
         }
       ],
       "methods": []
@@ -918,12 +1034,15 @@
           "label": "Grotesque Guardians",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Grotesque_Guardians"
+          ],
           "notes": null
         }
       ],
@@ -949,12 +1068,16 @@
           "label": "Chambers of Xeric unique drops",
           "rateModel": "UNIQUE_CONDITIONAL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 53,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Ancient_chest",
+            "https://oldschool.runescape.wiki/w/Olmlet"
+          ],
           "notes": "Rolled only for the player who receives the unique, not on every completion. Requires a unique count."
         }
       ],
@@ -980,12 +1103,15 @@
           "label": "Chaos Elemental",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 300,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Chaos_Elemental"
+          ],
           "notes": null
         },
         {
@@ -993,12 +1119,15 @@
           "label": "Chaos Fanatic",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 1000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Chaos_Fanatic"
+          ],
           "notes": null
         }
       ],
@@ -1024,12 +1153,15 @@
           "label": "Dagannoth Prime",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Dagannoth_Prime"
+          ],
           "notes": null
         }
       ],
@@ -1055,12 +1187,15 @@
           "label": "Dagannoth Rex",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Dagannoth_Rex"
+          ],
           "notes": null
         }
       ],
@@ -1086,12 +1221,15 @@
           "label": "Dagannoth Supreme",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Dagannoth_Supreme"
+          ],
           "notes": null
         }
       ],
@@ -1117,12 +1255,15 @@
           "label": "Corporeal Beast",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Corporeal_Beast"
+          ],
           "notes": null
         }
       ],
@@ -1148,12 +1289,15 @@
           "label": "General Graardor",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/General_Graardor"
+          ],
           "notes": null
         }
       ],
@@ -1179,12 +1323,15 @@
           "label": "K'ril Tsutsaroth",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/K'ril_Tsutsaroth"
+          ],
           "notes": null
         }
       ],
@@ -1210,12 +1357,15 @@
           "label": "Kraken",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Kraken"
+          ],
           "notes": null
         }
       ],
@@ -1241,12 +1391,15 @@
           "label": "Kree'arra",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Kree'arra"
+          ],
           "notes": null
         }
       ],
@@ -1272,12 +1425,15 @@
           "label": "Thermonuclear smoke devil",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Thermonuclear_smoke_devil"
+          ],
           "notes": null
         }
       ],
@@ -1303,12 +1459,15 @@
           "label": "Zulrah",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 4000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Zulrah"
+          ],
           "notes": null
         }
       ],
@@ -1334,12 +1493,15 @@
           "label": "Commander Zilyana",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Commander_Zilyana"
+          ],
           "notes": null
         }
       ],
@@ -1365,12 +1527,15 @@
           "label": "Wintertodt reward cart",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 5000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Reward_Cart"
+          ],
           "notes": "The wiki notes the 200m Firemaking XP multiplier applies to this pet; the rate model cannot express that yet."
         }
       ],
@@ -1396,12 +1561,15 @@
           "label": "King Black Dragon",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/King_Black_Dragon"
+          ],
           "notes": null
         }
       ],
@@ -1458,12 +1626,15 @@
           "label": "Scurrius",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Scurrius"
+          ],
           "notes": "Only the MVP rolls for the pet."
         }
       ],
@@ -1489,12 +1660,15 @@
           "label": "Skotizo",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 65,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Skotizo"
+          ],
           "notes": null
         }
       ],
@@ -1520,12 +1694,15 @@
           "label": "Zalcano",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2250,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Zalcano"
+          ],
           "notes": null
         }
       ],
@@ -1551,12 +1728,15 @@
           "label": "Sol Heredit (Fortis Colosseum)",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 200,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Smol_Heredit"
+          ],
           "notes": null
         },
         {
@@ -1564,12 +1744,16 @@
           "label": "Dizana's quiver sacrifice",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 200,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Fortis_Colosseum",
+            "https://oldschool.runescape.wiki/w/Smol_Heredit"
+          ],
           "notes": "Gambling a Dizana's quiver makes the same roll as a kill."
         }
       ],
@@ -1595,12 +1779,15 @@
           "label": "Sarachnis",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Sarachnis"
+          ],
           "notes": null
         }
       ],
@@ -1626,12 +1813,15 @@
           "label": "Tempoross reward pool",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 8000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Tempoross"
+          ],
           "notes": null
         }
       ],
@@ -1688,12 +1878,15 @@
           "label": "TzHaar Fight Cave completions",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 200,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/TzTok-Jad"
+          ],
           "notes": null
         },
         {
@@ -1701,12 +1894,15 @@
           "label": "TzHaar Fight Cave completions on a TzTok-Jad Slayer task",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 100,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/TzTok-Jad"
+          ],
           "notes": null
         },
         {
@@ -1714,12 +1910,15 @@
           "label": "Fire cape sacrifice",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 200,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/TzTok-Jad"
+          ],
           "notes": "Gambling a fire cape makes the same roll as a completion."
         }
       ],
@@ -1745,25 +1944,31 @@
           "label": "Venenatis",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 1500,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
-          "notes": null
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Venenatis"
+          ],
+          "notes": "In groups, a roll is made for each player who receives a drop, which depends on contribution."
         },
         {
           "id": "venenatis_spiderling.spindel",
           "label": "Spindel",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2800,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Spindel"
+          ],
           "notes": null
         }
       ],
@@ -1789,25 +1994,31 @@
           "label": "Vet'ion",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 1500,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
-          "notes": null
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Vet'ion"
+          ],
+          "notes": "In groups, a roll is made for each player who receives a drop, which depends on contribution."
         },
         {
           "id": "vetion_jr.calvarion",
           "label": "Calvar'ion",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2800,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Calvar'ion"
+          ],
           "notes": null
         }
       ],
@@ -1833,12 +2044,15 @@
           "label": "Vorkath",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 3000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": "vorkath_kills",
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Vorkath"
+          ],
           "notes": null
         }
       ],
@@ -1864,12 +2078,15 @@
           "label": "The Whisperer",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/The_Whisperer"
+          ],
           "notes": null
         }
       ],
@@ -1895,25 +2112,32 @@
           "label": "Yama",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2500,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
-          "notes": null
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Yama"
+          ],
+          "notes": "Fixed as long as the player's contribution is above 15%."
         },
         {
           "id": "yami.contract_of_familiar_acquisition",
           "label": "Contract of Familiar Acquisition",
           "rateModel": "FLAT_PER_ROLL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 100,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/Yama",
+            "https://oldschool.runescape.wiki/w/Yami"
+          ],
           "notes": null
         }
       ],
@@ -1939,12 +2163,15 @@
           "label": "The Gauntlet",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 2000,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/The_Gauntlet"
+          ],
           "notes": null
         },
         {
@@ -1952,12 +2179,15 @@
           "label": "The Corrupted Gauntlet",
           "rateModel": "FLAT_PER_KILL",
           "baseChance": null,
-          "flatRate": null,
+          "flatRate": 800,
           "contributionRange": null,
           "minLevel": null,
           "counterKey": null,
-          "verified": false,
-          "sources": [],
+          "verified": true,
+          "sources": [
+            "https://oldschool.runescape.wiki/w/Pet",
+            "https://oldschool.runescape.wiki/w/The_Gauntlet"
+          ],
           "notes": null
         }
       ],
